@@ -1,0 +1,7 @@
+{
+  "name": "cogoyaso",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
