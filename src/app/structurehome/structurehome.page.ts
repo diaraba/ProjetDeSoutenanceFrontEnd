@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./structurehome.page.scss'],
 })
 export class StructurehomePage implements OnInit {
+  cat: string = "Accueil"; // default button
 
   constructor() { }
 

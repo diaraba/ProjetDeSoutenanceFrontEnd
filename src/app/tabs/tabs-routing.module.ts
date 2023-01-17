@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: () => import('../projet/projet.module').then( m => m.ProjetPageModule)
       },
       {
+        path: 'structurehome',
+        loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
+      },
+      {
         path:'',
         redirectTo:'/tabs/accueil',
         pathMatch:'full'

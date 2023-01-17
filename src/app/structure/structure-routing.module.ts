@@ -7,30 +7,35 @@ const routes: Routes = [
   {
     path: 'tabs/structure',
     component: StructurePage,
-    children:[
+     children:[
+  //     {
+  //       path: 'accueilstructure',
+  //       loadChildren: () => import('../accueilstructure/accueilstructure.module').then( m => m.AccueilstructurePageModule)
+  //     },
+  //     // {
+  //     //   path: 'appuifinrecstructure',
+  //     //   loadChildren: () => import('../appuifinrecstructure/appuifinrecstructure.module').then( m => m.AppuifinrecstructurePageModule)
+  //     // },
+  //     // {
+  //     //   path: 'seminaireinfostructure',
+  //     //   loadChildren: () => import('../seminaireinfostructure/seminaireinfostructure.module').then( m => m.SeminaireinfostructurePageModule)
+  //     // },
       {
-        path: 'accueilstructure',
-        loadChildren: () => import('../accueilstructure/accueilstructure.module').then( m => m.AccueilstructurePageModule)
+        path: 'structurehome',
+        loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
       },
-      {
-        path: 'appuifinrecstructure',
-        loadChildren: () => import('../appuifinrecstructure/appuifinrecstructure.module').then( m => m.AppuifinrecstructurePageModule)
-      },
-      {
-        path: 'seminaireinfostructure',
-        loadChildren: () => import('../seminaireinfostructure/seminaireinfostructure.module').then( m => m.SeminaireinfostructurePageModule)
-      },
-      {
-        path:'',
-        redirectTo:'tabs/structure/accueilstructure',
-        pathMatch:'full'
-      }
-    ]
-  },
-  {
-    path:'',
-    redirectTo:'tabs/structure/accueilstructure',
-    pathMatch:'full'
+       {
+         path:'',
+         redirectTo:'tabs/structure',
+         pathMatch:'full'
+       }
+     ]
+   },
+  
+   {
+     path:'',
+     redirectTo:'tabs/structure',
+     pathMatch:'full'
   }
 ];
 
