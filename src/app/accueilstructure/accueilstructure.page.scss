@@ -1,0 +1,53 @@
+.imagestructure{
+    border-radius: 5px;
+    height: 120px;
+    width: 100%;
+    border: 3px solid #00754B;
+
+   
+}
+.subtitle{
+    font-size: 1rem; /* 40px/16=2.5em */
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+
+}
+.subtitleContent{
+    position: relative;
+        /* text-align: center; */
+    top: 2px;
+    font-size: 0.9rem;
+}
+
+.subtitleContent1{
+    position: relative;
+        /* text-align: center; */
+    top: 2px;
+    left: 20px;
+    font-size: 0.9rem;
+}
+.maintext{
+display: contents;
+justify-content: center;
+text-align: justify;
+font-family: 'Poppins', sans-serif;
+letter-spacing: 0.5px;
+font-size: 0.9rem;
+}
+
+.location{
+    font-size: 0.9rem; /* 40px/16=2.5em */
+    font-weight: bold;
+    text-align: center;
+}
+.subtitle1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.subtitle2{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
