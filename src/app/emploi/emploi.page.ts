@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emploi.page.scss'],
 })
 export class EmploiPage implements OnInit {
-
+  cat: string = "Accueil"; // default button
   constructor() { }
 
   ngOnInit() {

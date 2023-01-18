@@ -83,12 +83,12 @@
    */
 
   body {
-    --ion-color-secondary: #006600;
-    --ion-color-secondary-rgb: 0, 102, 0;
-    --ion-color-secondary-contrast: #ffffff;
-    --ion-color-secondary-contrast-rgb: 255, 255, 255;
-    --ion-color-secondary-shade: #005a00;
-    --ion-color-secondary-tint: #1a751a;
+    --ion-color-primary: #00754B;
+  --ion-color-primary-rgb: 0, 102, 0;
+  --ion-color-primary-contrast: #00754B;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #00754B;
+  --ion-color-primary-tint: #00754B;
 
     --ion-color-secondary: #50c8ff;
     --ion-color-secondary-rgb: 80,200,255;
@@ -147,6 +147,15 @@
     --ion-color-light-tint: #383a3e;
   }
 
+  :root {
+    ion-tab-button.tab-selected {
+      ion-icon, ion-label {
+        color: var(--ion-color-secondary) !important;
+        --ion-color-base: var(--ion-color-secondary) !important;
+      }
+    }
+  } 
+
   /*
    * iOS Dark Theme
    * -------------------------------------------
@@ -170,7 +179,7 @@
     --ion-color-step-450: #737373;
     --ion-color-step-500: #808080;
     --ion-color-step-550: #8c8c8c;
-    --ion-color-step-600: #999999;
+    --ion-color-step-600: #000;
     --ion-color-step-650: #a6a6a6;
     --ion-color-step-700: #b3b3b3;
     --ion-color-step-750: #bfbfbf;
@@ -212,7 +221,7 @@
     --ion-color-step-250: #4d4d4d;
     --ion-color-step-300: #595959;
     --ion-color-step-350: #656565;
-    --ion-color-step-400: #717171;
+    --ion-color-step-400: #000000;
     --ion-color-step-450: #7d7d7d;
     --ion-color-step-500: #898989;
     --ion-color-step-550: #949494;

@@ -3,6 +3,7 @@
     border: 1px solid #6A9A8B;
     border-radius: 5px;
     border-bottom-left-radius: 5px;
+    height: 100%;
 }
 
 ion-card{
@@ -11,13 +12,16 @@ ion-card{
 }
 .Appui{
     border: 1px solid #6A9A8B;
-    margin-right: 5px;
-    margin-left: 5px;
+    // margin-right: 5px;
+    // margin-left: 5px;
     
 }
-.iconBack{
-    height: 500px;
+.iconBack:hover{
+cursor: pointer;
 }
+ion-icon {
+    font-size: 20px;
+  }
 .toolbartop{
     margin-top: 8%;
 }
@@ -58,7 +62,7 @@ ion-label{
 .subtitleContent{
     position: relative;
         /* text-align: center; */
-    top: 3px;
+    top: 18px;
     font-size: 0.9rem;
     color: black;
 }
@@ -67,7 +71,7 @@ ion-label{
     display: flex;
     position: relative;
         /* text-align: center; */
-    top: 6px;
+    top: 18px;
     left: 0px;
     font-size: 0.9rem;
     color: black;
@@ -133,4 +137,34 @@ ion-card-title{
     color: white;
     width: 100%;
     padding: 2%;
+}
+
+.contour{
+    border: 1px solid #6A9A8B;
+}
+.iconBack{
+    color: #6A9A8B;
+}
+.contour2{
+    border: 1px solid #C8FCEA;
+    filter: drop-shadow(-2px 3px 8px #6A9A8B);
+}
+.iconBack2{
+    color: #C8FCEA;
+}
+.structurepublique{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 45px;
+    
+}
+
+.avis{
+position: relative;
+bottom: 20px;
+}
+.annonce{
+    position: relative;
+bottom: 20px;
 }
