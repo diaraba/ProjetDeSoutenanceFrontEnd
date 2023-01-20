@@ -1,0 +1,127 @@
+.logo{
+    // position: relative;
+    // bottom:0px;
+    // left: 0px;
+    // margin-left: 20px;
+    // margin-top: 20px;
+    
+}
+
+.logo {
+    position: relative;
+     bottom: 190px;
+    left: 200px;
+    z-index:10;
+}
+.logo svg{
+    position: relative;
+    bottom: 10px;
+}
+.right{
+    z-index:2;
+    height: 220px;
+    width: 320px;
+    background: #C8FCEA;
+    border-radius: 200px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    position: relative;
+    left: -80px;
+    top: 0px;
+}
+.right p strong{
+    position: relative;
+    left: 90px;
+    top: 75px;
+}
+
+.left{
+    z-index:2;
+    background: #6A9A8B;
+    position: relative;
+    left: 50px;
+    float: right;
+    height: 210px;
+    width: 210px;
+    bottom: 150px;
+    border-radius: 200px;
+    bottom: 230px;
+}
+
+.bottom{
+    height: 40px;
+    background: #C8FCEA;
+    position:relative;
+    // margin-top: 320px;
+    
+}
+.bottom p{
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    top: 5px;
+    color: black;
+    left: 8px;
+}
+.bottom p strong{
+    font-size: 12px;
+}
+.bottom p ion-button{
+    position: relative;
+    bottom: 4px;
+    color: black;
+    left: -9px;
+    font-size: 12px;
+    font-weight: bold   ;
+} 
+.content{
+    position: fixed;
+}
+
+.form{
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.forminput{
+    width: 90%;
+    height: 10%;
+    position: relative;
+    bottom: 200px;
+    background: gray!important;
+    
+}
+
+.forminput1{
+    width: 90%;
+    // height: 10%;
+    position: relative;
+    bottom: 170px;
+    background: gray!important;
+    
+}
+
+.forminput2{
+    width: 90%;
+    // height: 10%;
+    position: relative;
+    bottom: 170px;
+    background: gray!important;
+    
+}
+ion-content{
+    background: #fff;
+}
+.containerbutton ion-button{
+    position: relative;
+    border-radius: 5px;
+    height: 30px;
+    right:-70px;
+    bottom: 100px;
+}
+.containerbutton ion-button p{
+   position: relative;
+   top: 9px;
+}
+.containerbutton ion-button p:hover{
+    cursor: pointer;
+}

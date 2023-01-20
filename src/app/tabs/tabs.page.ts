@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { NotificationComponent } from '../notification/notification.component';
 
 @Component({
   selector: 'app-tabs',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
-
+  constructor( private popNotif: PopoverController) { }
+  async openNotif(){
+    const popup= await this.popNotif.create({
+      component:NotificationComponent,
+    });
+    popup.present();
+   
+  }
   ngOnInit() {
   }
 

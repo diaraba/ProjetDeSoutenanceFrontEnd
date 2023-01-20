@@ -1,4 +1,450 @@
 
-<ion-content>
 
+<ion-content class="structureTop">
+
+  <div>
+    <ion-segment [(ngModel)]="cat">
+      <ion-segment-button value="Accueil">
+
+        <ion-label>Accueil</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Appui">
+
+        <ion-label>Club</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Seminaire">
+
+        <ion-label>Profile</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="cat">
+    <ion-list *ngSwitchCase="'Accueil'">
+      <div class="emplois">
+        <div class="welcome">
+          <div>
+            <p>Bienvenu sur </p>
+          </div>
+          <div><strong>Cogoya So</strong></div>
+        </div>
+        <svg class="structurehome" width="260" height="645" viewBox="0 0 390 775" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_155_299)">
+            <path opacity="0.18"
+              d="M239.875 259.521C231.951 260.432 224.017 261.226 216.074 261.904C216.157 262.08 216.252 262.251 216.358 262.414C217.197 263.653 218.893 263.895 220.282 264.473C221.671 265.052 222.983 266.729 222.066 267.918C221.607 268.51 220.805 268.674 220.067 268.797L211.866 270.164C201.881 271.822 191.337 273.435 181.871 269.859C177.956 268.373 177.681 266.136 179.047 264.25C128.299 266.437 77.318 264.769 26.5016 263.097C22.3757 263.097 17.764 261.999 16.6592 257.862C42.8444 246.167 68.2412 246.089 96.5902 245.342L196.288 242.709C197.998 242.663 199.823 242.65 201.281 243.543C202.738 244.436 203.573 246.144 204.797 247.406C208.464 251.206 214.598 250.399 219.874 250.012C227.575 249.457 235.31 250.435 242.626 252.887C243.635 253.224 244.716 253.657 245.23 254.582C246.623 257.111 242.754 259.184 239.875 259.521Z"
+              fill="#1D2741" />
+            <path opacity="0.18"
+              d="M106.542 0.934029C93.1517 3.71781 81.3931 11.65 71.1748 20.6985C60.9565 29.7469 51.921 40.0483 41.5331 48.8962C25.4378 62.6193 4.79947 74.9025 0.73324 95.5827C-2.53991 112.176 6.29394 128.756 6.69277 145.659C6.94948 158.443 2.41108 170.854 1.41629 183.611C0.458185 196.177 3.32793 209.49 11.63 219.017C23.4711 232.612 43.7198 235.797 61.6442 233.237C79.5686 230.676 96.4295 223.395 114.102 219.536C135.391 214.885 157.505 215.263 179.198 217.559C192.465 218.967 206.328 221.008 218.801 216.297C229.877 212.114 238.633 202.715 242.85 191.694C247.068 180.673 246.912 168.248 243.309 157.026C238.326 141.486 227.264 128.651 220.218 113.921C214.222 101.396 211.219 87.7052 207.918 74.2282C205.732 65.3028 203.22 56.0584 197.164 49.1195C190.219 41.1554 179.744 37.4376 170.428 32.3803C147.947 20.1699 135.946 -5.17116 106.542 0.934029Z"
+              fill="#6A9A8B" />
+            <path
+              d="M54.8872 16.6253H134.364V260.263H54.8872C51.0477 260.263 47.3654 258.748 44.6504 256.049C41.9354 253.351 40.4102 249.691 40.4102 245.875V31.0135C40.4102 27.1975 41.9354 23.5378 44.6504 20.8395C47.3654 18.1412 51.0477 16.6253 54.8872 16.6253Z"
+              fill="#68E1FD" />
+            <path
+              d="M54.8872 16.6253H134.364V260.263H54.8872C51.0477 260.263 47.3654 258.748 44.6504 256.049C41.9354 253.351 40.4102 249.691 40.4102 245.875V31.0135C40.4102 27.1975 41.9354 23.5378 44.6504 20.8395C47.3654 18.1412 51.0477 16.6253 54.8872 16.6253Z"
+              fill="#6A9A8B" />
+            <path
+              d="M185.529 33.615C185.529 24.2318 177.876 16.6253 168.434 16.6253H116.062H63.6889C54.2478 16.6253 46.5942 24.2318 46.5942 33.615V243.274C46.5942 252.657 54.2478 260.263 63.6889 260.263H168.434C177.876 260.263 185.529 252.657 185.529 243.274V33.615Z"
+              fill="#C8FCEA" />
+            <path
+              d="M179.427 31.2504V233.906C179.427 235.037 179.202 236.156 178.766 237.2C178.331 238.243 177.692 239.192 176.888 239.991C176.083 240.789 175.128 241.423 174.077 241.855C173.027 242.287 171.9 242.509 170.763 242.508H61.3509C59.0554 242.508 56.8539 241.602 55.2308 239.989C53.6077 238.376 52.6958 236.188 52.6958 233.906V31.2504C52.6958 28.9678 53.6082 26.7787 55.2322 25.1647C56.8562 23.5506 59.0588 22.6439 61.3554 22.6439H82.9885V25.3502C82.9885 27.6461 83.9062 29.8479 85.5396 31.4714C87.1731 33.0948 89.3885 34.0068 91.6986 34.0068H140.246C142.556 34.0068 144.771 33.0948 146.405 31.4714C148.038 29.8479 148.956 27.6461 148.956 25.3502V22.6439H170.759C171.896 22.6433 173.023 22.8654 174.075 23.2976C175.126 23.7298 176.081 24.3636 176.886 25.1628C177.691 25.962 178.33 26.9109 178.766 27.9554C179.202 28.9999 179.427 30.1196 179.427 31.2504Z"
+              fill="white" />
+            <path
+              d="M128.593 23.3956H103.535C102.895 23.3956 102.375 23.9117 102.375 24.5483V24.7534C102.375 25.39 102.895 25.9061 103.535 25.9061H128.593C129.233 25.9061 129.753 25.39 129.753 24.7534V24.5483C129.753 23.9117 129.233 23.3956 128.593 23.3956Z"
+              fill="url(#paint0_linear_155_299)" />
+            <path
+              d="M169.956 22.6439V205.836C169.956 209.953 168.311 213.901 165.382 216.812C162.453 219.723 158.48 221.359 154.338 221.359H52.6958V31.2504C52.6952 30.12 52.9188 29.0006 53.3538 27.9561C53.7887 26.9117 54.4266 25.9626 55.2308 25.1633C56.0351 24.364 56.9899 23.7301 58.0408 23.2978C59.0917 22.8655 60.2181 22.6433 61.3554 22.6439H82.9885V25.3502C82.9885 27.6461 83.9062 29.8479 85.5396 31.4714C87.1731 33.0948 89.3885 34.0068 91.6986 34.0068H140.246C142.556 34.0068 144.771 33.0948 146.405 31.4714C148.038 29.8479 148.956 27.6461 148.956 25.3502V22.6439H169.956Z"
+              fill="#EBEBF0" />
+            <path
+              d="M206.332 103.433H77.7167C73.0784 103.433 69.3184 107.17 69.3184 111.78V143.258C69.3184 147.868 73.0784 151.605 77.7167 151.605H206.332C210.971 151.605 214.731 147.868 214.731 143.258V111.78C214.731 107.17 210.971 103.433 206.332 103.433Z"
+              fill="#68E1FD" />
+            <path
+              d="M206.332 103.433H77.7167C73.0784 103.433 69.3184 107.17 69.3184 111.78V143.258C69.3184 147.868 73.0784 151.605 77.7167 151.605H206.332C210.971 151.605 214.731 147.868 214.731 143.258V111.78C214.731 107.17 210.971 103.433 206.332 103.433Z"
+              fill="url(#paint1_linear_155_299)" />
+            <path
+              d="M208.854 100.421H80.2382C75.5999 100.421 71.8398 104.158 71.8398 108.768V140.246C71.8398 144.856 75.5999 148.593 80.2382 148.593H208.854C213.492 148.593 217.252 144.856 217.252 140.246V108.768C217.252 104.158 213.492 100.421 208.854 100.421Z"
+              fill="white" />
+            <path d="M65.6421 46.8505H87.3898V68.4647H65.6421V46.8505Z" fill="white" />
+            <path
+              d="M106.978 109.256H84.9784C82.5757 109.256 80.6279 111.191 80.6279 113.579V135.444C80.6279 137.832 82.5757 139.768 84.9784 139.768H106.978C109.381 139.768 111.329 137.832 111.329 135.444V113.579C111.329 111.191 109.381 109.256 106.978 109.256Z"
+              fill="#EBEBF0" />
+            <path
+              d="M65.6421 73.6359H87.3898V95.2501H65.6421V73.6359ZM65.6421 158.812H87.3898V180.427H65.6421V158.812ZM65.6421 185.598H87.3898V207.212H65.6421V185.598Z"
+              fill="white" />
+            <path opacity="0.38"
+              d="M111.324 131.385V135.44C111.324 136.007 111.211 136.57 110.993 137.094C110.774 137.619 110.454 138.095 110.05 138.497C109.646 138.898 109.166 139.217 108.638 139.434C108.111 139.652 107.545 139.763 106.974 139.763H84.9691C84.3978 139.763 83.8321 139.652 83.3043 139.434C82.7764 139.217 82.2968 138.898 81.8929 138.497C81.4889 138.095 81.1684 137.619 80.9498 137.094C80.7312 136.57 80.6187 136.007 80.6187 135.44V131.385C84.2806 128.959 88.4313 127.358 92.7807 126.692C91.5221 125.989 90.5345 124.891 89.9732 123.569C89.4119 122.247 89.3089 120.778 89.6803 119.391C90.0518 118.005 90.8766 116.781 92.025 115.912C93.1733 115.042 94.5799 114.578 96.0233 114.59C97.4668 114.603 98.865 115.092 99.9978 115.981C101.131 116.87 101.934 118.109 102.281 119.501C102.628 120.894 102.499 122.361 101.914 123.673C101.33 124.985 100.323 126.066 99.0519 126.747C105.557 127.785 111.324 131.385 111.324 131.385Z"
+              fill="white" />
+            <path
+              d="M206.383 114.591H123.408C123.043 114.591 122.693 114.447 122.436 114.19C122.178 113.934 122.033 113.586 122.033 113.224C122.033 112.861 122.178 112.514 122.436 112.257C122.693 112.001 123.043 111.857 123.408 111.857H206.383C206.748 111.857 207.097 112.001 207.355 112.257C207.613 112.514 207.758 112.861 207.758 113.224C207.758 113.586 207.613 113.934 207.355 114.19C207.097 114.447 206.748 114.591 206.383 114.591Z"
+              fill="#EBEBF0" />
+            <path
+              d="M173.234 52.4955H95.5036C94.7846 52.4955 94.2017 53.0738 94.2017 53.7872C94.2017 54.5006 94.7846 55.0789 95.5036 55.0789H173.234C173.953 55.0789 174.536 54.5006 174.536 53.7872C174.536 53.0738 173.953 52.4955 173.234 52.4955Z"
+              fill="white" />
+            <path
+              d="M173.23 63.6899H95.4992C95.1539 63.6899 94.8228 63.5536 94.5786 63.3109C94.3344 63.0683 94.1973 62.7392 94.1973 62.396C94.1985 62.0536 94.3362 61.7256 94.5802 61.484C94.8242 61.2423 95.1547 61.1066 95.4992 61.1066H173.23C173.574 61.1066 173.905 61.2423 174.149 61.484C174.393 61.7256 174.53 62.0536 174.532 62.396C174.532 62.7392 174.394 63.0683 174.15 63.3109C173.906 63.5536 173.575 63.6899 173.23 63.6899ZM173.23 81.0988H95.4992C95.1539 81.0988 94.8228 80.9625 94.5786 80.7198C94.3344 80.4772 94.1973 80.1481 94.1973 79.8049C94.1985 79.4625 94.3362 79.1346 94.5802 78.8929C94.8242 78.6512 95.1547 78.5155 95.4992 78.5155H173.23C173.574 78.5155 173.905 78.6512 174.149 78.8929C174.393 79.1346 174.53 79.4625 174.532 79.8049C174.532 80.1481 174.394 80.4772 174.15 80.7198C173.906 80.9625 173.575 81.0988 173.23 81.0988ZM173.23 88.4114H95.4992C95.1539 88.4114 94.8228 88.2751 94.5786 88.0324C94.3344 87.7897 94.1973 87.4606 94.1973 87.1175C94.1985 86.7751 94.3362 86.4471 94.5802 86.2054C94.8242 85.9638 95.1547 85.8281 95.4992 85.8281H173.23C173.574 85.8281 173.905 85.9638 174.149 86.2054C174.393 86.4471 174.53 86.7751 174.532 87.1175C174.532 87.4606 174.394 87.7897 174.15 88.0324C173.906 88.2751 173.575 88.4114 173.23 88.4114ZM173.23 167.25H95.4992C95.1539 167.25 94.8228 167.114 94.5786 166.871C94.3344 166.629 94.1973 166.3 94.1973 165.956C94.1973 165.613 94.3344 165.284 94.5786 165.041C94.8228 164.799 95.1539 164.663 95.4992 164.663H173.23C173.575 164.663 173.906 164.799 174.15 165.041C174.394 165.284 174.532 165.613 174.532 165.956C174.532 166.3 174.394 166.629 174.15 166.871C173.906 167.114 173.575 167.25 173.23 167.25ZM173.23 174.577H95.4992C95.1539 174.577 94.8228 174.44 94.5786 174.198C94.3344 173.955 94.1973 173.626 94.1973 173.283C94.1973 172.939 94.3344 172.61 94.5786 172.368C94.8228 172.125 95.1539 171.989 95.4992 171.989H173.23C173.575 171.989 173.906 172.125 174.15 172.368C174.394 172.61 174.532 172.939 174.532 173.283C174.532 173.626 174.394 173.955 174.15 174.198C173.906 174.44 173.575 174.577 173.23 174.577ZM173.23 194.036H95.4992C95.1539 194.036 94.8228 193.899 94.5786 193.657C94.3344 193.414 94.1973 193.085 94.1973 192.742C94.1973 192.399 94.3344 192.07 94.5786 191.827C94.8228 191.584 95.1539 191.448 95.4992 191.448H173.23C173.575 191.448 173.906 191.584 174.15 191.827C174.394 192.07 174.532 192.399 174.532 192.742C174.532 193.085 174.394 193.414 174.15 193.657C173.906 193.899 173.575 194.036 173.23 194.036ZM173.23 201.38H95.4992C95.1539 201.38 94.8228 201.244 94.5786 201.001C94.3344 200.759 94.1973 200.429 94.1973 200.086C94.1973 199.743 94.3344 199.414 94.5786 199.171C94.8228 198.929 95.1539 198.792 95.4992 198.792H173.23C173.575 198.792 173.906 198.929 174.15 199.171C174.394 199.414 174.532 199.743 174.532 200.086C174.532 200.429 174.394 200.759 174.15 201.001C173.906 201.244 173.575 201.38 173.23 201.38Z"
+              fill="white" />
+            <path
+              d="M206.383 123.38H123.408C123.043 123.38 122.693 123.236 122.436 122.979C122.178 122.723 122.033 122.375 122.033 122.013C122.033 121.65 122.178 121.303 122.436 121.046C122.693 120.79 123.043 120.646 123.408 120.646H206.383C206.748 120.646 207.097 120.79 207.355 121.046C207.613 121.303 207.758 121.65 207.758 122.013C207.758 122.375 207.613 122.723 207.355 122.979C207.097 123.236 206.748 123.38 206.383 123.38ZM206.383 132.173H123.408C123.043 132.173 122.693 132.029 122.436 131.773C122.178 131.516 122.033 131.169 122.033 130.806C122.033 130.444 122.178 130.096 122.436 129.84C122.693 129.583 123.043 129.439 123.408 129.439H206.383C206.748 129.439 207.097 129.583 207.355 129.84C207.613 130.096 207.758 130.444 207.758 130.806C207.758 131.169 207.613 131.516 207.355 131.773C207.097 132.029 206.748 132.173 206.383 132.173Z"
+              fill="#EBEBF0" />
+            <path
+              d="M190.599 191.744L185.378 229.56C185.156 231.151 185.323 232.771 185.864 234.284L195.193 261.621L200.648 259.949L196.522 232.763C196.435 232.203 196.471 231.631 196.627 231.086L203.715 206.77L206.795 261.621H211.838L216.179 207.463C217.651 198.423 214.96 191.744 214.96 191.744H190.599Z"
+              fill="#3F3D56" />
+            <path
+              d="M217.381 158.421V184.39C217.381 187.58 216.858 190.154 213.654 190.154H191.283C188.074 190.154 187.973 187.598 187.95 184.431L187.771 166.754C187.771 166.754 182.944 175.324 179.093 174.499C175.242 173.674 163.818 158.015 163.818 158.015L169.503 153.263L179.093 162.831C179.093 162.831 180.629 159.35 182.87 151.559C185.112 143.768 192.392 143.732 192.392 143.732H211.848C218.871 143.709 217.381 158.421 217.381 158.421Z"
+              fill="#6A9A8B" />
+            <path
+              d="M217.252 132.173C217.252 132.173 224.353 146.657 224.729 151.609C225.105 156.562 217.509 163.291 217.509 163.291L211.847 143.7H217.252V132.173Z"
+              fill="#68E1FD" />
+            <path
+              d="M217.252 132.173C217.252 132.173 224.353 146.657 224.729 151.609C225.105 156.562 217.509 163.291 217.509 163.291L211.847 143.7H217.252V132.173Z"
+              fill="url(#paint2_linear_155_299)" />
+            <path
+              d="M217.509 163.291C217.509 163.291 222.139 150.643 221.635 147.732C221.131 144.821 217.252 135.654 217.252 135.654V143.709L210.422 143.85L217.509 163.291Z"
+              fill="#6A9A8B" />
+            <path d="M190.599 189.976H214.969V191.744H190.599V189.976Z" fill="#00754B" />
+            <path d="M198.901 126.077H205.934V143.85H198.901V126.077Z" fill="url(#paint3_linear_155_299)" />
+            <path
+              d="M205.952 124.127V143.85H202.243V142.647C202.243 142.298 202.174 141.951 202.039 141.628C201.904 141.305 201.707 141.011 201.458 140.764C201.209 140.517 200.913 140.321 200.588 140.188C200.262 140.054 199.914 139.986 199.562 139.987H199.351C198.473 139.99 197.603 139.822 196.791 139.49C195.98 139.159 195.242 138.671 194.62 138.056C193.998 137.44 193.504 136.709 193.168 135.903C192.831 135.098 192.658 134.234 192.658 133.362V124.127H205.952Z"
+              fill="url(#paint4_linear_155_299)" />
+            <path
+              d="M194.441 118.104C195.922 117.265 197.705 117.192 199.415 117.142L203.055 117.037C203.861 116.988 204.67 117.018 205.471 117.129C206.35 117.276 207.184 117.618 207.913 118.128C208.642 118.639 209.246 119.305 209.681 120.079C210.116 120.852 210.371 121.713 210.427 122.597C210.483 123.481 210.338 124.367 210.004 125.188C209.861 125.474 209.77 125.782 209.734 126.1C209.734 126.605 210.064 127.043 210.238 127.517C210.742 128.861 209.922 130.328 209.005 131.439C208.088 132.551 207.002 133.681 206.869 135.112C206.827 135.567 206.869 136.114 206.562 136.478C206.368 136.657 206.119 136.765 205.855 136.783C205.591 136.801 205.33 136.729 205.113 136.579C204.689 136.267 204.344 135.861 204.104 135.394C204.141 136.068 203.188 136.442 202.592 136.128C202.31 135.935 202.073 135.685 201.896 135.394C201.719 135.104 201.606 134.779 201.565 134.442C201.482 133.768 201.274 133.116 200.95 132.519C200.639 132.064 200.144 131.74 199.979 131.221C199.69 130.309 200.597 129.289 200.254 128.382C199.969 127.644 198.947 127.425 198.214 127.74C197.511 128.121 196.923 128.683 196.513 129.366C197.187 128.455 196.632 126.892 195.935 126.154C194.794 124.942 193.075 125.967 192.121 125.097C190.301 123.425 192.827 119.015 194.441 118.104Z"
+              fill="#3F3D56" />
+            <path
+              d="M204.361 143.814C204.361 143.814 201.634 147.363 197.852 147.363C194.07 147.363 183.031 158.097 182.311 161.346C181.591 164.594 179.102 162.808 179.102 162.808C179.102 162.808 180.638 159.327 182.879 151.536C185.121 143.745 192.401 143.709 192.401 143.709H202.285L204.361 143.814Z"
+              fill="#6A9A8B" />
+            <path
+              d="M200.648 259.498L202.574 264.191L194.808 267.836L187.615 268.355C187.615 268.355 186.387 263.658 189.747 263.239C191.707 263.019 193.576 262.3 195.175 261.152L200.648 259.498ZM206.809 261.621C205.835 262.02 204.988 262.673 204.359 263.513C203.729 264.352 203.34 265.345 203.234 266.387L203.032 268.369H211.848V261.621H206.809Z"
+              fill="#222A72" />
+            <path
+              d="M169.503 153.254L165.794 148.698C165.794 148.698 164.529 143.837 163.818 146.848C163.419 148.538 162.287 151.596 162.287 151.596H156.603C156.603 151.596 160.591 155.783 162.287 156.548C163.062 156.887 163.879 157.122 164.717 157.245L169.503 153.254Z"
+              fill="url(#paint5_linear_155_299)" />
+          </g>
+          <defs>
+            <linearGradient id="paint0_linear_155_299" x1="115.963" y1="18.1561" x2="116.611" y2="60.5828"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#183866" />
+              <stop offset="1" stop-color="#1A7FC1" />
+            </linearGradient>
+            <linearGradient id="paint1_linear_155_299" x1="65.628" y1="290.931" x2="143.646" y2="121.983"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-opacity="0" />
+              <stop offset="0.85" stop-opacity="0.51" />
+              <stop offset="0.99" />
+            </linearGradient>
+            <linearGradient id="paint2_linear_155_299" x1="196.169" y1="181.028" x2="231.245" y2="126.936"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-opacity="0" />
+              <stop offset="0.85" stop-opacity="0.51" />
+              <stop offset="0.99" />
+            </linearGradient>
+            <linearGradient id="paint3_linear_155_299" x1="200.249" y1="135.002" x2="211.797" y2="134.79"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ECC4D7" />
+              <stop offset="0.42" stop-color="#EFD4D1" />
+              <stop offset="1" stop-color="#F2EAC9" />
+            </linearGradient>
+            <linearGradient id="paint4_linear_155_299" x1="200.919" y1="133.139" x2="198.546" y2="134.404"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ECC4D7" />
+              <stop offset="0.42" stop-color="#EFD4D1" />
+              <stop offset="1" stop-color="#F2EAC9" />
+            </linearGradient>
+            <linearGradient id="paint5_linear_155_299" x1="156.603" y1="151.568" x2="169.503" y2="151.568"
+              gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ECC4D7" />
+              <stop offset="0.42" stop-color="#EFD4D1" />
+              <stop offset="1" stop-color="#F2EAC9" />
+            </linearGradient>
+            <clipPath id="clip0_155_299">
+              <rect width="246" height="272" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <!-- 
+                <div class="">
+                
+                    <ion-card >
+                        <img class="structureimg" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                        <ion-card-content>
+                            <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structurehome" ><span>Voir détails</span></ion-button>
+                        </ion-card-content>
+                      </ion-card> 
+                      <ion-card class="structurecard">
+                        <img class="structureimg" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                        <ion-card-content>
+                            <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structurehome" ><span>Voir détails</span></ion-button>
+                        </ion-card-content>
+                      </ion-card>  
+                </div> -->
+
+
+        <!-- SECTION SI T'ES PAS CONNECTER -->
+
+        <div class="container">
+          <div class="containerbutton">
+            <ion-button>
+              <p>Se connecter</p>
+            </ion-button>
+            <p>Veuiller vous connecter pour profiter des fonctionnalités de <strong>Cogoya So</strong></p>
+          </div>
+        </div>
+
+
+        <!-- SECTION UNE FOIS CONNECTER -->
+        <!-- <div class="container">
+
+
+          <div class="structurepublique">
+            <p>Les differentes structures selon vos préférences</p>
+          </div>
+          <div class="produits">
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+          </div>
+
+
+
+
+        </div> -->
+      </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Appui'" class="mb-3">
+      <div class="container1">
+
+        <div class="publique">
+          <div class="structurepublique">
+            <p>Mes structures</p>
+          </div>
+          <div class="produits">
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+      </div>
+
+
+
+    </ion-list>
+
+
+
+    <ion-list *ngSwitchCase="'Seminaire'" class="mb-3">
+      <div class="annonce">
+
+        <div class="imageprofile">
+          <img class="img" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+        </div>
+        <div class="row info" style="margin-top: 20px;">
+          <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
+            <b>Diarraba Diarra</b>    
+          </div>
+          <div class="edit">
+      
+            <ion-buttons class="ionModif">
+              <ion-button routerLink="/tabs/modifierprofil">
+                <ion-icon name="create-outline" ></ion-icon>
+                Modifier profil
+              </ion-button>
+            </ion-buttons>
+            
+            <ion-buttons class="ionModif">
+              <ion-button routerLink="/tabs/modifiercompte">
+                <ion-icon name="create-outline"></ion-icon>
+                Modifier compte
+              </ion-button>
+
+            </ion-buttons>
+            <!-- <ion-button>
+              Modifier profil
+            </ion-button>
+
+            <ion-button>
+              Modifier compte
+            </ion-button> -->
+          </div>
+          <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
+            <div class="champ">
+              <span class="champtitle">Nom </span> <br>
+              <b class="champcontent"> Diarra Diarraba</b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Email </span> <br>
+              <b class="champcontent"> diarra@gmail.com</b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Numéro </span> <br>
+              <b class="champcontent"> 76767676</b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Nom </span> <br>
+              <b class="champcontent"> Diarra Diarraba</b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Nom </span> <br>
+              <b class="champcontent"> Diarra Diarraba</b>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ion-list>
+
+
+
+  </div>
 </ion-content>

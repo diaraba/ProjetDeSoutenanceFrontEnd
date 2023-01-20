@@ -29,6 +29,26 @@ const routes: Routes = [
         loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
       },
       {
+        path: 'modifiercompte',
+        loadChildren: () => import('../modifiercompte/modifiercompte.module').then( m => m.ModifiercomptePageModule)
+      },
+      {
+        path: 'modifierprofil',
+        loadChildren: () => import('../modifierprofil/modifierprofil.module').then( m => m.ModifierprofilPageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+      },
+      {
+        path: 'abonnement',
+        loadChildren: () => import('../abonnement/abonnement.module').then( m => m.AbonnementPageModule)
+      },
+      {
+        path: 'abonnee',
+        loadChildren: () => import('../abonnee/abonnee.module').then( m => m.AbonneePageModule)
+      },
+      {
         path:'',
         redirectTo:'/tabs/accueil',
         pathMatch:'full'

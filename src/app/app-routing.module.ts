@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NotificationComponent } from './notification/notification.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,38 @@ const routes: Routes = [
   {
     path: 'structurehome',
     loadChildren: () => import('./structurehome/structurehome.module').then( m => m.StructurehomePageModule)
+  },
+  {
+    path: 'connexion',
+    loadChildren: () => import('./connexion/connexion.module').then( m => m.ConnexionPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'modifiercompte',
+    loadChildren: () => import('./modifiercompte/modifiercompte.module').then( m => m.ModifiercomptePageModule)
+  },
+  {
+    path: 'modifierprofil',
+    loadChildren: () => import('./modifierprofil/modifierprofil.module').then( m => m.ModifierprofilPageModule)
+  },
+  {
+    path: 'notification', component: NotificationComponent
+    
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'abonnement',
+    loadChildren: () => import('./abonnement/abonnement.module').then( m => m.AbonnementPageModule)
+  },
+  {
+    path: 'abonnee',
+    loadChildren: () => import('./abonnee/abonnee.module').then( m => m.AbonneePageModule)
   },
 ];
 

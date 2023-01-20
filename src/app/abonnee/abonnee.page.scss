@@ -1,0 +1,91 @@
+
+.imageBorder{
+    border: 1px solid #6A9A8B;
+    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 100%;
+}
+
+// ion-card{
+//     margin-bottom: 80px;
+    
+// }
+.Appui{
+    border: 1px solid #6A9A8B;
+    // margin-right: 5px;
+    // margin-left: 5px;
+    
+}
+.iconBack:hover{
+cursor: pointer;
+}
+ion-icon {
+    font-size: 20px;
+  }
+
+ion-segment{
+    background-color: white;
+}
+ion-segment-button{
+    
+}
+
+ion-label{
+    font-size: 6pt;
+    font-weight: 700;
+}
+
+//Section accueil de la structure conserner
+
+
+.position{
+    margin-top: 6px;
+    margin-left: 4px;
+    border: 1px solid #6A9A8B;
+}
+
+.voirdetails span{
+ font-size: 8px;
+}
+.voirdetails{
+    height: 20px;
+    width: 60px;
+    margin-left: -35px;
+}
+//nn
+
+
+// .contour{
+//     border: 1px solid #6A9A8B;
+// }
+.iconBack{
+    color: #6A9A8B;
+}
+.contour{
+    border: 1px solid #C8FCEA;
+    // filter: drop-shadow(-2px 3px 8px #6A9A8B);
+}
+.iconBack2{
+    color: #C8FCEA;
+}
+.structurepublique{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    // top: 45px;
+    
+}
+
+.avis{
+    margin-top: 80px;
+    background: #F8F6FB;
+}
+
+ion-content{
+    background: #F8F6FB;
+}
+.annonce{
+    position: relative;
+bottom: 20px;
+}
+

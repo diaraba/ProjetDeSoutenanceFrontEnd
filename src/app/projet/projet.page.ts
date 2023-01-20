@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projet.page.scss'],
 })
 export class ProjetPage implements OnInit {
-
+  cat: string = "Accueil"; // default button
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,41 @@
+.contenu{
+    background: #FFF;
+    width: 100%;
+    height: 100%;
+}
+
+ion-toolbar {
+    --background: #6A9A8B;
+}
+
+.parabole{
+    height: 100px;
+    background:#C8FCEA;
+    border-bottom-left-radius:40px ;
+    border-bottom-right-radius:40px ;
+}
+.paraboleP{
+    position: relative;
+    top: 20px;
+}
+
+.svgAccueil{
+    position: relative;
+    left: 15px;
+}
+.iframeAccueil{
+    position: relative;
+    right: 5px;
+}
+.iframeAccueil  strong{
+    position: relative;
+    left: 120px;
+    bottom: 95px;
+    font-size: 12px;
+}
+
+.logo{
+    position: relative;
+    bottom: 4px;
+    right: 10px;
+}

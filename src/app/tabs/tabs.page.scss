@@ -1,24 +1,38 @@
 ion-badge{
     position: absolute; 
     font-size: 8pt;
-    right: -8px;
+    right: 10px;
     top: 6px; 
 }
 
 ion-button{
-    margin: 5px;
-    width: 40px;
+    margin: 1px;
+    width: 50px;
     height: 40px;
     position: relative;
     overflow: visible!important;
     color: #6A9A8B;
 }
 
+.notif ion-button ion-icon{
+    height: 50px;
+    position: relative;
+    left: -15px;
+}
+
 .logo{
     position: relative;
-    bottom: 4px;
+    bottom: 5px;
     right: 10px;
 }
 ion-icon {
     font-size: 32;
   }
+
+//   .popUp{
+//       --width: 100px;
+//   }
+
+  .popUps{
+    --width: 200px;
+}
