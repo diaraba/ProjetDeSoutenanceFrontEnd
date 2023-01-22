@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication/authentication.service';
+import { PreferenceService } from '../services/preferences/preference.service';
+
 
 @Component({
   selector: 'app-register',
@@ -6,10 +9,65 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  form: any = {
+    nomutilisateur: null,
+    email: null,
+    password: null,
+  };
+  public interests: any = [];
+  public activites: any[] = [];
 
-  constructor() { }
+
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  constructor(private pref: PreferenceService, private authService: AuthenticationService) { }
 
   ngOnInit() {
+    this.pref.getAllPref().subscribe(data =>{
+      this.interests = data
+      console.log(this.interests);
+ 
+  })
   }
 
+
+
+  onInterestSelected(interest: any) {
+    if (!this.activites.includes(interest)) {
+      this.activites.push(interest);
+    } else {
+      this.activites.splice(this.activites.indexOf(interest), 1);
+    }
+    console.log(this.activites);
+  }
+
+  onSubmit(): void {
+    const { nomutilisateur, email, password } = this.form;
+    
+    // console.log(nomutilisateur);
+    // console.log(password);
+    console.log(this.activites);
+    // console.log(email);
+    // alert(this.form.password);
+    // alert(this.form.nomutilisateur);
+    // alert(this.form.email);
+    this.authService.register(nomutilisateur, email, password, this.activites).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
+  }
+
+
+  
+
 }
+

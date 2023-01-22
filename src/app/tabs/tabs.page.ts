@@ -19,5 +19,8 @@ export class TabsPage implements OnInit {
   }
   ngOnInit() {
   }
+  back(): void {
+    window.history.back()
+  }
 
 }

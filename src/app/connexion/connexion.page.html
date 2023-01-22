@@ -72,14 +72,36 @@
     </div>
 
     <div class="form">
+      <form  *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate>
       <ion-item class="forminput">
         <ion-label position="floating">Email</ion-label>
-        <ion-input placeholder="Enter text"></ion-input>
+        <ion-input type="email" name="email"  [(ngModel)]="form.email"  required #email="ngModel"   [ngClass]="{ 'is-invalid': f.submitted && email.errors }"></ion-input>
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+          Username is required!
+        </div>
       </ion-item>
 
       <ion-item class="forminput1">
         <ion-label position="floating">Password</ion-label>
-        <ion-input placeholder="Enter text"></ion-input>
+        <ion-input type="password"
+        
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="6"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"></ion-input>
+
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
       </ion-item>
 
       <div class="containerbutton">
@@ -88,7 +110,16 @@
         </ion-button>
       </div>
 
+      <div class="form-group">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
 
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
+    </div>
     </div>
   </div>
 

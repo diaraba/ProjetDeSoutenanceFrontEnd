@@ -7,19 +7,25 @@ const routes: Routes = [
   {
     path: 'tabs/profile',
     component: ProfilePage,
-    children:[
-      {
-        path:'',
-        redirectTo:'tabs/profile',
-        pathMatch:'full'
-      }
-    ]
   },
+
   {
-    path:'',
-    redirectTo:'tabs/profile',
-    pathMatch:'full'
-  }
+    path: 'modifierprofil',
+    loadChildren: () => import('../modifierprofil/modifierprofil.module').then( m => m.ModifierprofilPageModule)
+  },
+  //   children:[
+  //     {
+  //       path:'',
+  //       redirectTo:'tabs/profile',
+  //       pathMatch:'full'
+  //     }
+  //   ]
+  // },
+  // {
+  //   path:'',
+  //   redirectTo:'tabs/profile',
+  //   pathMatch:'full'
+  
 ];
 
 @NgModule({

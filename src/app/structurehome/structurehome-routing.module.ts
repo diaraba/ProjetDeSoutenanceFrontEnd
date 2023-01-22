@@ -7,7 +7,15 @@ const routes: Routes = [
   {
     path: '',
     component: StructurehomePage
-  }
+  },
+  {
+    path: 'avis-details',
+    loadChildren: () => import('../avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+  },
   
 ];
 

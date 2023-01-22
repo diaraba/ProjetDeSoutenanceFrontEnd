@@ -84,6 +84,14 @@ const routes: Routes = [
     path: 'abonnee',
     loadChildren: () => import('./abonnee/abonnee.module').then( m => m.AbonneePageModule)
   },
+  {
+    path: 'annonce-detailsa',
+    loadChildren: () => import('./annonce-detailsa/annonce-detailsa.module').then( m => m.AnnonceDetailsaPageModule)
+  },
+  {
+    path: 'avis-details',
+    loadChildren: () => import('./avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
+  },
 ];
 
 @NgModule({

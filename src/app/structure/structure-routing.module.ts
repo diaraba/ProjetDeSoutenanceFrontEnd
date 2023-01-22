@@ -6,8 +6,13 @@ import { StructurePage } from './structure.page';
 const routes: Routes = [
   {
     path: 'tabs/structure',
-    component: StructurePage,
-     children:[
+    component: StructurePage
+  },
+  {
+    path: 'structurehome',
+    loadChildren: () => import('../structurehome/structurehome.module').then(m => m.StructurehomePageModule)
+  },
+  //  children:[
   //     {
   //       path: 'accueilstructure',
   //       loadChildren: () => import('../accueilstructure/accueilstructure.module').then( m => m.AccueilstructurePageModule)
@@ -20,22 +25,22 @@ const routes: Routes = [
   //     //   path: 'seminaireinfostructure',
   //     //   loadChildren: () => import('../seminaireinfostructure/seminaireinfostructure.module').then( m => m.SeminaireinfostructurePageModule)
   //     // },
-      {
-        path: 'structurehome',
-        loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
-      },
-       {
-         path:'',
-         redirectTo:'tabs/structure',
-         pathMatch:'full'
-       }
-     ]
-   },
-  
-   {
-     path:'',
-     redirectTo:'tabs/structure',
-     pathMatch:'full'
+  //   {
+  //     path: 'structurehome',
+  //     loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
+  //   },
+  //    {
+  //      path:'',
+  //      redirectTo:'tabs/structure',
+  //      pathMatch:'full'
+  //    }
+  //  ]
+
+
+  {
+    path: '',
+    redirectTo: 'tabs/structure',
+    pathMatch: 'full'
   }
 ];
 
@@ -43,4 +48,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class StructurePageRoutingModule {}
+export class StructurePageRoutingModule { }

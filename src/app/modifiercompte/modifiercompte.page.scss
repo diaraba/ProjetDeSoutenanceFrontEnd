@@ -15,6 +15,12 @@
         display: flex;
         justify-content: center;
   }
+
+  
+  .position{
+    width: 100px;
+    height: 100px;
+  }
   // ion-item{
   //   border-bottom: 1px solid red;
   // }
@@ -47,6 +53,7 @@
      margin-top: 56px;
     // padding: 20px;
     background: #FFFFFF;
+    padding-bottom: 100px;
     
  }
  .ion-content{

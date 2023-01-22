@@ -76,8 +76,8 @@
 } 
 .position-fixed{
     //border: solid black 2px;
-    height: 280px !important;
-    z-index: 1;
+    height: 216px !important;
+    z-index: 6;
     background-color: white;
 }
 
@@ -86,23 +86,8 @@
     margin-left: 0px;
    
 }
-.forminput{
-    width: 90%;
-    height: 10%;
-    position: relative;
-    bottom: 200px;
-    background: gray!important;
-    
-}
 
-.forminput1{
-    width: 90%;
-    height: 10%;
-    position: relative;
-    bottom: 170px;
-    background: gray!important;
-    
-}
+
 ion-content{
     background: #fff;
 }
@@ -124,7 +109,7 @@ ion-content{
 
 //STYLE APPLIQUER AU FORMULAIRE
 .content1{
-   margin-top: 100%;
+   margin-top: 216px;
     
 }
 .content-item{
@@ -151,4 +136,13 @@ ion-content{
   }
   .choice{
       border: 1px solid #C8FCEA;
+  }
+  .classion-label{
+      font-size: 12px;
+  }
+  label{
+      font-size: 12px;
+  }
+  .select{
+     
   }
