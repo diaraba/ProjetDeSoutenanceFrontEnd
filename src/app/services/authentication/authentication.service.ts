@@ -45,4 +45,12 @@ export class AuthenticationService {
       httpOptions
     );
   }
+
+  logout(): Observable<any> {
+    // return this.http.post(
+    //   AUTH_API + 'logout',{},httpOptions
+    //   );
+    const req = new HttpRequest('POST', AUTH_API + 'signout', {}, httpOptions);
+    return this.http.request(req);
+  }
 }

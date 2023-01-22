@@ -53,7 +53,7 @@
             <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnement" >Abonnements</ion-item>
             <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnee">Abonnées</ion-item>
             <ion-item [button]="true" [detail]="false" routerLink="/tabs/profile">Profile</ion-item>
-            <ion-item [button]="true" [detail]="false">Déconnexion</ion-item>
+            <ion-item [button]="true" [detail]="false" (click)="logout()">Déconnexion</ion-item>
             <!-- <ion-item [button]="true" id="nested-trigger">More options...</ion-item> -->
     
             <!-- <ion-popover trigger="nested-trigger" [dismissOnSelect]="true" side="end">
