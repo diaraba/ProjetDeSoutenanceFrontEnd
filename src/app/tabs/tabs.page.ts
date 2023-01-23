@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
 import { NotificationComponent } from '../notification/notification.component';
 import { AuthenticationService } from '../services/authentication/authentication.service';
@@ -11,7 +12,7 @@ import { StorageServicesService } from '../services/storageService/storage-servi
 })
 export class TabsPage implements OnInit {
 
-  constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService) { }
+  constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService,private route:Router) { }
   async openNotif(){
     const popup= await this.popNotif.create({
       component:NotificationComponent,
@@ -30,7 +31,11 @@ export class TabsPage implements OnInit {
         console.log(res);
         this.storageService.clean();
 
-        window.location.reload();
+        this.route.navigate(['/tabs/accueil']).then(()=>{
+          setTimeout(() => {
+            location.reload();
+          }, 100);
+        });
       },
       error: err => {
         console.log(err);

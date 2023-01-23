@@ -22,7 +22,7 @@ export class StorageServicesService {
     if (user) {
       return JSON.parse(user);
     }
-
+    
     return {};
   }
 

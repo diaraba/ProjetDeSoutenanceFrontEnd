@@ -181,9 +181,9 @@
 
         <!-- SECTION SI T'ES PAS CONNECTER -->
 
-        <div class="container">
-          <div class="containerbutton">
-            <ion-button>
+        <div class="container" >
+          <div class="containerbutton"  *ngIf="!isLoggedIn">
+            <ion-button routerLink="/connexion">
               <p>Se connecter</p>
             </ion-button>
             <p>Veuiller vous connecter pour profiter des fonctionnalités de <strong>Cogoya So</strong></p>
@@ -192,7 +192,7 @@
 
 
         <!-- SECTION UNE FOIS CONNECTER -->
-        <!-- <div class="container">
+        <div class="container"  *ngIf="isLoggedIn">
 
 
           <div class="structurepublique">
@@ -281,7 +281,7 @@
 
 
 
-        </div> -->
+        </div>
       </div>
     </ion-list>
 
@@ -384,7 +384,7 @@
 
         <div class="imageprofile">
           <ion-avatar class="position">
-            <img alt="Silhouette of a person's head" src="../../assets/photocopieur-pro-entreprise.jpg" />
+            <img alt="Silhouette of a person's head" src="../../assets/{{profiles.image}}" />
           </ion-avatar>
         </div>
         <div class="row info" style="margin-top: 20px;">
@@ -418,27 +418,37 @@
           <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
             <div class="champ">
               <span class="champtitle">Nom </span> <br>
-              <b class="champcontent"> Diarra Diarraba</b>
+              <b class="champcontent"> {{profiles.nom}} </b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Prénom </span> <br>
+              <b class="champcontent">{{profiles.prenom}}</b>
             </div>
 
             <div class="champ">
               <span class="champtitle">Email </span> <br>
-              <b class="champcontent"> diarra@gmail.com</b>
+              <b class="champcontent"> {{profiles.utilisateurs.email}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Numéro </span> <br>
-              <b class="champcontent"> 76767676</b>
+              <span class="champtitle">Numéro</span> <br>
+              <b class="champcontent"> {{profiles.numero}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Nom </span> <br>
-              <b class="champcontent"> Diarra Diarraba</b>
+              <span class="champtitle">Genre</span> <br>
+              <b class="champcontent"> {{profiles.genre}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Nom </span> <br>
-              <b class="champcontent"> Diarra Diarraba</b>
+              <span class="champtitle">Preference :</span> <br>
+              <b class="champcontent"> Formation, Agriculture, Teinture</b>
+            </div>
+
+            <div class="champ">
+              <span class="champtitle">Situation :</span> <br>
+              <b class="champcontent">{{profiles.situation}}</b>
             </div>
           </div>
         </div>

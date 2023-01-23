@@ -45,9 +45,18 @@ export class ConnexionPage implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
         // this.reloadPage();
-        if(this.isLoggedIn == true){
-          this.route.navigateByUrl("/tabs/accueil");
-        }
+        // if(this.isLoggedIn == true){
+        //   this.route.navigateByUrl("/tabs/accueil");
+        // }
+        
+     
+          // Refresh the current page
+          // this.route.navigate(['/tabs/accueil'], {skipLocationChange: true});
+          this.route.navigate(['/tabs/accueil']).then(()=>{
+            setTimeout(() => {
+              location.reload();
+            }, 1);
+          });
       },
       error: err => {
         this.errorMessage = err.error.message;

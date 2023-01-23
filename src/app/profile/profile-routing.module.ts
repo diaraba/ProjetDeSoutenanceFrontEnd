@@ -8,6 +8,11 @@ const routes: Routes = [
     path: 'tabs/profile',
     component: ProfilePage,
   },
+  {
+    path:'',
+    redirectTo:'tabs/profile',
+    pathMatch:'full'
+  },
 
   {
     path: 'modifierprofil',

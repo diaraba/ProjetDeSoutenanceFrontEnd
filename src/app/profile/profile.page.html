@@ -36,37 +36,37 @@
       <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
         <div class="champ">
           <span class="champtitle">Nom </span> <br>
-          <b class="champcontent"> Diarra </b>
+          <b class="champcontent"> {{profiles.nom}} </b>
         </div>
 
         <div class="champ">
-          <span class="champtitle">Prénom </span> <br>
-          <b class="champcontent">Diarraba Idrissa</b>
+          <span class="champtitle">Activités </span> <br>
+          <b class="champcontent">{{profiles.activite}}</b>
         </div>
 
         <div class="champ">
           <span class="champtitle">Email </span> <br>
-          <b class="champcontent"> diarra@gmail.com</b>
+          <b class="champcontent"> {{profiles.structure.email}}</b>
         </div>
 
         <div class="champ">
           <span class="champtitle">Numéro</span> <br>
-          <b class="champcontent"> 76767676</b>
+          <b class="champcontent">{{profiles.numero}}</b>
         </div>
 
         <div class="champ">
-          <span class="champtitle">Genre</span> <br>
-          <b class="champcontent"> Homme</b>
+          <span class="champtitle">Slogan</span> <br>
+          <b class="champcontent"> {{profiles.slogan}}</b>
         </div>
 
         <div class="champ">
-          <span class="champtitle">Preference :</span> <br>
-          <b class="champcontent"> Formation, Agriculture, Teinture</b>
+          <span class="champtitle">Statut</span> <br>
+          <b class="champcontent"> {{profiles.structure.statuts[0]}}</b>
         </div>
 
-        <div class="champ">
-          <span class="champtitle">Situation :</span> <br>
-          <b class="champcontent">Chercheur d'emploi</b>
+        <div class="champ1">
+          <span class="champtitle">Description</span> <br>
+          <p class="champcontent1">{{profiles.description}}</p>
         </div>
       </div>
     </div>
