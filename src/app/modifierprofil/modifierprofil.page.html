@@ -1,6 +1,6 @@
 <ion-content>
   <div class="annonce">
-  
+
     <div class="imageprofile mx-auto  py-3">
       <!-- <img class="img" src="../../assets/photocopieur-pro-entreprise.jpg" alt=""> -->
 
@@ -11,7 +11,7 @@
     </div>
     <div class="row info" style="margin-top: 40px;">
       <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
-        <b>Diarraba Diarra</b>    
+        <b>Diarraba Diarra</b>
       </div>
       <!-- <div class="edit">
   
@@ -38,63 +38,67 @@
         </ion-button> 
       </div> -->
       <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
-      
-  
-  
+
+
+
         <div class="content1">
           <div class="content-item">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Nom </label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" ">
-            </div>
-  
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Prénom</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" ">
-            </div>
-  
-            
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Numéro</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" ">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Genre</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            
-      
-      
-            <!-- <div class="mb-3">
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nom </label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.nom}} "  name="nom" [(ngModel)]="form.nom"  #nom="ngModel">
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1"
+                  placeholder="{{profiles.prenom}} " name="form.prenom" [(ngModel)]="form.prenom"  #form.prenom="ngModel">
+              </div>
+
+
+              <!-- <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{content.email}}"  name="email" [(ngModel)]="form.email" #form.email="ngModel">
+              </div> -->
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Numéro</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1"
+                  placeholder=" {{profiles.numero}}"  name="numero" [(ngModel)]="form.numero">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}"  name="genre" [(ngModel)]="form.genre" #form.genre="ngModel">
+              </div>
+
+
+
+              <!-- <div class="mb-3">
               <label for="exampleFormControlInput1">Préférences</label>
               <select id="exampleFormControlInput1" name="choice" class="select">
                 <option value="first">Teinture</option>
                 <option value="second" selected>Formation</option>
               </select>
             </div> -->
-  
-  
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Situation</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" ">
-            </div>
-  
-  
-            
-      
-            <div class="choice">
-              <legend>Préférences :</legend>
-          
-              <div>
-                <input type="checkbox" id="scales" name="scales" checked>
-                <label for="scales">Teinture</label>
+
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Situation</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1"
+                  placeholder="{{profiles.situation }} "  name="situation" [(ngModel)]="form.situation" #form.situation="ngModel">
               </div>
-          
-              <div>
+
+
+
+
+              <div class="choice">
+                <legend>Préférences :</legend>
+
+                <div *ngFor="let activite of interests">
+                  <input type="checkbox" id="scales" name="scales" (click)="onInterestSelected(activite)">
+                  <label for="scales">{{activite.nom}}</label>
+                </div>
+
+                <!-- <div>
                 <input type="checkbox" id="horns" name="horns">
                 <label for="horns">Formation</label>
               </div>
@@ -115,22 +119,23 @@
               <div>
                 <input  type="checkbox" id="horns" name="horns">
                 <label for="horns">Formation</label>
+              </div> -->
               </div>
-            </div>
-           
-      
-            <div class="containerbutton">
-              <ion-button type="submit">
-                <p>Envoyer</p>
-              </ion-button>
-            </div>
+
+
+              <div class="containerbutton">
+                <ion-button type="submit">
+                  <p>Envoyer</p>
+                </ion-button>
+              </div>
+            </form>
           </div>
         </div>
-  
-  
+
+
       </div>
     </div>
-  
+
   </div>
-  
-  </ion-content>
+
+</ion-content>

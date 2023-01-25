@@ -445,10 +445,10 @@
               <span class="champtitle">Genre</span> <br>
               <b class="champcontent"> {{profiles.genre}}</b>
             </div>
-
-            <div class="champ">
+                    
+            <div class="champpreference">
               <span class="champtitle">Preference :</span> <br>
-              <b class="champcontent"> Formation, Agriculture, Teinture</b>
+              <b class="champcontent"  *ngFor="let activite of content.activitesU">{{activite.nom}}</b>
             </div>
 
             <div class="champ">

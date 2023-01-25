@@ -20,6 +20,7 @@ export class ProfilePage implements OnInit {
       this.id_structure = this.storageService.getUser().id;
       this.profile.afficherprofil(this.id_structure).subscribe(data => {
         this.profiles = data
+        
         console.log(this.profiles);
       })
    

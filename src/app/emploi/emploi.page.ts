@@ -13,6 +13,7 @@ export class EmploiPage implements OnInit {
   profiles: any;
   roles:any;
   role:any;
+  content:any;
   isLoggedIn=false;
   constructor(private profile: ProfilService, private storageService: StorageServicesService) { }
 
@@ -22,6 +23,7 @@ export class EmploiPage implements OnInit {
     console.log(this.roles);
     this.profile.afficherprofilutilisateur(this.id_structure).subscribe(data => {
       this.profiles = data
+      this.content=this.profiles.utilisateurs
       console.log(this.profiles);
     })
     

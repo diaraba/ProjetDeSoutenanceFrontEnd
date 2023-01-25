@@ -7,20 +7,46 @@
     
 }
 
+// .logo {
+//     position: relative;
+//      bottom: 190px;
+//     left: 200px;
+//     z-index:10;
+// }
+// .logo svg{
+//     position: relative;
+//     bottom: 10px;
+// }
+
 .logo {
     position: relative;
-     bottom: 190px;
-    left: 200px;
-    z-index:10;
+    //  bottom: 190px;
+    // left: 200px;
+
+    bottom: 233px;
+    left: 306px;
+    z-index:3;
 }
 .logo svg{
     position: relative;
     bottom: 10px;
 }
+// .right{
+//     z-index:2;
+//     height: 220px;
+//     width: 320px;
+//     background: #C8FCEA;
+//     border-radius: 200px;
+//     border-top-right-radius: 0px;
+//     border-top-left-radius: 0px;
+//     position: relative;
+//     left: -80px;
+//     top: 0px;
+// }
 .right{
     z-index:2;
-    height: 220px;
-    width: 320px;
+    height: 252px;
+    width: 355px;
     background: #C8FCEA;
     border-radius: 200px;
     border-top-right-radius: 0px;
@@ -35,19 +61,43 @@
     top: 75px;
 }
 
+// .left{
+//     z-index:2;
+//     background: #6A9A8B;
+//     position: relative;
+//     left: 50px;
+//     float: right;
+//     height: 210px;
+//     width: 210px;
+//     bottom: 150px;
+//     border-radius: 200px;
+//     bottom: 230px;
+// }
+
 .left{
     z-index:2;
     background: #6A9A8B;
     position: relative;
-    left: 50px;
+    // left: 50px;
+    // float: right;
+    // height: 210px;
+    // width: 210px;
+    left: 119px;
     float: right;
-    height: 210px;
-    width: 210px;
+    height: 241px;
+    width: 260px;
     bottom: 150px;
     border-radius: 200px;
-    bottom: 230px;
+    bottom: 271px;
 }
 
+// .bottom{
+//     height: 40px;
+//     background: #C8FCEA;
+//     position:relative;
+//     // margin-top: 320px;
+    
+// }
 .bottom{
     height: 40px;
     background: #C8FCEA;
@@ -91,25 +141,40 @@
 ion-content{
     background: #fff;
 }
+// .containerbutton ion-button{
+//     position: relative;
+//     left: 20%;
+//     right: 20%;
+//     border-radius: 5px;
+//     height: 30px;
+//     width: 200px;
+//     margin-bottom: 10px;
+//     margin-top: 30px;
+// }
+// .containerbutton ion-button p{
+//    position: relative;
+//    top: 9px;
+// }
+
 .containerbutton ion-button{
     position: relative;
     border-radius: 5px;
     height: 30px;
-    right:-70px;
-   margin-bottom: 10px;
-   margin-top: 30px;
+    left: 25%;
+    bottom: 0px;
 }
 .containerbutton ion-button p{
    position: relative;
    top: 9px;
 }
+
 .containerbutton ion-button p:hover{
     cursor: pointer;
 }
 
 //STYLE APPLIQUER AU FORMULAIRE
 .content1{
-   margin-top: 216px;
+   margin-top: 260px;
     
 }
 .content-item{

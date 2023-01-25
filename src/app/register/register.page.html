@@ -75,7 +75,7 @@
 
     </div>
 
-   
+
   </div>
   <div class="content1">
 
@@ -84,18 +84,19 @@
         <div class="mb-3 form-group">
           <label for="nomutilisateur" class="form-label">Nom utilisateur</label>
           <input type="text" class="form-control" name="nomutilisateur" [(ngModel)]="form.nomutilisateur"
-            placeholder=" " required minlength="3" maxlength="20" #nomutilisateur="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nomutilisateur.errors }">
+            placeholder=" " required minlength="3" maxlength="20" #nomutilisateur="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && nomutilisateur.errors }">
 
 
-            <div class="invalid-feedback" *ngIf="nomutilisateur.errors && f.submitted">
-              <div *ngIf="nomutilisateur.errors['required']">Nom utilisateur is required</div>
-              <div *ngIf="nomutilisateur.errors['minlength']">
-                Nom utilisateur must be at least 3 characters
-              </div>
-              <div *ngIf="nomutilisateur.errors['maxlength']">
-                Nom utilisateur must be at most 20 characters
-              </div>
+          <div class="invalid-feedback" *ngIf="nomutilisateur.errors && f.submitted">
+            <div *ngIf="nomutilisateur.errors['required']">Nom utilisateur is required</div>
+            <div *ngIf="nomutilisateur.errors['minlength']">
+              Nom utilisateur must be at least 3 characters
             </div>
+            <div *ngIf="nomutilisateur.errors['maxlength']">
+              Nom utilisateur must be at most 20 characters
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
@@ -114,22 +115,39 @@
         <div class="choice">
           <!-- <legend>Préférences :</legend> -->
 
-          
-            <ion-item class="form-label">
-              <ion-label>Préférences:</ion-label>
-            </ion-item>
-            <ion-item *ngFor="let interest of interests" class="form-label">
-              <ion-label class="classion-label">{{interest.nom}}</ion-label>
-              <ion-checkbox (click)="onInterestSelected(interest)"></ion-checkbox>
-            </ion-item>
-        
+
+          <ion-item class="form-label">
+            <ion-label>Préférences:</ion-label>
+          </ion-item>
+          <ion-item *ngFor="let interest of interests" class="form-label">
+            <ion-label class="classion-label">{{interest.nom}}</ion-label>
+            <ion-checkbox (click)="onInterestSelected(interest)"></ion-checkbox>
+          </ion-item>
+
+
+        </div>
+
+        <div class="choice mt-4">
+          <!-- <legend>Préférences :</legend> -->
+          <ion-item>
+            <ion-select interface="popover" placeholder="Objectif professionel" [(ngModel)]="role" name="selectedValue">
+              <ion-select-option value="emploi">Chercheur d'emploi</ion-select-option>
+              <ion-select-option value="projet">Porteur de projet</ion-select-option>
+            </ion-select>
+            <!-- <ion-select>
+                <ion-select-option *ngFor="let option of options" [value]="option.value">{{ option.text }}
+                </ion-select-option>
+              </ion-select> -->
+
+          </ion-item>
 
         </div>
 
 
         <div class="containerbutton ">
+
           <ion-button type="submit">
-            <p>Connexion</p>
+            <p>INSCRIPTION</p>
           </ion-button>
         </div>
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

@@ -27,15 +27,22 @@
 
         <div class="content1">
           <div class="content-item">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Nom d'utilisateur</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" " value="jedneoknlczeiocnzocn">
-            </div>
-            <div class="containerbutton">
-              <ion-button type="submit">
-                <p>Envoyer</p>
-              </ion-button>
-            </div>
+            <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nom d'utilisateur</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{utilisateurs.nomutilisateur}}" value="" name="nomutilisateur" [(ngModel)]="form.nomutilisateur"  #nomutilisateur="ngModel">
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{utilisateurs.email}}"  name="email" [(ngModel)]="form.email"  #email="ngModel">
+              </div>
+              <div class="containerbutton">
+                <ion-button type="submit">
+                  <p>Envoyer</p>
+                </ion-button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

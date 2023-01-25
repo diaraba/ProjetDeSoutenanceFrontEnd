@@ -15,6 +15,7 @@ export class ProjetPage implements OnInit {
   isLoginFailed = false;
   role:any;
   roles:any;
+  content:any;
   constructor(private profile: ProfilService, private storageService: StorageServicesService) { }
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class ProjetPage implements OnInit {
     console.log(this.roles);
     this.profile.afficherprofilutilisateur(this.id_structure).subscribe(data => {
       this.profiles = data
+      this.content=this.profiles.utilisateurs
       console.log(this.profiles);
     })
     

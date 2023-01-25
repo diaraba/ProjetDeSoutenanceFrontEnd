@@ -10,6 +10,13 @@
     margin-right: auto;
     text-align: center;
   }
+  label{
+      font-size: 10px;
+  }
+  input{
+      font-size: 10px;
+      border: 1px solid #6A9A8B;
+  }
 
   .imageprofile{
         display: flex;
@@ -21,6 +28,7 @@
   .position{
     width: 100px;
         height: 100px;
+        border: 3px solid #6A9A8B;
   }
   // ion-item{
   //   border-bottom: 1px solid red;
@@ -51,7 +59,7 @@
 
  .annonce{
      margin-top: 48px;
-    // padding: 20px;
+     padding: 5px;
     background: #FFFFFF;
     
  }

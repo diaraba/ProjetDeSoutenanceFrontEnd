@@ -14,6 +14,8 @@ export class RegisterPage implements OnInit {
     email: null,
     password: null,
   };
+  role:any;
+  roles: any = [];
   public interests: any = [];
   public activites: any[] = [];
 
@@ -25,11 +27,12 @@ export class RegisterPage implements OnInit {
   constructor(private pref: PreferenceService, private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.pref.getAllPref().subscribe(data =>{
+    this.pref.getAllPref().subscribe(data => {
       this.interests = data
       console.log(this.interests);
- 
-  })
+      console.log(this.role);
+
+    })
   }
 
 
@@ -37,7 +40,7 @@ export class RegisterPage implements OnInit {
   onInterestSelected(interest: any) {
     if (!this.activites.includes(interest)) {
       this.activites.push(interest);
-    } else {
+    }  else {
       this.activites.splice(this.activites.indexOf(interest), 1);
     }
     console.log(this.activites);
@@ -45,15 +48,17 @@ export class RegisterPage implements OnInit {
 
   onSubmit(): void {
     const { nomutilisateur, email, password } = this.form;
-    
+
     // console.log(nomutilisateur);
     // console.log(password);
-    console.log(this.activites);
+    console.log(this.role);
+    this.roles.push(this.role);
+    console.log(this.roles);
     // console.log(email);
     // alert(this.form.password);
     // alert(this.form.nomutilisateur);
     // alert(this.form.email);
-    this.authService.register(nomutilisateur, email, password, this.activites).subscribe({
+    this.authService.register(nomutilisateur, email, password, this.activites, this.roles).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;
@@ -67,7 +72,7 @@ export class RegisterPage implements OnInit {
   }
 
 
-  
+
 
 }
 
