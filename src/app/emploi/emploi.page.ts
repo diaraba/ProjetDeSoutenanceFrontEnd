@@ -14,6 +14,7 @@ export class EmploiPage implements OnInit {
   roles:any;
   role:any;
   content:any;
+  showEmploi=false;
   isLoggedIn=false;
   constructor(private profile: ProfilService, private storageService: StorageServicesService) { }
 
@@ -27,14 +28,14 @@ export class EmploiPage implements OnInit {
       console.log(this.profiles);
     })
     
-    for(this.role of this.roles){
-      console.log(this.role);
-    }
+    // for(this.role of this.roles){
+    //   console.log(this.role);
+    // }
     // if(this.storageService.isLoggedIn()&& ){
     //   this.isLoggedIn = true;
     // }
-    if(this.role=="ROLE_USER"){
-      this.isLoggedIn=true
+    if(this.roles[0]=="ROLE_EMPLOI"){
+      this.showEmploi=true;
     }
   }
 

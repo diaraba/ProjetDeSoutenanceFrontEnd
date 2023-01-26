@@ -26,15 +26,16 @@
             src="../../assets/photocopieur-pro-entreprise.jpg" />
         </div>
         <div class="maintext1">
-          <h5>API</h5>
-          <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome/profile"><span>Voir profil</span>
+          <h5>{{structurparid.alias}}</h5>
+          <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome/{{id}}/profile"><span>Voir profil</span>
           </ion-button>
         </div>
         <p class="maintext">
-          The rhinoceros gets its name from one of its most notable features: its horns.
+          {{profiles.description}}
+          <!-- The rhinoceros gets its name from one of its most notable features: its horns.
           The word rhinoceros come from the Greek words rhino meaning “nose” and ceros meaning “horn.”
           The number of horns that a rhino has varies on the species.
-          The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns,
+          The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns, -->
         </p>
 
         <div>
@@ -42,8 +43,8 @@
             <h2 class="subtitle">
               Activités:
             </h2>
-            <p class="subtitleContent">
-              Industries, formation
+            <p class="subtitleContent" *ngFor="let activite of structurparid.activites">
+              {{activite.nom}}
             </p>
           </div>
           <div class="subtitle2">
@@ -51,17 +52,22 @@
               Slogan:
             </h2>
             <p class="subtitleContent1">
-              Accompagnement, création
+              {{profiles.slogan}}
             </p>
           </div>
 
           <div class="location">
-            Situé au Mali-Bamako-Hamdallaye ACI 2000
+            {{profiles.localisation}}
           </div>
         </div>
       </ion-card>
     </ion-list>
 
+
+
+
+
+    
     <ion-list *ngSwitchCase="'Appui'" class="mb-5">
       <div class="avis">
         <div class="avisfinancement">
@@ -70,7 +76,7 @@
               Avis financement
             </p>
           </div>
-          <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
+          <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;" *ngFor="let avis of avisFinancement">
             <div class="row g-0">
               <div class="col-4">
                 <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
@@ -79,9 +85,9 @@
               <div class="col-8 justify-content-center">
                 <div class="card-body divposition" style="font-size: 10px;">
                   <div class="row">
-                    <div class="col-9">Card title</div>
-                    <div class="col-3">
-                      <a href="/tabs/structure/structurehome/avis-details"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
+                    <div class="col-9">{{avis.titre}}</div>
+                    <div class="col-3"  routerLinkActive="active">
+                      <a [routerLink]="['/tabs/structure/structurehome/'+id+'/avis-details', avis.id]"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
                     </div>
                   </div>
                 </div>
@@ -89,28 +95,7 @@
             </div>
           </div>
 
-          <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
-            <div class="row g-0">
-              <div class="col-4">
-                <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
-                  alt="...">
-              </div>
-              <div class="col-8 justify-content-center">
-                <div class="card-body divposition" style="font-size: 10px;">
-                  <div class="row">
-                    <div class="col-9">Card title</div>
-                    <div class="col-3">
-                      <a href="/tabs/avis-details"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
+          <!-- <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
             <div class="row g-0">
               <div class="col-4">
                 <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
@@ -132,6 +117,27 @@
 
 
           <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
+            <div class="row g-0">
+              <div class="col-4">
+                <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
+                  alt="...">
+              </div>
+              <div class="col-8 justify-content-center">
+                <div class="card-body divposition" style="font-size: 10px;">
+                  <div class="row">
+                    <div class="col-9">Card title</div>
+                    <div class="col-3">
+                      <a href="/tabs/avis-details"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+
+          <!-- <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
             <div class="row g-0">
               <div class="col-4">
                 <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
@@ -148,7 +154,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
 
@@ -177,7 +183,7 @@
             </div>
           </div>
 
-          <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
+          <!-- <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;">
             <div class="row g-0">
               <div class="col-4">
                 <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
@@ -236,7 +242,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
       </div>
@@ -271,7 +277,26 @@
             Annonces
           </p>
         </div>
-        <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
+        <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;" *ngFor="let annonce of annonces">
+          <div class="row g-0">
+            <div class="col-4">
+              <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
+                alt="...">
+            </div>
+            <div class="col-8 justify-content-center">
+              <div class="card-body divposition" style="font-size: 10px;">
+                <div class="row">
+                  <div class="col-9">{{annonce.titre}}</div>
+                  <div class="col-3">
+                    <a [routerLink]="['/tabs/structure/structurehome/'+id+'/annonce-detailsa', annonce.id]"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
           <div class="row g-0">
             <div class="col-4">
               <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
@@ -289,45 +314,6 @@
             </div>
           </div>
         </div>
-
-        <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
-                alt="...">
-            </div>
-            <div class="col-8 justify-content-center">
-              <div class="card-body divposition" style="font-size: 10px;">
-                <div class="row">
-                  <div class="col-9">Card title</div>
-                  <div class="col-3">
-                    <a href="/tabs/annonce-detailsa"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
-          <div class="row g-0">
-            <div class="col-4">
-              <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
-                alt="...">
-            </div>
-            <div class="col-8 justify-content-center">
-              <div class="card-body divposition" style="font-size: 10px;">
-                <div class="row">
-                  <div class="col-9">Card title</div>
-                  <div class="col-3">
-                    <a href="/tabs/annonce-detailsa"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
 
         <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
           <div class="row g-0">
@@ -366,7 +352,27 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+
+        <!-- <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;">
+          <div class="row g-0">
+            <div class="col-4">
+              <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
+                alt="...">
+            </div>
+            <div class="col-8 justify-content-center">
+              <div class="card-body divposition" style="font-size: 10px;">
+                <div class="row">
+                  <div class="col-9">Card title</div>
+                  <div class="col-3">
+                    <a href="/tabs/annonce-detailsa"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
 
 

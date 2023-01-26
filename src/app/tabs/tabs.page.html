@@ -97,7 +97,7 @@
       <ion-label>Structure</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="emploi">
+    <ion-tab-button tab="emploi" *ngIf="showEmploi">
       <!-- <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect x="0.5" y="0.5" width="30" height="30" fill="url(#pattern0)"/>
         <defs>
@@ -111,7 +111,7 @@
       <ion-label>Emploi</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="projet">
+    <ion-tab-button tab="projet" *ngIf="showProjet">
       <ion-icon name="create-outline"></ion-icon> 
      <ion-label>Projet</ion-label>
     </ion-tab-button>

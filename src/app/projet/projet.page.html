@@ -182,7 +182,7 @@
         <!-- SECTION SI T'ES PAS CONNECTER -->
 
         <div class="container" >
-          <div class="containerbutton"  *ngIf="!isLoggedIn">
+          <div class="containerbutton"  *ngIf="!showProjet">
             <ion-button routerLink="/connexion">
               <p>Se connecter</p>
             </ion-button>
@@ -192,7 +192,7 @@
 
 
         <!-- SECTION UNE FOIS CONNECTER -->
-        <div class="container"  *ngIf="isLoggedIn">
+        <div class="container"  *ngIf="showProjet">
 
 
           <div class="structurepublique">

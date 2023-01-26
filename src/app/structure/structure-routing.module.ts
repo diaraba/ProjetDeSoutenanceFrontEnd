@@ -9,7 +9,7 @@ const routes: Routes = [
     component: StructurePage
   },
   {
-    path: 'structurehome',
+    path: 'structurehome/:id',
     loadChildren: () => import('../structurehome/structurehome.module').then(m => m.StructurehomePageModule)
   },
   //  children:[

@@ -25,7 +25,7 @@ const routes: Routes = [
         loadChildren: () => import('../projet/projet.module').then( m => m.ProjetPageModule)
       },
       {
-        path: 'structurehome',
+        path: 'structurehome/:id',
         loadChildren: () => import('../structurehome/structurehome.module').then( m => m.StructurehomePageModule)
       },
       {

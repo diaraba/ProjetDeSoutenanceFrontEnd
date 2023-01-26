@@ -11,7 +11,10 @@ import { StorageServicesService } from '../services/storageService/storage-servi
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-
+  showProjet = false;  
+  showEmploi=false;
+  isLoggedIn = false;
+  roles:any;
   constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService,private route:Router) { }
   async openNotif(){
     const popup= await this.popNotif.create({
@@ -21,10 +24,27 @@ export class TabsPage implements OnInit {
    
   }
   ngOnInit() {
+    this.roles=this.storageService.getUser().roles;
+    console.log(this.roles);
+    //   if (this.storageService.isLoggedIn()) {
+    //   this.isLoggedIn = true;
+    //   this.roles = this.storageService.getUser().roles;
+    // }
+    if(this.roles == undefined){
+      this.showProjet = true;
+      this.showEmploi=true;
+    }
+    else if (this.roles[0] == "ROLE_PROJET") {
+      this.showProjet = true;
+    }
+    else{ 
+      this.showEmploi=true;
+    }
   }
   back(): void {
     window.history.back()
   }
+ 
   logout(): void {
     this.authService.logout().subscribe({
       next: res => {

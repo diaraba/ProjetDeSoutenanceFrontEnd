@@ -386,8 +386,8 @@
               <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
             </div>
           </div>
-          <ion-card-content>
-            <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome"><span>Voir
+          <ion-card-content routerLinkActive="active">
+            <ion-button class="voirdetails" fill="outline"  [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
                 détails</span>
             </ion-button>
           </ion-card-content>
@@ -494,7 +494,7 @@
             </div>
           </div>
           <ion-card-content>
-            <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome"><span>Voir
+            <ion-button class="voirdetails" fill="outline" (click)="goToStructurehome(structures.id)"><span>Voir
                 détails</span>
             </ion-button>
           </ion-card-content>

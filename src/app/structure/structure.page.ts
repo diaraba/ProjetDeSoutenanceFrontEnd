@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StructureService } from '../services/structure/structure.service';
 
 @Component({
@@ -9,11 +10,13 @@ import { StructureService } from '../services/structure/structure.service';
 export class StructurePage implements OnInit {
   structures:any;
   content:any=[]
+  id:any;
 
-  constructor(private structure: StructureService) { }
+  constructor(private structure: StructureService, private router :Router) { }
 
   ngOnInit() {
-
+    
+    console.log(this.id);
     setTimeout(()=>{
       this.structure.afficherstructure().subscribe(data => {
         this.structures = data
@@ -21,7 +24,14 @@ export class StructurePage implements OnInit {
         console.log(this.structures);
       })
     },1000)
+
+
     
   }
+  goToStructurehome(id:Number){
+    return this.router.navigate(['structurehome/', id])
+  }
+
+
 
 }

@@ -16,6 +16,7 @@ export class ProjetPage implements OnInit {
   role:any;
   roles:any;
   content:any;
+  showProjet = false;
   constructor(private profile: ProfilService, private storageService: StorageServicesService) { }
 
   ngOnInit() {
@@ -28,14 +29,14 @@ export class ProjetPage implements OnInit {
       console.log(this.profiles);
     })
     
-    for(this.role of this.roles){
-      console.log(this.role);
-    }
+    // for(this.role of this.roles){
+    //   console.log(this.role);
+    // }
     // if(this.storageService.isLoggedIn()&& ){
     //   this.isLoggedIn = true;
     // }
-    if(this.role=="ROLE_USER"){
-      this.isLoggedIn=true
+    if (this.roles[0] == "ROLE_PROJET") {
+      this.showProjet = true;
     }
   }
 

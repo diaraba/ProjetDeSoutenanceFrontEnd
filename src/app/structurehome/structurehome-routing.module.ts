@@ -9,8 +9,12 @@ const routes: Routes = [
     component: StructurehomePage
   },
   {
-    path: 'avis-details',
+    path: 'avis-details/:id',
     loadChildren: () => import('../avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
+  },
+  {
+    path: 'annonce-detailsa/:id',
+    loadChildren: () => import('../annonce-detailsa/annonce-detailsa.module').then( m => m.AnnonceDetailsaPageModule)
   },
   {
     path: 'profile',

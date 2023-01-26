@@ -18,6 +18,7 @@ export class ConnexionPage implements OnInit {
   id:any;
   errorMessage = '';
   roles: string[] = [];
+  showEmploi=false;
 
   constructor(private authService: AuthenticationService, private storageService:StorageServicesService,private route:Router) { }
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class ConnexionPage implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
+        console.log(this.roles[0]);
         // this.reloadPage();
         // if(this.isLoggedIn == true){
         //   this.route.navigateByUrl("/tabs/accueil");
@@ -52,6 +54,9 @@ export class ConnexionPage implements OnInit {
      
           // Refresh the current page
           // this.route.navigate(['/tabs/accueil'], {skipLocationChange: true});
+       if(this.roles[0]=="ROLE_EMPLOI"){
+         this.showEmploi=true;
+       }
           this.route.navigate(['/tabs/accueil']).then(()=>{
             setTimeout(() => {
               location.reload();

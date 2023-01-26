@@ -49,7 +49,7 @@ const routes: Routes = [
     loadChildren: () => import('./seminaireinfostructure/seminaireinfostructure.module').then( m => m.SeminaireinfostructurePageModule)
   },
   {
-    path: 'structurehome',
+    path: 'structurehome/:id',
     loadChildren: () => import('./structurehome/structurehome.module').then( m => m.StructurehomePageModule)
   },
   {
@@ -73,7 +73,7 @@ const routes: Routes = [
     
   },
   {
-    path: 'profile',
+    path: 'profile/:id',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
@@ -85,11 +85,11 @@ const routes: Routes = [
     loadChildren: () => import('./abonnee/abonnee.module').then( m => m.AbonneePageModule)
   },
   {
-    path: 'annonce-detailsa',
+    path: 'annonce-detailsa/:id',
     loadChildren: () => import('./annonce-detailsa/annonce-detailsa.module').then( m => m.AnnonceDetailsaPageModule)
   },
   {
-    path: 'avis-details',
+    path: 'avis-details/:id',
     loadChildren: () => import('./avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
   },
 ];
