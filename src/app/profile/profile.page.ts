@@ -21,18 +21,17 @@ export class ProfilePage implements OnInit {
   email: any;
   nom: any;
   activite: any;
-
+  showupdateprofile=false;
 
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.isLoggedIn = true;
+    this.isLoggedIn = false;
     // this.id_structure = this.storageService.getUser().id;
-    // this.roles = this.storageService.getUser().roles;
-    // console.log(this.roles);
+    this.roles = this.storageService.getUser().roles;
+    console.log(this.roles);
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
-
     this.profile.afficherprofil(this.id).subscribe(data => {
       this.profiles = data
       this.description = this.profiles.description
@@ -43,7 +42,27 @@ export class ProfilePage implements OnInit {
       this.email = this.profiles.structure.email
       this.nom = this.profiles.nom
 
+      if(this.roles[0] == "ROLE_STRUCTURE"){
+        this.showupdateprofile=true;
+      }
 
+      console.log(this.profiles);
+    })
+
+    this.id = this.storageService.getUser().id;
+    this.profile.afficherprofil(this.id).subscribe(data => {
+      this.profiles = data
+      this.description = this.profiles.description
+      this.status = this.profiles.structure.statuts[0]
+      this.numero = this.profiles.numero
+      this.slogan = this.profiles.slogan
+      this.activite = this.profiles.activite
+      this.email = this.profiles.structure.email
+      this.nom = this.profiles.nom
+
+      if(this.roles[0] == "ROLE_STRUCTURE"){
+        this.showupdateprofile=true;
+      }
 
       console.log(this.profiles);
     })

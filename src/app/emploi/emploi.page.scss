@@ -3,16 +3,16 @@
     // height: 20px;
     position: relative;
     top: 80px;
-    margin-left: 8%;
-    
     border-color: #6A9A8B!important;
     justify-items: center;
 }
 
 .voirdetails1 {
-    width: 80px;
+    width: 70px;
     height: 20px;
     position: relative;
+    margin-left: -10%;
+    // margin-right: auto;
     font-size: 8px;
     top: 12px;
     border-color: #6A9A8B !important;
@@ -21,8 +21,34 @@
     font-size: 8px;
 }
 
+
+
+.voirdetails2{
+    // width: 80px;
+    // height: 20px;
+    position: relative;
+    top: 80px;
+    border-color: #6A9A8B!important;
+    justify-items: center;
+}
+
+.voirdetails2 {
+    width: 70px;
+    height: 20px;
+    position: relative;
+    margin-left: -5%;
+    // margin-right: auto;
+    font-size: 8px;
+    top: 12px;
+    border-color: #6A9A8B !important;
+}
+.voirdetails2 span{
+    font-size: 8px;
+}
+
 .emplois{
     margin-top: 25px;
+    --height: 100%;
 }
 .containerbutton{
 
@@ -47,6 +73,8 @@
 .structureTop{
     position: relative;
     top:55px;
+    --height: 100%;
+    
 }
 ion-segment{
     background-color: white;
@@ -142,9 +170,7 @@ font-size: 12px;
     background: #F8F6FB;
 }
 .nonETprix{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    text-align: center;
     font-size: 8px;
     color: black;
 }
@@ -157,6 +183,21 @@ ion-card-title{
 // .prix p{
 
 // }
+.montant{
+    // display: inline-block;
+    // height: auto;
+    position: relative;
+    right: 40px;
+    top: 20px;
+    display: grid;
+    grid-template-columns: 1 2;
+    justify-items: start;
+}
+
+.prix {
+    float: left;
+    margin-left: 5px;
+    }
 
 .boutonpanier button{
    
@@ -171,6 +212,7 @@ ion-card-title{
     justify-content: center;
     position: relative;
     top: 0px;
+    
 }
 
 .publique{
@@ -234,14 +276,6 @@ ion-card-title{
 //     border-color: #6A9A8B !important;
 // }
 
-:root {
-    --ion-color-primary: #006600;
-    --ion-color-primary-rgb: 0, 102, 0;
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255, 255, 255;
-    --ion-color-primary-shade: #005a00;
-    --ion-color-primary-tint: #1a751a;
-  }
 
 
 
@@ -262,9 +296,10 @@ ion-card-title{
     background: #F8F6FB;
 }
 .nonETprix{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
+    text-align: center;
     font-size: 8px;
     color: black;
 }
@@ -403,9 +438,12 @@ ion-card-title{
      height: 35px; 
      background: #FFFFFF;
      justify-content: space-between;
-     position: relative;
+     position: relative; 
      bottom: 50px;
  }
  .edit ion-button{
      font-size: 8px;
+ }
+ ion-content{
+    background: #FFFFFF;
  }

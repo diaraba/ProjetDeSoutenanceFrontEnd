@@ -36,6 +36,8 @@ ion-icon {
 .structureTop{
     position: relative;
     top:55px;
+    height: 100%;
+    --background:#FFFFFF ;
 }
 ion-segment{
     background-color: white;
@@ -47,6 +49,10 @@ ion-segment-button{
 ion-label{
     font-size: 6pt;
     font-weight: 700;
+}
+ion-list{
+    --height: 100% !important;
+    --background:red;
 }
 
 //Section accueil de la structure conserner
@@ -203,4 +209,7 @@ ion-button {
     width: 50px;
     height: 50px;
     padding: 0px;
+}
+ion-content{
+    background:#FFFF;
 }

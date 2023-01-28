@@ -21,7 +21,7 @@ export class StructurePage implements OnInit {
       this.structure.afficherstructure().subscribe(data => {
         this.structures = data
         this.content=this.structures.content
-        console.log(this.structures);
+        console.log(this.structures.content[0].iduser);
       })
     },1000)
 

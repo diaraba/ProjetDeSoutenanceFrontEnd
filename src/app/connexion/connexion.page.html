@@ -116,6 +116,10 @@
         </div>
       </div>
     </form>
+    <div class="bottom">
+      <p>Vous n'avez pas de compte? <ion-button routerLink="/register" fill="clear">INSCRIPTION</ion-button>
+      </p>
+    </div>
 
     <div class="alert alert-success" *ngIf="isLoggedIn">
       Logged in as {{ roles }}.
@@ -124,9 +128,3 @@
   </div>
 
 </ion-content>
-<ion-footer>
-  <div class="bottom">
-    <p>Vous n'avez pas de compte? <ion-button routerLink="/register" fill="clear">INSCRIPTION</ion-button>
-    </p>
-  </div>
-</ion-footer>

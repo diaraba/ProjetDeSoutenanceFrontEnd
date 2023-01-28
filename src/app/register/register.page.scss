@@ -101,7 +101,12 @@
 .bottom{
     height: 40px;
     background: #C8FCEA;
-    position:relative;
+    width: 90%;
+    margin-bottom: 220px;
+    position: relative;
+    margin-left: 27px;
+    left: -2%;
+    bottom: -80px;
     // margin-top: 320px;
     
 }
@@ -160,8 +165,8 @@ ion-content{
     position: relative;
     border-radius: 5px;
     height: 30px;
-    left: 25%;
-    bottom: 0px;
+    left: 30%;
+    bottom: -40px;
 }
 .containerbutton ion-button p{
    position: relative;

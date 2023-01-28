@@ -18,8 +18,8 @@ export class ProfilService {
     return this.http.get(AUTH_API + `profilestructure/afficherprofil/${id_structure}`);
   }
 
-  afficherprofilutilisateur(id_structure:any):Observable<any>{
-    return this.http.get(AUTH_API + `profileutilisateurs/afficherprofile/${id_structure}`);
+  afficherprofilutilisateur(id_user:any):Observable<any>{
+    return this.http.get(AUTH_API + `profileutilisateurs/afficherprofile/${id_user}`);
   }
 
 

@@ -9,17 +9,17 @@
       <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
         <b>Diarraba Diarra</b>    
       </div>
-      <div class="edit">
+      <div class="edit mt-1" *ngIf="showupdateprofile">
   
-        <ion-buttons class="ionModif">
-          <ion-button routerLink="/tabs/structure/structurehome/profile/modifierprofil">
+        <ion-buttons class="ionModif ">
+          <ion-button routerLink="/tabs/structure/structurehome/{{id}}/profile/modifierprofil">
             <ion-icon name="create-outline" ></ion-icon>
             Modifier profil
           </ion-button>
         </ion-buttons>
         
         <ion-buttons class="ionModif">
-          <ion-button routerLink="/tabs/structure/structurehome/profile/modifiercompte">
+          <ion-button routerLink="/tabs/structure/structurehome/{{id}}/profile/modifiercompte">
             <ion-icon name="create-outline"></ion-icon>
             Modifier compte
           </ion-button>
@@ -33,7 +33,7 @@
           Modifier compte
         </ion-button> -->
       </div>
-      <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
+      <div class="information " style="color:black;margin-top: 40px;margin-bottom: 40px;">
         <div class="champ">
           <span class="champtitle">Nom </span> <br>
           <b class="champcontent"> {{nom}} </b>

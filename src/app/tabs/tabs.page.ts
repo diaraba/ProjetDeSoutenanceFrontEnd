@@ -15,6 +15,9 @@ export class TabsPage implements OnInit {
   showEmploi=false;
   isLoggedIn = false;
   roles:any;
+  showabonnement=false;
+  showabonne=false;
+  showall=false;
   constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService,private route:Router) { }
   async openNotif(){
     const popup= await this.popNotif.create({
@@ -39,6 +42,17 @@ export class TabsPage implements OnInit {
     }
     else{ 
       this.showEmploi=true;
+    }
+
+    if(this.roles == undefined){
+      this.showall=true
+    }
+    else if (this.roles[0] == "ROLE_PROJET" || this.roles[0] == "ROLE_EMPLOI") {
+      this.showabonnement = true;
+    }
+
+    else if (this.roles[0] == "ROLE_STRUCTURE") {
+      this.showabonne = true;
     }
   }
   back(): void {

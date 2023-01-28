@@ -202,6 +202,46 @@
             <p>Les differentes structures selon vos préférences</p>
           </div>
           <div class="produits">
+            <ion-card class="structurecard" *ngFor="let structure of structures; let i = index">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
+                </div>
+              </div>
+              <ion-card-content routerLinkActive="active">
+                <ion-button class="voirdetails1 " fill="outline"
+                  [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
+
+            <!-- <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
               <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
@@ -239,46 +279,7 @@
                     détails</span>
                 </ion-button>
               </ion-card-content>
-            </ion-card>
-
-            <ion-card class="structurecard">
-              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
-              <div class="nonETprix mt-3">
-                <div class="prix">
-
-                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
-                </div>
-                <div class="montant">
-                  <p>75000 Fcfa</p>
-                </div>
-              </div>
-              <ion-card-content>
-                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
-                    détails</span>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-
-
-            <ion-card class="structurecard">
-              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
-              <div class="nonETprix mt-3">
-                <div class="prix">
-
-                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
-                </div>
-                <div class="montant">
-                  <p>75000 Fcfa</p>
-                </div>
-              </div>
-              <ion-card-content>
-                <ion-button class="voirdetails1" fill="outline" routerLink="/tabs/structurehome"><span>Voir
-                    détails</span>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
+            </ion-card> -->
 
           </div>
 
@@ -290,13 +291,74 @@
     </ion-list>
     <!-- :::::::::::::::::::::::::::::::::::::::::::::::CLUB:::::::::::::::::::::::::::::::::::::::::::::::::::: -->
     <ion-list *ngSwitchCase="'Appui'" class="mb-5">
-      <div class="container1">
+      <div class="emplois">
+        <div class="structurepublique">
+          <p>Mes structures</p>
+        </div>
+        <div class="produits">
+          <ion-card class="structurecard" *ngFor="let structure1 of structuressuivi; let i = index ">
+            <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+            <ion-card-title class="mt-1">{{structure1.structure.alias}}</ion-card-title>
+            <div class="nonETprix mt-3">
+              <div class="prix">
 
-        <div class="publique">
-          <div class="structurepublique">
+                <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+              </div>
+              <div class="montant">
+                <p *ngFor="let activite of structure1.structure.activites">{{activite.nom}}</p>
+              </div>
+            </div>
+            <ion-card-content routerLinkActive="active">
+              <ion-button class="voirdetails2" fill="outline"
+                [routerLink]="['/tabs/structure/structurehome',structure1.structure.iduser]"><span>Voir
+                  détails</span>
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+
+          <!-- <div class="structurepublique">
             <p>Mes structures</p>
           </div>
-          <div class="produits">
+          <div class="produits" *ngFor="let structure1 of structuressuivi; let i = index ">
+            <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">{{structure1.structure.alias}}</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card> -->
+
+
+            <!-- <ion-card class="structurecard">
+              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <div class="nonETprix mt-3">
+                <div class="prix">
+
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                </div>
+                <div class="montant">
+                  <p>75000 Fcfa</p>
+                </div>
+              </div>
+              <ion-card-content>
+                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
+                    détails</span>
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
               <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
@@ -334,49 +396,10 @@
                     détails</span>
                 </ion-button>
               </ion-card-content>
-            </ion-card>
-
-            <ion-card class="structurecard">
-              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
-              <div class="nonETprix mt-3">
-                <div class="prix">
-
-                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
-                </div>
-                <div class="montant">
-                  <p>75000 Fcfa</p>
-                </div>
-              </div>
-              <ion-card-content>
-                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
-                    détails</span>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
-
-
-            <ion-card class="structurecard">
-              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
-              <div class="nonETprix mt-3">
-                <div class="prix">
-
-                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
-                </div>
-                <div class="montant">
-                  <p>75000 Fcfa</p>
-                </div>
-              </div>
-              <ion-card-content>
-                <ion-button class="voirdetails2" fill="outline" routerLink="/tabs/structurehome"><span>Voir
-                    détails</span>
-                </ion-button>
-              </ion-card-content>
-            </ion-card>
+            </ion-card>-->
           </div>
+
         </div>
-      </div>
 
 
 
@@ -445,10 +468,10 @@
               <span class="champtitle">Genre</span> <br>
               <b class="champcontent"> {{profiles.genre}}</b>
             </div>
-                    
+
             <div class="champpreference">
               <span class="champtitle">Preference :</span> <br>
-              <b class="champcontent"  *ngFor="let activite of content.activitesU">{{activite.nom}}</b>
+              <b class="champcontent" *ngFor="let activite of content.activitesU">{{activite.nom}}</b>
             </div>
 
             <div class="champ">

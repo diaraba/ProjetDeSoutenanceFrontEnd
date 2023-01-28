@@ -20,8 +20,8 @@ export class StructurehomePage implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private structure: StructureService, private profile: ProfilService) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id']
-    this.idstruct=this.id;
+    this.id = this.route.snapshot.params['id'];
+    this.idstruct=this.id;  
     console.log(this.id);
     this.structure.afficherstructureparid(this.id).subscribe(data => {
       this.structurparid = data;
@@ -40,6 +40,7 @@ export class StructurehomePage implements OnInit {
       this.annonces=data;
       console.log(this.annonces);
     })
-
+    setTimeout(() => {
+}, 1);
   }
 }
