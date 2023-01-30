@@ -27,6 +27,9 @@
         </div>
         <div class="maintext1">
           <h5>{{structurparid.alias}}</h5>
+          <ion-button  [ngClass]="{'subscribed': subscribed}" (click)="toggleSubscribe()"  class="voirdetails1" fill="outline" >
+            {{ subscribed ? 'Unsubscribe' : 'Subscribe' }}
+          </ion-button>
           <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome/{{id}}/profile"><span>Voir profil</span>
           </ion-button>
         </div>

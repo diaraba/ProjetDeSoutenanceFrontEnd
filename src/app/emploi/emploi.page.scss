@@ -399,6 +399,19 @@ ion-card-title{
     margin-bottom: 20px;
     display: inline-block;
  }
+ .champ1{
+    box-sizing: border-box;
+    border: 1px solid #C8FCEA;
+    border-radius: 5px;
+    height: auto;
+    width: 100%;
+    background: rgba(106, 154, 139, 0.3);
+    margin-bottom: 20px;
+    display: inline-block;
+ }
+ ion-item{
+   --ion-color-primary: #6A9A8B;
+ }
  .champpreference{
     box-sizing: border-box;
     border: 1px solid #C8FCEA;
@@ -425,6 +438,21 @@ ion-card-title{
      font-size: 9px;
      padding-left:7px ;
  }
+ .notif{
+     font-size: 10px;
+     color: black;
+
+ }
+ .notifbutton{
+     font-size: 9px;
+     width: 30%;
+     height: 20px;
+ }
+ .notif1{
+    width: 18%;
+    height: 40%;
+    
+}
  .information{
      position: relative;
      bottom: 80px;

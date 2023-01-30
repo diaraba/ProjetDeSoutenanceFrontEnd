@@ -478,6 +478,16 @@
               <span class="champtitle">Situation :</span> <br>
               <b class="champcontent">{{profiles.situation}}</b>
             </div>
+            <div class="champ1">
+              <span class="champtitle">Notification:</span> <br>
+              <ion-select interface="popover" class="notif" placeholder="option de notification" [(ngModel)]="notif" name="selectedValue">
+                <ion-select-option value="false" >Ne pas recevoir</ion-select-option>
+                <ion-select-option value="true">Recevoir</ion-select-option>
+              </ion-select>
+              <ion-button class="notifbutton" (click)="changeState()">valider</ion-button>
+            </div>
+            
+            
           </div>
         </div>
 

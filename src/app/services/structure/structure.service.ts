@@ -6,6 +6,7 @@ const AVIS_API='http://localhost:8080/api/avisoffre/';
 const ANNONCE_API='http://localhost:8080/api/annonce/';
 const AVISOFFRE_API='http://localhost:8080/api/avisoffre/';
 const PREFERENCE_STRUCTURE_API='http://localhost:8080/api/auth/';
+const ABONNEMENT_API='http://localhost:8080/api/auth/';
 const httpOptions={
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -51,5 +52,19 @@ export class StructureService {
 
   afficherusersquifollowstructure(iduser:any):Observable<any>{
     return this.http.get(PREFERENCE_STRUCTURE_API  + `afficherabonner/${iduser}`);
+  }
+
+  sabonner(iduser:any, idstruct:any):Observable<any>{
+    return this.http.post(PREFERENCE_STRUCTURE_API  + `ajouterAbonnement/${iduser}/${idstruct}`, 
+    {}
+    );
+  }
+
+  desabonner(iduser:any, idstruct:any):Observable<any>{
+    return this.http.delete(PREFERENCE_STRUCTURE_API  + `desabonner/${iduser}/${idstruct}`);
+  }
+
+  checkabonner(iduser:any, idstruct:any):Observable<any>{
+    return this.http.get(PREFERENCE_STRUCTURE_API  + `checkabonner/${iduser}/${idstruct}`);
   }
 }

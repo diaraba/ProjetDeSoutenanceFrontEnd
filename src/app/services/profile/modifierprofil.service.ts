@@ -27,6 +27,15 @@ export class ModifierprofilService {
     );
   }
 
+
+  modifierProfiletat(notif: any, idprofile: any): Observable<any> {
+    let data = new FormData();
+    data.append('etat', notif);
+    return this.http.put(
+      AUTH_API + `modifierProfileUtilisateur/${idprofile}`, data
+    );
+  }
+
   creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any, id_utilisateur: any): Observable<any> {
     return this.http.post(
       AUTH_API + `modifierProfileStructure/${id_utilisateur}`,
