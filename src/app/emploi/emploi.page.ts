@@ -3,6 +3,7 @@ import { ModifierprofilService } from '../services/profile/modifierprofil.servic
 import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 import { StructureService } from '../services/structure/structure.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-emploi',
@@ -24,10 +25,10 @@ export class EmploiPage implements OnInit {
   toggleValue = false;
   notif: any;
   shownotif: any;
-
   etat: any
-
+  notifstate: any;
   idprofile: any;
+  validate!: boolean;
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService) { }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class EmploiPage implements OnInit {
       this.profiles = data
       this.content = this.profiles.utilisateurs
       this.idprofile = this.content.iduser;
-      this.notif=this.content.etat;
+      this.notif = this.profiles.etat;
       console.log(this.profiles);
     })
 
@@ -60,16 +61,38 @@ export class EmploiPage implements OnInit {
     })
     if (this.notif == true) {
       this.shownotif = true;
+      this.notifstate = 'Recevoir'
     } else {
       this.shownotif = false;
+      this.notifstate = 'Ne pas recevoir'
     }
   }
 
   changeState(): void {
     console.log(this.notif);
-    this.profil.modifierProfiletat(this.notif, this.idprofile).subscribe(data=>{
+    if(this.storageService.isLoggedIn()){
+    this.profil.modifierProfiletat(this.notif, this.idprofile).subscribe(data => {
       console.log(this.notif);
-     })
-  }
+      this.validate = true
+      Swal.fire({
+        icon: 'success',
+        title: 'Notif modifier avec succes',
+        showConfirmButton: false,
+        timer: 1500,
+        heightAuto: false})})
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          heightAuto: false,
+          confirmButtonColor: '#C8FCEA',
+          confirmButtonText: '<span style="color: black;">OK</span>',
+          text: 'Vous devez vous connecter pour exécuter certaines actions!',
+          footer: '<a href="/login">Connexion... </a>',
+        })
+      }
+
 
   }
+
+}

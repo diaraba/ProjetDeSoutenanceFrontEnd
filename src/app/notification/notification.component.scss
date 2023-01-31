@@ -47,7 +47,13 @@ ion-grid{
     --padding-start: 30px;
     --padding-end: 30px;
 }
+ion-icon[name="close-circle-outline"] {
+    color: red;
+  }
 
+.validate{
+    padding-right: 20%;
+}
 
 .contenu{
     --offset-bottom:auto!important;

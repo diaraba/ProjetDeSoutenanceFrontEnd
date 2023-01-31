@@ -23,7 +23,7 @@ export class ModifiercomptePage implements OnInit {
 
   ngOnInit() {
     this.id_utilisateur = this.storageService.getUser().id;
-    this.utilisateur.afficherutilisateur(this.id_utilisateur).subscribe(data => {
+    this.utilisateur.affichernotifpariduser(this.id_utilisateur).subscribe(data => {
       this.utilisateurs = data
       console.log(this.utilisateurs + "jk nfkdjnfodnfkdfjjk");
     })

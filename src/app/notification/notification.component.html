@@ -9,7 +9,27 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="contenu">
-  <ion-card>
+  <ion-card *ngFor="let notif of notifs let i = index">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col >
+          <ion-card-header>
+            <ion-card-title>{{notif.titre}}</ion-card-title>
+            <ion-card-content>
+             {{notif.contenu}}
+            </ion-card-content>
+          </ion-card-header>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        
+        <ion-icon name="checkmark-circle-outline" size="large" class="validate" color="primary" (click)="validate(notif.idnotification)"></ion-icon>
+        <ion-icon name="close-circle-outline" size="large" color="danger"  (click)="hide(notif.idnotification)"></ion-icon>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <!-- Fin Card postulant -->
+  <!-- <ion-card>
     <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col size="2">
@@ -30,51 +50,6 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <!-- Fin Card postulant -->
-  <ion-card>
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="2">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-col>
-        <ion-col size="10">
-          <ion-card-header>
-            <ion-card-title>Ibrahim Keita</ion-card-title>
-            <ion-card-subtitle>Vous a assigner un nouveau brief</ion-card-subtitle>
-          </ion-card-header>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
-        <ion-button fill="outline" class="view">Vue</ion-button>
-        <ion-button class="nview" [routerLink]="['/postulant-details']">Non vue</ion-button>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <!-- Fin Card postulant -->
-  <ion-card>
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="2">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-col>
-        <ion-col size="10">
-          <ion-card-header>
-            <ion-card-title>Ibrahim Keita</ion-card-title>
-            <ion-card-subtitle>Vous a assigner un nouveau brief</ion-card-subtitle>
-          </ion-card-header>
-        </ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-center">
-        <ion-button fill="outline" class="view">Vue</ion-button>
-        <ion-button class="nview" [routerLink]="['/postulant-details']">Non vue</ion-button>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <!-- Fin Card postulant -->
   <ion-card>
     <ion-grid>
       <ion-row class="ion-align-items-center">
@@ -139,7 +114,29 @@
         <ion-button class="nview" [routerLink]="['/postulant-details']">Non vue</ion-button>
       </ion-row>
     </ion-grid>
-  </ion-card> 
+  </ion-card>
+
+  <ion-card>
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="10">
+          <ion-card-header>
+            <ion-card-title>Ibrahim Keita</ion-card-title>
+            <ion-card-subtitle>Vous a assigner un nouveau brief</ion-card-subtitle>
+          </ion-card-header>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-button fill="outline" class="view">Vue</ion-button>
+        <ion-button class="nview" [routerLink]="['/postulant-details']">Non vue</ion-button>
+      </ion-row>
+    </ion-grid>
+  </ion-card>  -->
 
   <!-- Fin Card postulant -->
 </ion-content>

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 
 
 const AUTH_API = 'http://localhost:8080/api/profileutilisateurs/';
+const NOTIFUPDATE_API='http://localhost:8080/api/notification/';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -66,6 +68,23 @@ export class ModifierprofilService {
         nomutilisateur,
         email,
       }
+    );
+  }
+
+
+   updateNotifetat(etat:any, idnotif:any): Observable<any> {
+    let data = new FormData();
+    data.append('etat', etat);
+    return this.http.put<any>(
+      NOTIFUPDATE_API + `notificationvue/${idnotif}`, data
+    );
+  }
+
+  updateNotifstatus(status:any, idnotif:any): Observable<any> {
+    let data = new FormData();
+    data.append('status', status);
+    return this.http.put<any>(
+      NOTIFUPDATE_API + `notificationvue/${idnotif}`, data
     );
   }
 }

@@ -23,6 +23,7 @@ export class ProfilePage implements OnInit {
   activite: any;
   showupdateprofile=false;
 
+
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private route:ActivatedRoute) { }
 
   ngOnInit() {

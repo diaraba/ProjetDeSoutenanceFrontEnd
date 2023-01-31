@@ -480,9 +480,9 @@
             </div>
             <div class="champ1">
               <span class="champtitle">Notification:</span> <br>
-              <ion-select interface="popover" class="notif" placeholder="option de notification" [(ngModel)]="notif" name="selectedValue">
-                <ion-select-option value="false" >Ne pas recevoir</ion-select-option>
-                <ion-select-option value="true">Recevoir</ion-select-option>
+              <ion-select interface="popover" class="notif" placeholder="{{notifstate}}" [(ngModel)]="notif" name="notif">
+                <ion-select-option class="notif" value="false" >Ne pas recevoir</ion-select-option>
+                <ion-select-option class="notif" value="true">Recevoir</ion-select-option>
               </ion-select>
               <ion-button class="notifbutton" (click)="changeState()">valider</ion-button>
             </div>
