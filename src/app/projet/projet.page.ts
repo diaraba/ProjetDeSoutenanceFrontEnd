@@ -4,6 +4,7 @@ import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 import { StructureService } from '../services/structure/structure.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projet',
@@ -32,7 +33,7 @@ export class ProjetPage implements OnInit {
   };
   notifstate:any;
   idprofile:any;
-  constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService) { }
+  constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService,private route:Router) { }
 
   ngOnInit() {
     this.id_structure = this.storageService.getUser().id;
@@ -112,5 +113,58 @@ export class ProjetPage implements OnInit {
       }
 
 
+  }
+
+
+  navigateMP():void{
+    if(this.storageService.isLoggedIn()){
+      this.route.navigate(['/tabs/modifierprofil'])
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        heightAuto: false,
+        confirmButtonColor: '#C8FCEA',
+        confirmButtonText: '<span style="color: black;">OK</span>',
+        text: 'Vous devez vous connecter pour exécuter certaines actions!',
+        footer: '<a href="/login">Connexion... </a>',
+      })
+    }
+  }
+
+
+  navigateMC():void{
+    if(this.storageService.isLoggedIn()){
+      this.route.navigate(['/tabs/modifiercompte'])
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        heightAuto: false,
+        confirmButtonColor: '#C8FCEA',
+        confirmButtonText: '<span style="color: black;">OK</span>',
+        text: 'Vous devez vous connecter pour exécuter certaines actions!',
+        footer: '<a href="/login">Connexion... </a>',
+      })
+    }
+  }
+
+
+  navigateCACC():void{ 
+    console.log(this.profiles);
+    if(this.storageService.isLoggedIn()&&this.profiles==undefined){
+      this.route.navigate(['/tabs/modifiercompte'])
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        heightAuto: false,
+        confirmButtonColor: '#C8FCEA',
+        confirmButtonText: '<span style="color: black;">OK</span>',
+        text: 'Connectez vous pour exécuter cette action et notez qu\'un profil ne peut être créer q\'une seule fois !',
+        footer: '<a href="/login">Connexion... </a>',
+      })
+    }
   }
 }

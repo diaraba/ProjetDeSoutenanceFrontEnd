@@ -393,19 +393,25 @@
           </div>
           <div class="edit">
 
-            <ion-buttons class="ionModif">
-              <ion-button routerLink="/tabs/modifierprofil">
+            <ion-buttons class="ionModif"  >
+              <ion-button (click)="navigateMP()">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier profil
               </ion-button>
             </ion-buttons>
 
-            <ion-buttons class="ionModif">
-              <ion-button routerLink="/tabs/modifiercompte">
+            <ion-buttons class="ionModif" >
+              <ion-button (click)="navigateMC()">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier compte
               </ion-button>
+            </ion-buttons>
 
+            <ion-buttons class="ionModif"> 
+              <ion-button (click)="navigateCACC()">
+                <ion-icon name="create-outline"></ion-icon>
+                Créer profil
+              </ion-button>
             </ion-buttons>
             <!-- <ion-button>
               Modifier profil

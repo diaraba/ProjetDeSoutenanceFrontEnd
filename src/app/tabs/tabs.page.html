@@ -77,7 +77,7 @@
   <ion-buttons class="notif" slot="primary">
     <ion-button (click)="openNotif()">
       <ion-icon name="notifications-outline"></ion-icon>
-      <ion-badge>300</ion-badge>
+      <ion-badge *ngIf="showNotif">{{notifs}}</ion-badge>
     </ion-button>
   </ion-buttons>
 </ion-toolbar>
@@ -99,6 +99,7 @@
       <ion-label>Structure</ion-label>
     </ion-tab-button>
 
+    
     <ion-tab-button tab="emploi" *ngIf="showEmploi">
       <!-- <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect x="0.5" y="0.5" width="30" height="30" fill="url(#pattern0)"/>

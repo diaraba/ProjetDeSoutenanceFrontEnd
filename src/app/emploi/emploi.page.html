@@ -408,6 +408,7 @@
 
     <!-- ::::::::::::::::::::::::::::::::::::::::::::::::PROFILE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
     <ion-list *ngSwitchCase="'Seminaire'" class="mb-3">
+      
       <div class="annonce">
 
         <div class="imageprofile">
@@ -421,28 +422,37 @@
           </div>
           <div class="edit">
 
-            <ion-buttons class="ionModif">
-              <ion-button routerLink="/tabs/modifierprofil">
+            <ion-buttons class="ionModif"  >
+              <ion-button (click)="navigateMP()">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier profil
               </ion-button>
             </ion-buttons>
 
-            <ion-buttons class="ionModif">
-              <ion-button routerLink="/tabs/modifiercompte">
+            <ion-buttons class="ionModif" >
+              <ion-button (click)="navigateMC()">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier compte
               </ion-button>
-
             </ion-buttons>
-            <!-- <ion-button>
-              Modifier profil
-            </ion-button>
 
-            <ion-button>
-              Modifier compte
-            </ion-button> -->
+            <ion-buttons class="ionModif"> 
+              <ion-button (click)="navigateCACC()">
+                <ion-icon name="create-outline"></ion-icon>
+                Créer profil
+              </ion-button>
+            </ion-buttons>
           </div>
+ 
+         <!-- <div class="edit" *ngIf="isLoggedOut">
+            <ion-buttons class="ionModif">
+              <ion-button routerLink="/tabs/modifierprofil">
+                <ion-icon name="create-outline"></ion-icon>
+                Créer profil
+              </ion-button>
+            </ion-buttons>
+          </div> -->
+          
           <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
             <div class="champ">
               <span class="champtitle">Nom </span> <br>
