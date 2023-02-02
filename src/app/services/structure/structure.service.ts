@@ -19,7 +19,7 @@ export class StructureService {
   constructor(private http:HttpClient) { }
   
   afficherstructure():Observable<any>{
-    return this.http.get(AUTH_API + 'afficherAllStructure');
+    return this.http.get(AUTH_API + 'afficherAllStructurestatus');
   }
 
   afficherstructureparid(id:any):Observable<any>{

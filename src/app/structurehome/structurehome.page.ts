@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { AuthenticationService } from '../services/authentication/authentication.service';
+import { NotifService } from '../services/notification/notif.service';
 import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 import { StructureService } from '../services/structure/structure.service';
-
+import { NotificationComponent } from '../notification/notification.component';
 @Component({
   selector: 'app-structurehome',
   templateUrl: './structurehome.page.html',
@@ -19,8 +22,26 @@ export class StructurehomePage implements OnInit {
   avisFinancement: any;
   annonces: any;
   subscribed = false;
+  showNotif:any;
+  notif:any;
+  notifs:any;
+  showProjet = false;  
+  showEmploi=false;
+  roles:any;
+  showabonnement=false;
+  showabonne=false;
+  showall=false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private structure: StructureService, private profile: ProfilService, private storageService: StorageServicesService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private structure: StructureService, private profile: ProfilService, private storageService: StorageServicesService, private popNotif: PopoverController, private authService: AuthenticationService ,private routes:Router, private notifinf:NotifService) { }
+
+
+  async openNotif(){
+    const popup= await this.popNotif.create({
+      component:NotificationComponent,
+    });
+    popup.present();
+   
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
@@ -52,6 +73,29 @@ export class StructurehomePage implements OnInit {
       console.log(this.subscribe);
     })
 
+
+
+    if(this.roles == undefined){
+      this.showProjet = true;
+      this.showEmploi=true;
+    }
+    else if (this.roles[0] == "ROLE_PROJET") {
+      this.showProjet = true;
+    }
+    else{ 
+      this.showEmploi=true;
+    }
+
+    if(this.roles == undefined){
+      this.showall=true
+    }
+    else if (this.roles[0] == "ROLE_PROJET" || this.roles[0] == "ROLE_EMPLOI") {
+      this.showabonnement = true;
+    }
+
+    else if (this.roles[0] == "ROLE_STRUCTURE") {
+      this.showabonne = true;
+    }
   }
 
   toggleSubscribe() {
@@ -77,6 +121,58 @@ export class StructurehomePage implements OnInit {
       .subscribe(() => {
         this.subscribed = false;
       });
+  }
+
+  notifsCall():void{
+    this.notifinf.getNotiflue(this.iduser).subscribe(data=>{
+      localStorage.setItem('nombre',data)
+      this.notifs=data;
+
+      this.profile.afficherprofilutilisateur(this.iduser).subscribe(data => {
+        this.profiles = data
+        this.notif = this.profiles.etat;
+        console.log(this.notif);
+
+        if(this.notif=="true"){
+          this.showNotif=true;
+          console.log(this.showNotif);
+        }else{
+          this.showNotif=false;
+          console.log(this.showNotif);
+        }
+      })
+      console.log(this.notifs.length)
+    })
+    this.Nombrenotif()
+  }
+  back(): void {
+    window.history.back()
+  }
+
+  Nombrenotif(){
+    this.notifs= localStorage.getItem('nombre')
+    console.log(this.notifs)
+    setTimeout(() => {
+      this.Nombrenotif()
+    }, 1000); 
+  }
+ 
+  logout(): void {
+    this.authService.logout().subscribe({
+      next: res => {
+        console.log(res);
+        this.storageService.clean();
+
+        this.routes.navigate(['/tabs/accueil']).then(()=>{
+          setTimeout(() => {
+            location.reload();
+          }, 100);
+        });
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
   }
 
 

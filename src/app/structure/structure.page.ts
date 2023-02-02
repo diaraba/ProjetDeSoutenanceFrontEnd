@@ -10,18 +10,21 @@ import { StructureService } from '../services/structure/structure.service';
 export class StructurePage implements OnInit {
   structures:any;
   content:any=[]
+  structureprive:any=[]
+  structurepublic:any=[]
   id:any;
 
   constructor(private structure: StructureService, private router :Router) { }
 
   ngOnInit() {
-    
     console.log(this.id);
     setTimeout(()=>{
       this.structure.afficherstructure().subscribe(data => {
         this.structures = data
-        this.content=this.structures.content
-        console.log(this.structures.content[0].iduser);
+        this.structureprive=this.structures[0];
+        this.structurepublic=this.structures[1];
+        console.log(this.structureprive);
+        console.log(this.structurepublic);
       })
     },1000)
 
@@ -30,6 +33,9 @@ export class StructurePage implements OnInit {
   }
   goToStructurehome(id:Number){
     return this.router.navigate(['structurehome/', id])
+  }
+  back(): void {
+    window.history.back()
   }
 
 

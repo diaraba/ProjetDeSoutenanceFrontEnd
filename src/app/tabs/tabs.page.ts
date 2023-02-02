@@ -1,6 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
+import { Console } from 'console';
 import { NotificationComponent } from '../notification/notification.component';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { NotifService } from '../services/notification/notif.service';
@@ -29,7 +31,8 @@ export class TabsPage implements OnInit {
   profiles:any;
   notif:any;
   showNotif:any;
-  constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService,private route:Router, private notifinf:NotifService, private profile: ProfilService) { }
+  
+  constructor( private popNotif: PopoverController, private authService: AuthenticationService , private storageService:StorageServicesService,private route:Router, private notifinf:NotifService, private profile: ProfilService, private backs:Location) { }
   async openNotif(){
     const popup= await this.popNotif.create({
       component:NotificationComponent,
@@ -41,27 +44,10 @@ export class TabsPage implements OnInit {
     this.roles=this.storageService.getUser().roles;
     this.iduser=this.storageService.getUser().id;
     console.log(this.roles);
+    this.notifsCall()
 
 
-
-    this.notifinf.getNotiflue(this.iduser).subscribe(data=>{
-      this.notifs=data;
-      this.profile.afficherprofilutilisateur(this.iduser).subscribe(data => {
-        this.profiles = data
-        this.notif = this.profiles.etat;
-        console.log(this.notif);
-        if(this.notif=="true"){
-          this.showNotif=true;
-          console.log(this.showNotif);
-        }else{
-          this.showNotif=false;
-          console.log(this.showNotif);
-        }
-      })
-      console.log(this.notifs.length);
-      this.badge=this.notifstate.length;
-      console.log(this.badge);
-    })
+    
     //   if (this.storageService.isLoggedIn()) {
     //   this.isLoggedIn = true;
     //   this.roles = this.storageService.getUser().roles;
@@ -88,10 +74,49 @@ export class TabsPage implements OnInit {
       this.showabonne = true;
     }
 
-    
+
+       
   }
-  back(): void {
+
+  notifsCall():void{
+    this.notifinf.getNotiflue(this.iduser).subscribe(data=>{
+      localStorage.setItem('nombre',data)
+      this.notifs=data;
+      this.profile.afficherprofilutilisateur(this.iduser).subscribe(data => {
+        this.profiles = data
+        this.notif = this.profiles.etat;
+        console.log(this.notif);
+        if(this.notif=="true"){
+          this.showNotif=true;
+          console.log(this.showNotif);
+        }else{
+          this.showNotif=false;
+          console.log(this.showNotif);
+        }
+      })
+      console.log(this.notifs.length);
+
+      this.badge=this.notifstate.length;
+      console.log(this.badge);
+    })
+    this.Nombrenotif()
+  }
+  // back(): void {
+  //   window.history.back()
+    
+  // }
+
+  back(){
     window.history.back()
+   // this.backs.back();
+    console.log("retour")
+  }
+  Nombrenotif(){
+    this.notifs= localStorage.getItem('nombre')
+    console.log(this.notifs)
+    setTimeout(() => {
+      this.Nombrenotif()
+    }, 1000); 
   }
  
   logout(): void {

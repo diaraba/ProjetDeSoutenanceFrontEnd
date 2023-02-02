@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProfilService } from '../services/profile/profil.service';
@@ -24,7 +25,7 @@ export class ProfilePage implements OnInit {
   showupdateprofile=false;
 
 
-  constructor(private profile: ProfilService, private storageService: StorageServicesService, private route:ActivatedRoute) { }
+  constructor(private profile: ProfilService, private storageService: StorageServicesService, private route:ActivatedRoute, private backs : Location) { }
 
   ngOnInit() {
     this.isLoggedIn = false;
@@ -69,5 +70,6 @@ export class ProfilePage implements OnInit {
     })
     
   }
+
 
 }

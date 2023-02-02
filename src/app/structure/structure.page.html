@@ -1,3 +1,5 @@
+
+
 <ion-content>
   <svg class="structurehome mx-auto" width="290" height="675" viewBox="0 0 390 775" fill="none"
     xmlns="http://www.w3.org/2000/svg">
@@ -349,22 +351,7 @@
       </clipPath>
     </defs>
   </svg>
-  <!-- 
-      <div class="">
-      
-          <ion-card >
-              <img class="structureimg" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-              <ion-card-content>
-                  <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome" ><span>Voir détails</span></ion-button>
-              </ion-card-content>
-            </ion-card> 
-            <ion-card class="structurecard">
-              <img class="structureimg" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-              <ion-card-content>
-                  <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome" ><span>Voir détails</span></ion-button>
-              </ion-card-content>
-            </ion-card>  
-      </div> -->
+
   <div class="container">
 
     <div class="publique">
@@ -372,7 +359,7 @@
         <p>Structure publique</p>
       </div>
       <div class="produits">
-        <ion-card class="structurecard" *ngFor="let structure of content; let i = index">
+        <ion-card class="structurecard" *ngFor="let structure of structurepublic; let i = index">
           <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
           <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
@@ -387,7 +374,8 @@
             </div>
           </div>
           <ion-card-content routerLinkActive="active">
-            <ion-button class="voirdetails" fill="outline"  [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
+            <ion-button class="voirdetails" fill="outline"
+              [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
                 détails</span>
             </ion-button>
           </ion-card-content>
@@ -461,27 +449,34 @@
         <p>Structure privé</p>
       </div>
       <div class="produits">
-        <ion-card class="structurecard">
+        <ion-card class="structurecard" *ngFor="let structure of structureprive; let i = index">
           <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-          <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+          <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
             <div class="prix">
 
               <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
             </div>
+            <br>
+            <br>
             <div class="montant">
-              <p>75000 Fcfa</p>
+              <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
             </div>
           </div>
+
           <ion-card-content>
-            <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome"><span>Voir
+            <!-- <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome"><span>Voir
+                détails</span>
+            </ion-button> -->
+
+            <ion-button class="voirdetails" fill="outline"
+              [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
                 détails</span>
             </ion-button>
           </ion-card-content>
         </ion-card>
 
-
-        <ion-card class="structurecard">
+        <!--    <ion-card class="structurecard">
           <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
           <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
           <div class="nonETprix mt-3">
@@ -537,7 +532,7 @@
                 détails</span>
             </ion-button>
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
       </div>
     </div>
   </div>
