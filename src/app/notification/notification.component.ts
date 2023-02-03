@@ -83,7 +83,7 @@ export class NotificationComponent implements OnInit {
     })
     this.update.updateNotifetat(this.etat, id).subscribe(data => {
       console.log(this.notifs);
-      this.notifstate = []
+      this.notifstate = []  
       this.ngOnInit();
     })  
     setTimeout(() => {

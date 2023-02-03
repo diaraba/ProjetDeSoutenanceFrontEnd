@@ -31,6 +31,10 @@ export class StructurehomePage implements OnInit {
   showabonnement=false;
   showabonne=false;
   showall=false;
+  alias:any;
+  description:any;
+  slogan:any;
+  localisation:any;
 
   constructor(private router: Router, private route: ActivatedRoute, private structure: StructureService, private profile: ProfilService, private storageService: StorageServicesService, private popNotif: PopoverController, private authService: AuthenticationService ,private routes:Router, private notifinf:NotifService) { }
 
@@ -50,6 +54,7 @@ export class StructurehomePage implements OnInit {
     this.iduser = this.storageService.getUser().id;
     this.structure.afficherstructureparid(this.id).subscribe(data => {
       this.structurparid = data;
+      this.alias=this.structurparid.alias;
       console.log(this.structurparid);
     })
     this.profile.afficherprofil(this.id).subscribe(data => {

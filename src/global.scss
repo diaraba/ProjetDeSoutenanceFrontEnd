@@ -34,3 +34,27 @@ ion-popover .popover-content{
       --display: none !important;
     }
   }
+
+
+  ion-header.ios.header-ios.header-collapse-none.hydrated {
+    position: fixed;
+    top: 0;
+    left:0;
+   
+}
+  ion-content.contenu.ios.content-sizing.overscroll.content-ltr.hydrated {
+    position: absolute;
+    top: 39px;
+    left: 0;
+  }
+:host(.content-sizing) .inner-scroll {
+  position: fixed;
+  width: 320px;
+  top: 31px;
+  bottom: 0px;
+  /* margin-top: calc(var(--offset-top) * 1); */
+  /* margin-bottom: calc(var(--offset-bottom) * -1); */
+  margin-left: auto;
+  margin-right: auto;
+}
+
