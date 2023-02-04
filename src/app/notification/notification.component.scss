@@ -1,8 +1,18 @@
 ion-card-header {
     padding: 5px 16px;
   }
+  .toolbarfont{
+    --background: #fff!important; 
+  }
+
+  .notifheader{
+    background: #fff!important;
+  }
 ion-card-title{
     font-size: 18px;
+}
+.cardcontent{
+  background: #fff!important;
 }
 
 // .nview{
@@ -53,7 +63,7 @@ ion-grid{
 .contenu{
     --offset-bottom:auto!important;
    
-    background: #FFF;
+    background: #FFF!important;
     //--overflow:hidden;
     overflow-y: scroll;
     overflow: auto;

@@ -1,3 +1,6 @@
+.backfontstructure{
+    --background:#fff ;
+}
 .container{
     position: relative;
     bottom: 390px;
@@ -77,7 +80,7 @@ ion-content{
     display: grid;
     grid-template-columns: auto auto;
     padding: 5px;
-    background: #F8F6FB;
+    --background: #FFF;
 }
 .nonETprix{
     // display: flex;

@@ -14,4 +14,8 @@ export class NotifService {
   getNotiflue(iduser:any):Observable<any>{
     return this.http.get(NOTIF_API +  `notifnonlue/${iduser}`);
   }
+
+  affichernotifparid(iduser:any):Observable<any>{
+    return this.http.get(NOTIF_API +  `affichernotifparid/${iduser}`);
+  }
 }

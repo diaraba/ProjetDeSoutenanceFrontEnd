@@ -1,9 +1,9 @@
-<ion-content>
+<ion-content class="registerbackfont">
   <div class="">
     <div class="position-fixed">
 
       <div class="right">
-        <p><strong>INSCRIPTION</strong></p>
+        <p><strong style="color: black;">INSCRIPTION</strong></p>
       </div>
       <div class="left">
       </div>
@@ -82,7 +82,7 @@
     <div class="content-item p-2">
       <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
         <div class="mb-3 form-group">
-          <label for="nomutilisateur" class="form-label">Nom utilisateur</label>
+          <label for="nomutilisateur" class="form-label" style="color: black;">Nom utilisateur</label>
           <input type="text" class="form-control" name="nomutilisateur" [(ngModel)]="form.nomutilisateur"
             placeholder=" " required minlength="3" maxlength="20" #nomutilisateur="ngModel"
             [ngClass]="{ 'is-invalid': f.submitted && nomutilisateur.errors }">
@@ -99,16 +99,16 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
+          <label for="email" class="form-label" style="color: black;">Email address</label>
           <input type="email" class="form-control" name="email" [(ngModel)]="form.email" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="motdepasse" class="form-label">Mot de passe</label>
+          <label for="motdepasse" class="form-label" style="color: black;">Mot de passe</label>
           <input type="password" class="form-control" name="motdepasse" [(ngModel)]="form.password"
             id="exampleFormControlInput1" placeholder="">
         </div>
         <div class="mb-3">
-          <label for="motdepasse" class="form-label">Confirmer mot de passe</label>
+          <label for="motdepasse" class="form-label" style="color: black;">Confirmer mot de passe</label>
           <input type="password" class="form-control" required minlength="8" placeholder="">
         </div>
 
@@ -116,11 +116,11 @@
           <!-- <legend>Préférences :</legend> -->
 
 
-          <ion-item class="form-label">
-            <ion-label>Préférences:</ion-label>
+          <ion-item class="form-label cadrelabel">
+            <ion-label style="color: black;">Préférences:</ion-label>
           </ion-item>
           <ion-item *ngFor="let interest of interests" class="form-label">
-            <ion-label class="classion-label">{{interest.nom}}</ion-label>
+            <ion-label class="classion-label" style="color: black;">{{interest.nom}}</ion-label>
             <ion-checkbox (click)="onInterestSelected(interest)"></ion-checkbox>
           </ion-item>
 
@@ -129,10 +129,10 @@
 
         <div class="choice mt-4">
           <!-- <legend>Préférences :</legend> -->
-          <ion-item>
-            <ion-select interface="popover" placeholder="Objectif professionel" [(ngModel)]="role" name="selectedValue">
-              <ion-select-option value="emploi">Chercheur d'emploi</ion-select-option>
-              <ion-select-option value="projet">Porteur de projet</ion-select-option>
+          <ion-item class="cadrelabel">
+            <ion-select interface="popover" placeholder="Objectif professionel" [(ngModel)]="role" name="selectedValue" style="color: black;" class="selectcadre">
+              <ion-select-option value="emploi" style="color: black;">Chercheur d'emploi</ion-select-option>
+              <ion-select-option value="projet" style="color: black;">Porteur de projet</ion-select-option>
             </ion-select>
             <!-- <ion-select>
                 <ion-select-option *ngFor="let option of options" [value]="option.value">{{ option.text }}
@@ -147,7 +147,7 @@
         <div class="containerbutton ">
 
           <ion-button type="submit">
-            <p>INSCRIPTION</p>
+            <p style="color: white;">Inscription</p>
           </ion-button>
         </div>
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

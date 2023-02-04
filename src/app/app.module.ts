@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotificationComponent } from './notification/notification.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CreerprofilPipe } from './creerprofil.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NotificationComponent],
+  declarations: [AppComponent, NotificationComponent, CreerprofilPipe],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

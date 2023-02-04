@@ -6,6 +6,7 @@ import { UtilisateurService } from '../services/utilisateur/utilisateur.service'
 import Swal from 'sweetalert2';
 import { ProfilService } from '../services/profile/profil.service';
 import { NotifService } from '../services/notification/notif.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
@@ -23,11 +24,13 @@ export class NotificationComponent implements OnInit {
   idnotif: any;
   profiles: any;
   notif: any;
+  notification:any;
   showNotif = false;
   notifactif: any = [];
   notifstate: any = [];
 
-  constructor(private popNotif: PopoverController, private profile: ProfilService, private storageservice: StorageServicesService, private notifofuserlogged: UtilisateurService, private update: ModifierprofilService, private notifinf: NotifService) { }
+
+  constructor(private popNotif: PopoverController, private profile: ProfilService, private storageservice: StorageServicesService, private notifofuserlogged: UtilisateurService, private update: ModifierprofilService, private notifinf: NotifService,private route:Router) { }
 
   ngOnInit() {
     this.iduser = this.storageservice.getUser().id;
@@ -103,6 +106,12 @@ export class NotificationComponent implements OnInit {
   
       location.reload();
     }, 1600);
+
+    this.notifinf.affichernotifparid(this.iduser).subscribe(data => {
+      console.log(data);
+      this.notification = data;
+    })
+ 
   }
 
 

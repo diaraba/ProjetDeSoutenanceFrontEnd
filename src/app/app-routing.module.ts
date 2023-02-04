@@ -92,6 +92,10 @@ const routes: Routes = [
     path: 'avis-details/:id',
     loadChildren: () => import('./avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
   },
+  {
+    path: 'creerprofile',
+    loadChildren: () => import('./creerprofile/creerprofile.module').then( m => m.CreerprofilePageModule)
+  },
 ];
 
 @NgModule({

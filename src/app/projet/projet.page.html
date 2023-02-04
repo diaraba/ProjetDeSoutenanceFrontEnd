@@ -4,28 +4,28 @@
     <ion-segment [(ngModel)]="cat">
       <ion-segment-button value="Accueil">
 
-        <ion-label>Accueil</ion-label>
+        <ion-label style="color: black;">Accueil</ion-label>
       </ion-segment-button>
       <ion-segment-button value="Appui">
 
-        <ion-label>Club</ion-label>
+        <ion-label style="color: black;">Club</ion-label>
       </ion-segment-button>
 
       <ion-segment-button value="Seminaire">
 
-        <ion-label>Profile</ion-label>
+        <ion-label style="color: black;">Profile</ion-label>
       </ion-segment-button>
     </ion-segment>
   </div>
 
   <div [ngSwitch]="cat">
-    <ion-list *ngSwitchCase="'Accueil'">
+    <ion-list *ngSwitchCase="'Accueil'" class="principal">
       <div class="emplois">
         <div class="welcome">
           <div>
-            <p>Bienvenu sur </p>
+            <p style="color: black;">Bienvenu sur </p>
           </div>
-          <div><strong>Cogoya So</strong></div>
+          <div><strong style="color: black;">Cogoya So</strong></div>
         </div>
         <svg class="structurehome" width="260" height="645" viewBox="0 0 390 775" fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -182,9 +182,9 @@
         <div class="container">
           <div class="containerbutton" *ngIf="!showProjet">
             <ion-button routerLink="/connexion">
-              <p>Se connecter</p>
+              <p style="color: white;">Se connecter</p>
             </ion-button>
-            <p>Veuiller vous connecter pour profiter des fonctionnalités de <strong>Cogoya So</strong></p>
+            <p style="color: black;">Veuiller vous connecter pour profiter des fonctionnalités de <strong style="color: black;">Cogoya So</strong></p>
           </div>
         </div>
 
@@ -194,12 +194,12 @@
 
 
           <div class="structurepublique">
-            <p>Les differentes structures selon vos préférences</p>
+            <p style="color: black;">Les differentes structures selon vos préférences</p>
           </div>
           <div class="produits">
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -219,7 +219,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -238,7 +238,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -258,7 +258,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -284,17 +284,17 @@
       </div>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'Appui'" class="mb-3">
+    <ion-list *ngSwitchCase="'Appui'" class="mb-3 principal">
       <div class="container1">
 
         <div class="publique">
           <div class="structurepublique">
-            <p>Mes structures</p>
+            <p style="color: black;">Mes structures</p>
           </div>
           <div class="produits">
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -314,7 +314,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -333,7 +333,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -353,7 +353,7 @@
 
             <ion-card class="structurecard">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">L'Agence de Promotion de l'Industrie au Mali</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
@@ -379,7 +379,7 @@
 
 
 
-    <ion-list *ngSwitchCase="'Seminaire'" class="mb-3">
+    <ion-list *ngSwitchCase="'Seminaire'" class="mb-3 principal">
       <div class="annonce">
 
         <div class="imageprofile">
@@ -394,21 +394,21 @@
           <div class="edit">
 
             <ion-buttons class="ionModif"  >
-              <ion-button (click)="navigateMP()">
+              <ion-button (click)="navigateMP()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier profil
               </ion-button>
             </ion-buttons>
 
             <ion-buttons class="ionModif" >
-              <ion-button (click)="navigateMC()">
+              <ion-button (click)="navigateMC()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier compte
               </ion-button>
             </ion-buttons>
 
             <ion-buttons class="ionModif"> 
-              <ion-button (click)="navigateCACC()">
+              <ion-button (click)="navigateCACC()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Créer profil
               </ion-button>
@@ -463,7 +463,7 @@
                 <ion-select-option class="notif" value="false" >Ne pas recevoir</ion-select-option>
                 <ion-select-option class="notif" value="true">Recevoir</ion-select-option>
               </ion-select>
-              <ion-button class="notifbutton" (click)="changeState()">valider</ion-button>
+              <ion-button class="notifbutton" (click)="changeState()" style="color: white;">valider</ion-button>
             </div>
           </div>
         </div>

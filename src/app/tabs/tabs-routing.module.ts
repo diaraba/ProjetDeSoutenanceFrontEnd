@@ -37,6 +37,14 @@ const routes: Routes = [
         loadChildren: () => import('../modifierprofil/modifierprofil.module').then( m => m.ModifierprofilPageModule)
       },
       {
+        path: 'modifierprofil',
+        loadChildren: () => import('../modifierprofil/modifierprofil.module').then( m => m.ModifierprofilPageModule)
+      },
+      {
+        path: 'creerprofile',
+        loadChildren: () => import('../creerprofile/creerprofile.module').then( m => m.CreerprofilePageModule)
+      },
+      {
         path: 'profile',
         loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
       },

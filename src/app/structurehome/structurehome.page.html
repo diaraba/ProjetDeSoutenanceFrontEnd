@@ -4,16 +4,16 @@
     <ion-segment [(ngModel)]="cat">
       <ion-segment-button value="Accueil">
 
-        <ion-label>Accueil</ion-label>
+        <ion-label style="color: black;">Accueil</ion-label>
       </ion-segment-button>
       <ion-segment-button value="Appui">
 
-        <ion-label>Appui finc/rec</ion-label>
+        <ion-label style="color: black;">Appui finc/rec</ion-label>
       </ion-segment-button>
 
       <ion-segment-button value="Seminaire">
 
-        <ion-label>Séminaire info</ion-label>
+        <ion-label style="color: black;">Séminaire info</ion-label>
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -26,14 +26,14 @@
             src="../../assets/photocopieur-pro-entreprise.jpg" />
         </div>
         <div class="maintext1">
-          <h5>{{alias}}</h5>
+          <h5 style="color: black;">{{alias}}</h5>
           <ion-button  [ngClass]="{'subscribed': subscribed}" (click)="toggleSubscribe()"  class="voirdetails1" fill="outline" >
             {{ subscribed ? 'Unsubscribe' : 'Subscribe' }}
           </ion-button>
           <ion-button class="voirdetails" fill="outline" routerLink="/tabs/structure/structurehome/{{id}}/profile"><span>Voir profil</span>
           </ion-button>
         </div>
-        <p class="maintext">
+        <p class="maintext" style="color: black;">
           {{profiles.description}}
           <!-- The rhinoceros gets its name from one of its most notable features: its horns.
           The word rhinoceros come from the Greek words rhino meaning “nose” and ceros meaning “horn.”
@@ -43,23 +43,23 @@
 
         <div>
           <div class="subtitle1">
-            <h2 class="subtitle">
+            <h2 class="subtitle" style="color: black;">
               Activités:
             </h2>
-            <p class="subtitleContent" *ngFor="let activite of structurparid.activites">
+            <p class="subtitleContent" *ngFor="let activite of structurparid.activites" style="color: black;">
               {{activite.nom}}
             </p>
           </div>
           <div class="subtitle2">
-            <h2 class="subtitle">
+            <h2 class="subtitle" style="color: black;">
               Slogan:
             </h2>
-            <p class="subtitleContent1">
+            <p class="subtitleContent1" style="color: black;">
               {{profiles.slogan}}
             </p>
           </div>
 
-          <div class="location">
+          <div class="location" style="color: black;">
             {{profiles.localisation}}
           </div>
         </div>
@@ -75,7 +75,7 @@
       <div class="avis">
         <div class="avisfinancement">
           <div class="structurepublique">
-            <p>
+            <p style="color: black;">
               Avis financement
             </p>
           </div>
@@ -88,7 +88,7 @@
               <div class="col-8 justify-content-center">
                 <div class="card-body divposition" style="font-size: 10px;">
                   <div class="row">
-                    <div class="col-9">{{avis.titre}}</div>
+                    <div class="col-9" style="color: black;">{{avis.titre}}</div>
                     <div class="col-3"  routerLinkActive="active">
                       <a [routerLink]="['/tabs/structure/structurehome/'+id+'/avis-details', avis.idavisoffre]"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
                     </div>
@@ -163,7 +163,7 @@
 
         <div class="avisrecrutement">
           <div class="structurepublique">
-            <p>
+            <p style="color: black;">
               Avis recruitement
             </p>
           </div>
@@ -176,7 +176,7 @@
               <div class="col-8 justify-content-center">
                 <div class="card-body divposition" style="font-size: 10px;">
                   <div class="row">
-                    <div class="col-9">Card title</div>
+                    <div class="col-9" style="color: black;">Card title</div>
                     <div class="col-3">
                       <a href="/tabs/avis-details"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
                     </div>
@@ -276,7 +276,7 @@
     <ion-list *ngSwitchCase="'Seminaire'" class="mb-5">
       <div class="annonce">
         <div class="structurepublique">
-          <p>
+          <p style="color: black;">
             Annonces
           </p>
         </div>
@@ -289,7 +289,7 @@
             <div class="col-8 justify-content-center">
               <div class="card-body divposition" style="font-size: 10px;">
                 <div class="row">
-                  <div class="col-9">{{annonce.titre}}</div>
+                  <div class="col-9" style="color: black;">{{annonce.titre}}</div>
                   <div class="col-3">
                     <a [routerLink]="['/tabs/structure/structurehome/'+id+'/annonce-detailsa', annonce.idannonce]"><ion-icon name="arrow-forward-circle-outline" class="iconBack"></ion-icon></a>
                   </div>

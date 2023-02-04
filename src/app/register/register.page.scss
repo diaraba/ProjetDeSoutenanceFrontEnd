@@ -1,10 +1,8 @@
-.logo{
-    // position: relative;
-    // bottom:0px;
-    // left: 0px;
-    // margin-left: 20px;
-    // margin-top: 20px;
-    
+.registerbackfont{
+    --background: #fff;
+}
+.cadrelabel{
+    --background: #fff;
 }
 
 // .logo {
@@ -144,7 +142,7 @@
 
 
 ion-content{
-    background: #fff;
+    --background: #fff;
 }
 // .containerbutton ion-button{
 //     position: relative;
@@ -203,6 +201,9 @@ ion-content{
       margin-left: 70px;
       border: 1px solid #C8FCEA;
       border-radius: 5px;
+  }
+  .selectcadre{
+      --background: rgb(158, 30, 30);
   }
   .choice{
       border: 1px solid #C8FCEA;

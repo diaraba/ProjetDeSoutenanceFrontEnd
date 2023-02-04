@@ -1,7 +1,7 @@
 <div class="notificationdiv">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="heading-line">Notification</ion-title>
+  <ion-header class="notifheader">
+    <ion-toolbar class="toolbarfont">
+      <ion-title class="heading-x" style="color: black;">Notification</ion-title>
       <ion-buttons slot="end">
         <ion-button (click)="close()">
           <ion-icon name="close"></ion-icon>
@@ -11,7 +11,7 @@
   </ion-header>
   <div class="contentscrollnotif" style="position:fixed; top:0px; left:0; right:0; bottom: 40px;">
     <ion-content class="contenu" *ngIf="showNotif" overflow-y="scroll">
-      <ion-card *ngFor="let notif of notifstate let i = index" (click)="validate(notif.idnotification)">
+      <ion-card class="cardcontent" *ngFor="let notif of notifstate let i = index" (click)="validate(notif.idnotification)"   [routerLink]="['/tabs/structure/structurehome/'+this.notification.idstructure+'/avis-details', this.notification.idtarget]">
         <ion-grid>
           <ion-row class="ion-align-items-center">
             <ion-col>
@@ -36,8 +36,8 @@
     </ion-content>
 
   </div>
-  <ion-content *ngIf="!showNotif">
-    <ion-card>
+  <ion-content *ngIf="!showNotif" class="contenu">
+    <ion-card class="cardcontent" >
       <ion-grid>
         <ion-row class="ion-align-items-center">
           <ion-card-content>

@@ -5,17 +5,17 @@
 
       <ion-segment-button value="Accueil">
 
-        <ion-label>Accueil</ion-label>
+        <ion-label style="color: black;">Accueil</ion-label>
       </ion-segment-button>
 
       <ion-segment-button value="Appui">
 
-        <ion-label>Club</ion-label>
+        <ion-label style="color: black;">Club</ion-label>
       </ion-segment-button>
 
       <ion-segment-button value="Seminaire">
 
-        <ion-label>Profile</ion-label>
+        <ion-label style="color: black;">Profile</ion-label>
       </ion-segment-button>
 
     </ion-segment>
@@ -24,13 +24,13 @@
   <div [ngSwitch]="cat">
 
     <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::ACCUEIL:::::::::::::::::::::::::::::: -->
-    <ion-list *ngSwitchCase="'Accueil'">
+    <ion-list *ngSwitchCase="'Accueil'" class="principal">
       <div class="emplois">
         <div class="welcome">
           <div>
-            <p>Bienvenu sur </p>
+            <p style="color: black;">Bienvenu sur </p>
           </div>
-          <div><strong>Cogoya So</strong></div>
+          <div><strong style="color: black;">Cogoya So</strong></div>
         </div>
         <svg class="structurehome" width="260" height="645" viewBox="0 0 390 775" fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +187,7 @@
         <div class="container" *ngIf="!showEmploi">
           <div class="containerbutton">
             <ion-button routerLink="/connexion">
-              <p>Se connecter</p>
+              <p style="color: white;">Se connecter</p>
             </ion-button>
             <p>Veuiller vous connecter pour profiter des fonctionnalités de <strong>Cogoya So</strong></p>
           </div>
@@ -199,24 +199,24 @@
 
 
           <div class="structurepublique">
-            <p>Les differentes structures selon vos préférences</p>
+            <p style="color: black;">Les differentes structures selon vos préférences</p>
           </div>
           <div class="produits">
             <ion-card class="structurecard" *ngFor="let structure of structures; let i = index">
               <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-              <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
+              <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
 
-                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                  <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong style="color: black;"> Activités</strong></p>
                 </div>
                 <div class="montant">
-                  <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
+                  <p *ngFor="let activite of structure.activites" style="color: black;">{{activite.nom}}</p>
                 </div>
               </div>
               <ion-card-content routerLinkActive="active">
                 <ion-button class="voirdetails1 " fill="outline"
-                  [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span>Voir
+                  [routerLink]="['/tabs/structure/structurehome',structure.iduser]"><span style="color: white;">Voir
                     détails</span>
                 </ion-button>
               </ion-card-content>
@@ -290,27 +290,27 @@
       </div>
     </ion-list>
     <!-- :::::::::::::::::::::::::::::::::::::::::::::::CLUB:::::::::::::::::::::::::::::::::::::::::::::::::::: -->
-    <ion-list *ngSwitchCase="'Appui'" class="mb-5">
+    <ion-list *ngSwitchCase="'Appui'" class="mb-5 principal" >
       <div class="emplois">
         <div class="structurepublique">
-          <p>Mes structures</p>
+          <p style="color: black;">Mes structures</p>
         </div>
         <div class="produits">
           <ion-card class="structurecard" *ngFor="let structure1 of structuressuivi; let i = index ">
             <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-            <ion-card-title class="mt-1">{{structure1.structure.alias}}</ion-card-title>
+            <ion-card-title class="mt-1" style="color: black;">{{structure1.structure.alias}}</ion-card-title>
             <div class="nonETprix mt-3">
               <div class="prix">
 
-                <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+                <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong style="color: black;"> Activités</strong></p>
               </div>
               <div class="montant">
-                <p *ngFor="let activite of structure1.structure.activites">{{activite.nom}}</p>
+                <p *ngFor="let activite of structure1.structure.activites" style="color: black;">{{activite.nom}}</p>
               </div>
             </div>
             <ion-card-content routerLinkActive="active">
               <ion-button class="voirdetails2" fill="outline"
-                [routerLink]="['/tabs/structure/structurehome',structure1.structure.iduser]"><span>Voir
+                [routerLink]="['/tabs/structure/structurehome',structure1.structure.iduser]"><span style="color: white;">Voir
                   détails</span>
               </ion-button>
             </ion-card-content>
@@ -407,7 +407,7 @@
 
 
     <!-- ::::::::::::::::::::::::::::::::::::::::::::::::PROFILE:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
-    <ion-list *ngSwitchCase="'Seminaire'" class="mb-3">
+    <ion-list *ngSwitchCase="'Seminaire'" class="mb-3 principal">
       
       <div class="annonce">
 
@@ -423,21 +423,21 @@
           <div class="edit">
 
             <ion-buttons class="ionModif"  >
-              <ion-button (click)="navigateMP()">
+              <ion-button (click)="navigateMP()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier profil
               </ion-button>
             </ion-buttons>
 
             <ion-buttons class="ionModif" >
-              <ion-button (click)="navigateMC()">
+              <ion-button (click)="navigateMC()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Modifier compte
               </ion-button>
             </ion-buttons>
 
             <ion-buttons class="ionModif"> 
-              <ion-button (click)="navigateCACC()">
+              <ion-button (click)="navigateCACC()" style="color: black;">
                 <ion-icon name="create-outline"></ion-icon>
                 Créer profil
               </ion-button>
@@ -455,46 +455,46 @@
           
           <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
             <div class="champ">
-              <span class="champtitle">Nom </span> <br>
-              <b class="champcontent"> {{profiles.nom}} </b>
+              <span class="champtitle" style="color: black;">Nom </span> <br>
+              <b class="champcontent" style="color: black;"> {{profiles.nom}} </b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Prénom </span> <br>
-              <b class="champcontent">{{profiles.prenom}}</b>
+              <span class="champtitle" style="color: black;">Prénom </span> <br>
+              <b class="champcontent" style="color: black;">{{profiles.prenom}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Email </span> <br>
-              <b class="champcontent"> {{profiles.utilisateurs.email}}</b>
+              <span class="champtitle" style="color: black;">Email </span> <br>
+              <b class="champcontent" style="color: black;"> {{profiles.utilisateurs.email}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Numéro</span> <br>
-              <b class="champcontent"> {{profiles.numero}}</b>
+              <span class="champtitle" style="color: black;">Numéro</span> <br>
+              <b class="champcontent" style="color: black;"> {{profiles.numero}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Genre</span> <br>
-              <b class="champcontent"> {{profiles.genre}}</b>
+              <span class="champtitle" style="color: black;">Genre</span> <br>
+              <b class="champcontent" style="color: black;"> {{profiles.genre}}</b>
             </div>
 
             <div class="champpreference">
-              <span class="champtitle">Preference :</span> <br>
-              <b class="champcontent" *ngFor="let activite of content.activitesU">{{activite.nom}}</b>
+              <span class="champtitle" style="color: black;">Preference :</span> <br>
+              <b class="champcontent" *ngFor="let activite of content.activitesU" style="color: black;">{{activite.nom}}</b>
             </div>
 
             <div class="champ">
-              <span class="champtitle">Situation :</span> <br>
-              <b class="champcontent">{{profiles.situation}}</b>
+              <span class="champtitle" style="color: black;">Situation :</span> <br>
+              <b class="champcontent" style="color: black;">{{profiles.situation}}</b>
             </div>
             <div class="champ1">
-              <span class="champtitle">Notification:</span> <br>
+              <span class="champtitle" style="color: black;">Notification:</span> <br>
               <ion-select interface="popover" class="notif" placeholder="{{notifstate}}" [(ngModel)]="notif" name="notif">
                 <ion-select-option class="notif" value="false" >Ne pas recevoir</ion-select-option>
                 <ion-select-option class="notif" value="true">Recevoir</ion-select-option>
               </ion-select>
-              <ion-button class="notifbutton" (click)="changeState()">valider</ion-button>
+              <ion-button class="notifbutton" (click)="changeState()" style="color: white;">valider</ion-button>
             </div>
             
             

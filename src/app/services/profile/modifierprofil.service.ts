@@ -30,6 +30,23 @@ export class ModifierprofilService {
   }
 
 
+
+  creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any, id_profile: any, image:any): Observable<any> {
+    console.log(nom);
+    let data = new FormData();
+    data.append('nom', nom);
+    data.append('prenom', prenom);
+    data.append('genre', genre);
+    data.append('numero', numero);
+    data.append('situation', situation);
+    data.append('image', image);
+    
+    return this.http.put(
+      AUTH_API + `creerProfileUtilisateurs/${id_profile}`, data
+    );
+  }
+
+
   modifierProfiletat(notif: any, idprofile: any): Observable<any> {
     let data = new FormData();
     data.append('etat', notif);
@@ -38,7 +55,7 @@ export class ModifierprofilService {
     );
   }
 
-  creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any, id_utilisateur: any): Observable<any> {
+  modifierProfilStructure(nom: any, prenom: any, genre: any, numero: any, situation: any, id_utilisateur: any): Observable<any> {
     return this.http.post(
       AUTH_API + `modifierProfileStructure/${id_utilisateur}`,
       {

@@ -1,6 +1,6 @@
 
 
-<ion-content>
+<ion-content class="backfontstructure">
   <svg class="structurehome mx-auto" width="290" height="675" viewBox="0 0 390 775" fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <path
@@ -356,21 +356,21 @@
 
     <div class="publique">
       <div class="structurepublique">
-        <p>Structure publique</p>
+        <p style="color: black;">Structure publique</p>
       </div>
       <div class="produits">
         <ion-card class="structurecard" *ngFor="let structure of structurepublic; let i = index">
           <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-          <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
+          <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
             <div class="prix">
 
-              <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+              <p> <i class="bi bi-activity " style="font-size: 8px; color: black;"></i><strong> Activités</strong></p>
             </div>
             <br>
             <br>
             <div class="montant">
-              <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
+              <p *ngFor="let activite of structure.activites" style="color: black;">{{activite.nom}}</p>
             </div>
           </div>
           <ion-card-content routerLinkActive="active">
@@ -446,21 +446,21 @@
 
     <div class="prive">
       <div class="structurepublique">
-        <p>Structure privé</p>
+        <p style="color: black;">Structure privé</p>
       </div>
       <div class="produits">
         <ion-card class="structurecard" *ngFor="let structure of structureprive; let i = index">
           <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
-          <ion-card-title class="mt-1">{{structure.alias}}</ion-card-title>
+          <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
             <div class="prix">
 
-              <p> <i class="bi bi-activity " style="font-size: 8px;"></i><strong> Activités</strong></p>
+              <p> <i class="bi bi-activity " style="font-size: 8px;color: black;"></i><strong> Activités</strong></p>
             </div>
             <br>
             <br>
             <div class="montant">
-              <p *ngFor="let activite of structure.activites">{{activite.nom}}</p>
+              <p *ngFor="let activite of structure.activites" style="color: black;">{{activite.nom}}</p>
             </div>
           </div>
 
