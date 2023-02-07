@@ -7,6 +7,7 @@ import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 import { StructureService } from '../services/structure/structure.service';
 import { NotificationComponent } from '../notification/notification.component';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-structurehome',
   templateUrl: './structurehome.page.html',
@@ -35,6 +36,8 @@ export class StructurehomePage implements OnInit {
   description:any;
   slogan:any;
   localisation:any;
+  public host=environment.host;
+  public picture=`${this.host}image/`
 
   constructor(private router: Router, private route: ActivatedRoute, private structure: StructureService, private profile: ProfilService, private storageService: StorageServicesService, private popNotif: PopoverController, private authService: AuthenticationService ,private routes:Router, private notifinf:NotifService) { }
 

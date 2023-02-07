@@ -4,7 +4,7 @@
     <!-- <div class="imageprofile mx-auto  py-3">
    <img class="img" src="../../assets/photocopieur-pro-entreprise.jpg" alt=""> -->
 
-      <!-- <ion-avatar class="position">
+    <!-- <ion-avatar class="position">
         <img alt="Silhouette of a person's head" src="../../assets/photocopieur-pro-entreprise.jpg" />
       </ion-avatar>
     </div>
@@ -14,58 +14,36 @@
       </label> 
 
     </div> -->
-      
+
 
     <div class="container user-avatar">
-     
-      <div class="simg"> 
-        
+
+      <div class="simg">
+
         <ion-avatar class="position">
           <img alt="Silhouette of a person's head" src="../../assets/photocopieur-pro-entreprise.jpg" />
         </ion-avatar>
-      </div> 
-      <div class="status-overlay ">
-       <label> 
-      <ion-icon class="IONic" name="camera-outline" color="secondary">
-        <input id="files" style="visibility:hidden;" type="file">
-      </ion-icon>
-    
-    </label>
-  </div>
-    <!-- <input id="files" style="visibility:hidden;" type="file"> -->
       </div>
+      <div class="status-overlay ">
+        <label>
+          <ion-icon class="IONic" name="camera-outline" color="secondary">
+            <!-- <input id="files" style="visibility:hidden;" type="file"  > -->
+            <input id="files" style="visibility:hidden;" type="file" class="form-control" required image
+              (change)="chargeImage($event)">
+          </ion-icon>
+
+        </label>
+      </div>
+    </div>
 
 
 
-   
+
     <div class="row info" style="margin-top: 40px;">
       <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
         <b>Diarraba Diarra</b>
       </div>
-      <!-- <div class="edit">
-  
-        <ion-buttons class="ionModif">
-          <ion-button routerLink="/modifierprofil">
-            <ion-icon name="create-outline" ></ion-icon>
-            Modifier profil
-          </ion-button>
-        </ion-buttons>
-        
-        <ion-buttons class="ionModif">
-          <ion-button routerLink="/tabs/modifiercompte">
-            <ion-icon name="create-outline"></ion-icon>
-            Modifier compte
-          </ion-button>
-  
-        </ion-buttons>
-         <ion-button>
-          Modifier profil
-        </ion-button>
-  
-        <ion-button>
-          Modifier compte
-        </ion-button> 
-      </div> -->
+
       <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
 
 
@@ -75,14 +53,14 @@
             <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.nom}} "
-                  name="nom" [(ngModel)]="form.nom" #nom="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" " name="nom"
+                  [(ngModel)]="form.nom" #nom="ngModel">
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Prénom</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.prenom}} "
-                  name="form.prenom" [(ngModel)]="form.prenom" #form.prenom="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="form.prenom"
+                  [(ngModel)]="form.prenom" #form.prenom="ngModel">
               </div>
 
 
@@ -92,13 +70,13 @@
               </div> -->
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Numéro</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" {{profiles.numero}}"
-                  name="numero" [(ngModel)]="form.numero">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="numero"
+                  [(ngModel)]="form.numero">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Genre</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}"
-                  name="genre" [(ngModel)]="form.genre" #form.genre="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="genre"
+                  [(ngModel)]="form.genre" #form.genre="ngModel">
               </div>
 
 
@@ -114,12 +92,19 @@
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Situation</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1"
-                  placeholder="{{profiles.situation }} " name="situation" [(ngModel)]="form.situation"
-                  #form.situation="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="situation"
+                  [(ngModel)]="form.situation" #form.situation="ngModel">
               </div>
 
 
+              <div class="mb-3">
+                <span class="champtitle" style="color: black;">Notification:</span> <br>
+                <ion-select interface="popover" class="notif" placeholder="" [(ngModel)]="form.etat"
+                  name="etat">
+                  <ion-select-option class="notif" value="true" selected="true">Recevoir</ion-select-option>
+                  <ion-select-option class="notif" value="false">Ne pas Recevoir</ion-select-option>
+                </ion-select>
+              </div>
 
 
               <div class="choice">
@@ -127,7 +112,7 @@
 
                 <div *ngFor="let activite of interests">
                   <input type="checkbox" id="scales" name="scales" (click)="onInterestSelected(activite)">
-                  <label for="scales">{{activite.nom}}</label>
+                  <label for="scales" class="input">{{activite.nom}}</label>
                 </div>
 
                 <!-- <div>

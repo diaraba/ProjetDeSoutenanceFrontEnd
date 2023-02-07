@@ -24,6 +24,7 @@ export class CreerprofilePage implements OnInit {
     genre: null,
     numero: null,
     situation: null,
+    etat:null,
   };
   public activites: any[] = [];
   public interests: any = [];
@@ -33,13 +34,13 @@ export class CreerprofilePage implements OnInit {
     this.id_utilisateur = this.storageService.getUser().id;
     this.roles=this.storageService.getUser().roles;
     console.log(this.roles);
-    this.profile.afficherprofilutilisateur(this.id_utilisateur).subscribe(data => {
-      this.profiles = data
-      this.content=this.profiles.utilisateurs
-      this.id_profile=this.profiles.idutilisateur;
-      console.log(this.id_profile);
-      console.log(this.profiles);
-    })
+    // this.profile.afficherprofilutilisateur(this.id_utilisateur).subscribe(data => {
+    //   this.profiles = data
+    //   this.content=this.profiles.utilisateurs
+    //   this.id_profile=this.profiles.idutilisateur;
+    //   console.log(this.id_profile);
+    //   console.log(this.profiles);
+    // })
     this.pref.getAllPref().subscribe(data => {
       this.interests = data
       console.log(this.interests);
@@ -62,17 +63,21 @@ export class CreerprofilePage implements OnInit {
       prenom,
       genre,
       numero,
-      situation} = this.form;
+      situation,
+      etat} = this.form;
+
+
       console.log(this.form);
-      this.modifprofil.creerProfil( nom, prenom, genre,numero, situation,this.id_profile,this.image).subscribe(data=>{
-      this.payload=data
-      console.log(this.payload);
-    })
+      console.log(this.image)
 
-    this.modifprofil.modifierCompte( this.activites, this.id_utilisateur).subscribe(data=>{
+
+      this.modifprofil.creerProfil( nom, prenom, genre, numero, situation, etat, this.id_utilisateur, this.image).subscribe(data=>{
       this.payload=data
       console.log(this.payload);
     })
+  } 
+  chargeImage(event: any){
+    this.image = event.target["files"][0]
+    console.log(this.image);
   }
-
 }

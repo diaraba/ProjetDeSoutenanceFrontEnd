@@ -203,7 +203,7 @@
           </div>
           <div class="produits">
             <ion-card class="structurecard" *ngFor="let structure of structures; let i = index">
-              <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+              <img class="structureimg" src="{{picture}}{{structure.photodecouverture}}" alt="">
               <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
               <div class="nonETprix mt-3">
                 <div class="prix">
@@ -297,7 +297,7 @@
         </div>
         <div class="produits">
           <ion-card class="structurecard" *ngFor="let structure1 of structuressuivi; let i = index ">
-            <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+            <img class="structureimg" src="{{picture}}{{structure1.structure.photodecouverture}}" alt="">
             <ion-card-title class="mt-1" style="color: black;">{{structure1.structure.alias}}</ion-card-title>
             <div class="nonETprix mt-3">
               <div class="prix">
@@ -413,12 +413,12 @@
 
         <div class="imageprofile">
           <ion-avatar class="position">
-            <img alt="Silhouette of a person's head" src="../../assets/{{profiles.image}}" />
+            <img alt="Silhouette of a person's head" src="{{picture}}{{profiles.image}}" />
           </ion-avatar>
         </div>
         <div class="row info" style="margin-top: 20px;">
           <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
-            <b>Diarraba Diarra</b>
+            <b>Profil</b>
           </div>
           <div class="edit">
 

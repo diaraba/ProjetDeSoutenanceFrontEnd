@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { StructureService } from '../services/structure/structure.service';
 
 @Component({
@@ -14,6 +15,10 @@ titre:any;
 contenu:any;
 date:any;
 objet:any;
+image:any;
+
+public host = environment.host;
+public picture = `${this.host}image/`
   constructor(private route: ActivatedRoute, private structure: StructureService) { }
 
   ngOnInit() {
@@ -24,7 +29,8 @@ objet:any;
       this.titre=this.annonce.titre;
       this.contenu=this.annonce.contenu;
       this.objet=this.annonce.objet;
-      this.date=this.annonce.date
+      this.date=this.annonce.date;
+      this.image=this.annonce.image;
       console.log(this.annonce);
     })
   }

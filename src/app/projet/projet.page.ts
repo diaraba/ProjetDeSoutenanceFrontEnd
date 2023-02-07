@@ -5,6 +5,7 @@ import { StorageServicesService } from '../services/storageService/storage-servi
 import { StructureService } from '../services/structure/structure.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-projet',
@@ -31,6 +32,9 @@ export class ProjetPage implements OnInit {
   form: any = {
     email: null,
   };
+  
+  public host = environment.host;
+  public picture = `${this.host}image/`
   notifstate:any;
   idprofile:any;
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService,private route:Router) { }

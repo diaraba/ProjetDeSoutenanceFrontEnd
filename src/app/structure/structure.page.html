@@ -360,7 +360,7 @@
       </div>
       <div class="produits">
         <ion-card class="structurecard" *ngFor="let structure of structurepublic; let i = index">
-          <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+          <img class="structureimg" src="{{picture}}{{structure.photodecouverture}}" alt="">
           <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
             <div class="prix">
@@ -450,7 +450,7 @@
       </div>
       <div class="produits">
         <ion-card class="structurecard" *ngFor="let structure of structureprive; let i = index">
-          <img class="structureimg" src="../../assets/photocopieur-pro-entreprise.jpg" alt="">
+          <img class="structureimg" src="{{picture}}{{structure.photodecouverture}}" alt="" >
           <ion-card-title class="mt-1" style="color: black;">{{structure.alias}}</ion-card-title>
           <div class="nonETprix mt-3">
             <div class="prix">

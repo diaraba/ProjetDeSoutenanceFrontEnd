@@ -11,8 +11,8 @@
   </ion-header>
   <div class="contentscrollnotif" style="position:fixed; top:0px; left:0; right:0; bottom: 40px;">
     <ion-content class="contenu" *ngIf="showNotif" overflow-y="scroll">
-      <ion-card class="cardcontent" *ngFor="let notif of notifstate let i = index" (click)="validate(notif.idnotification)"   [routerLink]="['/tabs/structure/structurehome/'+this.notification.idstructure+'/avis-details', this.notification.idtarget]">
-        <ion-grid>
+      <ion-card class="cardcontent" *ngFor="let notif of notifstate let i = index">
+        <ion-grid (click)="validate(notif.idnotification)">
           <ion-row class="ion-align-items-center">
             <ion-col>
               <ion-card-header>
@@ -23,21 +23,41 @@
               </ion-card-header>
             </ion-col>
           </ion-row>
-          <ion-row class="ion-justify-content-center">
+        </ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <!-- <ion-icon name="checkmark-circle-outline" size="large" class="validate" color="primary"></ion-icon> -->
+          <ion-icon name="trash-outline" size="large" color="danger" (click)="hide(notif.idnotification)"></ion-icon>
+        </ion-row>
+      </ion-card>
 
-            <ion-icon name="checkmark-circle-outline" size="large" class="validate" color="primary"
-              ></ion-icon>
-            <ion-icon name="close-circle-outline" size="large" color="danger" (click)="hide(notif.idnotification)">
-            </ion-icon>
+
+
+      <ion-card class="cardcontent" *ngFor="let notif of notifactif let i = index">
+        <ion-grid (click)="validate1(notif.idnotification)">
+          <ion-row class="ion-align-items-center">
+            <ion-col>
+              <ion-card-header>
+                <ion-card-title>{{notif.titre}}</ion-card-title>
+                <ion-card-content>
+                  {{notif.contenu}}
+                </ion-card-content>
+              </ion-card-header>
+            </ion-col>
           </ion-row>
         </ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <!-- <ion-icon name="checkmark-circle-outline" size="large" class="validate" color="primary"></ion-icon> -->
+          <ion-icon name="trash-outline" size="large" color="danger" (click)="hide(notif.idnotification)"></ion-icon>
+        </ion-row>
       </ion-card>
+
+
       <!-- Fin Card postulant -->
     </ion-content>
 
   </div>
   <ion-content *ngIf="!showNotif" class="contenu">
-    <ion-card class="cardcontent" >
+    <ion-card class="cardcontent">
       <ion-grid>
         <ion-row class="ion-align-items-center">
           <ion-card-content>

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: StructurehomePage
   },
   {
-    path: 'avis-details/:id',
+    path: 'avis-details/:idavis',
     loadChildren: () => import('../avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
   },
   {

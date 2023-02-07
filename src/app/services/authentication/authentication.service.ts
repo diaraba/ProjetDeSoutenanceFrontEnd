@@ -3,6 +3,8 @@ import {HttpClient ,HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
+const PASSWORD_API = 'http://localhost:8080/api/utilisateur/';
+
 
 const httpOptions={
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -46,6 +48,17 @@ export class AuthenticationService {
         password,
       },
       httpOptions
+    );
+  }
+
+  
+  forgetpassword(email:string){
+    console.log(email);
+    let data = new FormData();
+    data.append('email', email);
+    console.log(data.getAll(email));
+    return this.http.post(
+      PASSWORD_API + 'changerMotDePasse',data
     );
   }
 

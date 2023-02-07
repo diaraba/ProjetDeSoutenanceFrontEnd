@@ -65,6 +65,10 @@ const routes: Routes = [
         loadChildren: () => import('../avis-details/avis-details.module').then( m => m.AvisDetailsPageModule)
       },
       {
+        path: 'demande',
+        loadChildren: () => import('../demande/demande.module').then( m => m.DemandePageModule)
+      },
+      {
         path:'',
         redirectTo:'/tabs/accueil',
         pathMatch:'full'

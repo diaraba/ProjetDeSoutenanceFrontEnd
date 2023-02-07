@@ -1,14 +1,16 @@
 <ion-content class="registerbackfont">
-  <div class="content">
-    <div class="right">
-      <p><strong style="color: black;">CONNEXION</strong></p>
-    </div>
-    <div class="left">
+  <!-- <div class="content"> -->
+  <div class="debut">
+    <div class="d-flex w-100 h-100 mb-5">
+      <div class="right">
+        <p><strong style="color: black;">CONNEXION</strong></p>
+      </div>
+      <div class="left">
+      </div>
     </div>
     <div class="logo">
-      <ion-buttons>
-        <ion-button>
-          <svg width="44" height="63" viewBox="0 0 39 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- <svg width="44" height="63" viewBox="0 0 39 47" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M38 42.5C38 41.6464 37.5991 40.8012 36.8201 40.0126C36.0412 39.2239 34.8995 38.5074 33.4602 37.9038C32.0208 37.3002 30.3121 36.8214 28.4316 36.4948C26.551 36.1681 24.5355 36 22.5 36C20.4645 36 18.449 36.1681 16.5684 36.4948C14.6879 36.8214 12.9792 37.3002 11.5398 37.9038C10.1005 38.5074 8.95881 39.2239 8.17987 40.0126C7.40092 40.8012 7 41.6464 7 42.5H8.55C8.55 41.7318 8.91083 40.9711 9.61188 40.2613C10.3129 39.5515 11.3405 38.9066 12.6359 38.3634C13.9312 37.8202 15.4691 37.3893 17.1616 37.0953C18.8541 36.8013 20.6681 36.65 22.5 36.65C24.3319 36.65 26.1459 36.8013 27.8384 37.0953C29.5309 37.3893 31.0688 37.8202 32.3641 38.3634C33.6595 38.9066 34.6871 39.5515 35.3881 40.2613C36.0892 40.9711 36.45 41.7318 36.45 42.5H38Z"
               fill="#C8FCEA" />
@@ -65,36 +67,28 @@
                 <rect width="31" height="22" fill="white" transform="translate(7 15)" />
               </clipPath>
             </defs>
-          </svg>
-          <!-- <img src="../../assets/Frame 74.png"> -->
-        </ion-button>
-      </ion-buttons>
-    </div>
+          </svg> -->
+      <img src="../../assets/LOGO.png">
 
-    <div class="form">
-      <form  *ngIf="!isLoggedIn"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate>
+    </div>
+  </div>
+<div class="container">
+  <div class="form">
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="">
       <ion-item class="forminput mb-3 mx-2">
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" name="email"  [(ngModel)]="form.email"  required #email="ngModel"   [ngClass]="{ 'is-invalid': f.submitted && email.errors }"></ion-input>
+        <ion-input type="email" name="email" [(ngModel)]="form.email" required #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"></ion-input>
         <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
           Username is required!
         </div>
       </ion-item>
 
+
       <ion-item class="forminput mx-2">
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="password"
-        
-        name="password"
-        [(ngModel)]="form.password"
-        required
-        minlength="6"
-        #password="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }"></ion-input>
 
         <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="password.errors['required']">Password is required</div>
@@ -104,18 +98,41 @@
         </div>
       </ion-item>
 
-      <div class="containerbutton">
+      <div class="containerbutton mt-5">
         <ion-button type="submit" routerLink="/connexion">
           <p style="color: white;">Connexion</p>
         </ion-button>
       </div>
 
-      <div class="form-group">
-        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-          Login failed: {{ errorMessage }}
-        </div>
+      <div class="containerbutton">
+        <ion-button fill="clear" (click)="!isForgetpass ? isForgetpass = true : isForgetpass=false">
+          Mot de passe oublié
+        </ion-button>
       </div>
+
+
+      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+        Login failed: {{ errorMessage }}
+      </div>
+
+
     </form>
+
+    <div class="user-details forgetpassword mb-5" *ngIf="isForgetpass">
+      <form action="" #resetForm="ngForm" (ngSubmit)="onResetpassword(resetForm.value)">
+        <div class="form-group">
+          <label for="emails">Email : </label>
+          <input type="email" class="form-control" name="emails" placeholder="email@gmail.com" required ngModel
+            #emailInput="ngModel" />
+          <span class="help-block" *ngIf="emailInput.invalid && emailInput.touched">Entrer email
+            valide.</span>
+        </div>
+        <div class="button mt-3">
+          <input type="submit" value="Réinitialiser" [disabled]="resetForm.invalid">
+        </div>
+      </form>
+    </div>
+
     <div class="bottom">
       <p>Vous n'avez pas de compte? <ion-button routerLink="/register" fill="clear">INSCRIPTION</ion-button>
       </p>
@@ -124,7 +141,7 @@
     <div class="alert alert-success" *ngIf="isLoggedIn">
       Logged in as {{ roles }}.
     </div>
-    </div>
   </div>
-
+  <!-- </div> -->
+</div>
 </ion-content>

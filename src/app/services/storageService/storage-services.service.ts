@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+
 const USER_KEY = 'auth-user'
+const MESID = 'mesid'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,4 +37,23 @@ export class StorageServicesService {
 
     return false;
   }
+
+
+
+
+
+
+  public saveIdActuels(mesaidVenus:any): void {
+    window.sessionStorage.removeItem(MESID);
+    window.sessionStorage.setItem(MESID, JSON.stringify(mesaidVenus));
+  }
+
+  public getIdActuels(): any {
+    const mesiDARetourner = window.sessionStorage.getItem(MESID);
+    if (mesiDARetourner) {
+      return JSON.parse(mesiDARetourner);
+    }
+  }
+
+
 }

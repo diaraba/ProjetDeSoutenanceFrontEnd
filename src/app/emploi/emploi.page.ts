@@ -5,6 +5,7 @@ import { StorageServicesService } from '../services/storageService/storage-servi
 import { StructureService } from '../services/structure/structure.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-emploi',
@@ -31,6 +32,8 @@ export class EmploiPage implements OnInit {
   notifstate: any;
   idprofile: any;
   validate!: boolean;
+  public host=environment.host;
+  public picture=`${this.host}image/`;
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService,private route:Router) { }
 
   ngOnInit() {
@@ -84,6 +87,7 @@ export class EmploiPage implements OnInit {
 
   changeState(): void {
     console.log(this.notif);
+    console.log(this.idprofile);
     if(this.storageService.isLoggedIn()){
     this.profil.modifierProfiletat(this.notif, this.idprofile).subscribe(data => {
       console.log(this.notif);

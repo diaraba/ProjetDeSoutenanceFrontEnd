@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 
@@ -21,8 +22,12 @@ export class ProfilePage implements OnInit {
   slogan: any;
   email: any;
   nom: any;
+  image:any;
   activite: any;
   showupdateprofile=false;
+  
+  public host = environment.host;
+  public picture = `${this.host}image/`
 
 
   constructor(private profile: ProfilService, private storageService: StorageServicesService, private route:ActivatedRoute, private backs : Location) { }
@@ -43,6 +48,7 @@ export class ProfilePage implements OnInit {
       this.activite = this.profiles.activite
       this.email = this.profiles.structure.email
       this.nom = this.profiles.nom
+      this.image = this.profiles.image
 
       if(this.roles[0] == "ROLE_STRUCTURE"){
         this.showupdateprofile=true;

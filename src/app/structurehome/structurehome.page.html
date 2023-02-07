@@ -23,7 +23,7 @@
       <ion-card>
         <div class="divimage">
           <img class="imagestructure" alt="rhino standing near grass"
-            src="../../assets/photocopieur-pro-entreprise.jpg" />
+            src="{{picture}}{{profiles.image}}" />
         </div>
         <div class="maintext1">
           <h5 style="color: black;">{{alias}}</h5>
@@ -82,7 +82,7 @@
           <div class="card mb-3 mx-auto mt-5 contour" style="max-width: 90%;" *ngFor="let avis of avisFinancement">
             <div class="row g-0">
               <div class="col-4">
-                <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
+                <img src="{{picture}}{{avis.image}}" class="img-fluid rounded-start imageBorder"
                   alt="...">
               </div>
               <div class="col-8 justify-content-center">
@@ -283,7 +283,7 @@
         <div class="card mb-3 mx-auto mt-5 contour2" style="max-width: 90%;" *ngFor="let annonce of annonces">
           <div class="row g-0">
             <div class="col-4">
-              <img src="../../assets/photocopieur-pro-entreprise.jpg" class="img-fluid rounded-start imageBorder"
+              <img src="{{picture}}{{annonce.image}}" class="img-fluid rounded-start imageBorder"
                 alt="...">
             </div>
             <div class="col-8 justify-content-center">

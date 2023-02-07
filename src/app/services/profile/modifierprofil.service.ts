@@ -31,18 +31,21 @@ export class ModifierprofilService {
 
 
 
-  creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any, id_profile: any, image:any): Observable<any> {
+  creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any,etat:any, id_utilisateur: any, image:any): Observable<any> {
     console.log(nom);
+    console.log(etat);
     let data = new FormData();
     data.append('nom', nom);
     data.append('prenom', prenom);
     data.append('genre', genre);
     data.append('numero', numero);
     data.append('situation', situation);
+    data.append('etat', etat);
     data.append('image', image);
-    
-    return this.http.put(
-      AUTH_API + `creerProfileUtilisateurs/${id_profile}`, data
+    console.log(image);
+
+    return this.http.post(
+      AUTH_API + `creerProfileUtilisateurs/${id_utilisateur}`, data
     );
   }
 

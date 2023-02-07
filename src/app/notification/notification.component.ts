@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { ProfilService } from '../services/profile/profil.service';
 import { NotifService } from '../services/notification/notif.service';
 import { Router } from '@angular/router';
+import { timeStamp } from 'console';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
@@ -24,16 +25,17 @@ export class NotificationComponent implements OnInit {
   idnotif: any;
   profiles: any;
   notif: any;
-  notification:any;
+  notification: any;
   showNotif = false;
   notifactif: any = [];
   notifstate: any = [];
 
 
-  constructor(private popNotif: PopoverController, private profile: ProfilService, private storageservice: StorageServicesService, private notifofuserlogged: UtilisateurService, private update: ModifierprofilService, private notifinf: NotifService,private route:Router) { }
+  constructor(private popNotif: PopoverController, private profile: ProfilService, private storageservice: StorageServicesService, private notifofuserlogged: UtilisateurService, private update: ModifierprofilService, private notifinf: NotifService, private route: Router) { }
 
   ngOnInit() {
     this.iduser = this.storageservice.getUser().id;
+  
 
     this.notifofuserlogged.affichernotifpariduser(this.iduser).subscribe(data => {
       this.objets = data;
@@ -61,9 +63,14 @@ export class NotificationComponent implements OnInit {
         //   console.log(this.notifactif);
         // }
 
-        if (this.notifs[index].etat == "false" && this.notifs[index].status == "true") {
+        if (this.notifs[index].etat == "false" && this.notifs[index].status == "true" && this.notifs[index].target=="annonce") {
           this.notifstate.push(this.notifs[index])
           console.log(this.notifstate.length);
+        }
+
+        if (this.notifs[index].etat == "false" && this.notifs[index].status == "true" && this.notifs[index].target=="avis") {
+          this.notifactif.push(this.notifs[index])
+          console.log(this.notifactif.length);
         }
       }
 
@@ -75,71 +82,113 @@ export class NotificationComponent implements OnInit {
     this.popNotif.dismiss();
   }
   validate(id: any): void {
-    this.etat = true;
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Notif marquer comme lu',
-      showConfirmButton: false,
-      timer: 1600,
-      heightAuto: false
+    
+     this.etat = true;
+     this.notifinf.affichernotifparid(id).subscribe(data => {
+      this.notification = data; 
+      this.route.navigate(['/tabs/structure/structurehome/'+this.notification.idstructure+'/annonce-detailsa',  this.notification.idtarget]);
+      console.log(data);
     })
+
+    // Swal.fire({
+    //   icon: 'success',
+    //   title: 'Notif marquer comme lu',
+    //   showConfirmButton: false,
+    //   timer: 1600,
+    //   heightAuto: false
+    // })
     this.update.updateNotifetat(this.etat, id).subscribe(data => {
       console.log(this.notifs);
-      this.notifstate = []  
+      this.notifstate = [];
+      this.notifactif=[];
       this.ngOnInit();
-    })  
-    setTimeout(() => {
-    this.iduser = this.storageservice.getUser().id;
-    this.notifinf.getNotiflue(this.iduser).subscribe(data => {
-      localStorage.setItem('nombre', data)
-      console.log(data);
-      this.notifs = data;
-    })
-    localStorage.setItem('nombre', this.notifs)
-    console.log("Le clic passe très bien" + this.notifs);
+      })
 
-
-
-
-
-  
+    
+   
+   setTimeout(() => {
+      this.iduser = this.storageservice.getUser().id;
+      this.notifinf.getNotiflue(this.iduser).subscribe(data => {
+        localStorage.setItem('nombre', data)
+        console.log(data);
+        this.notifs = data;
+      })
+      localStorage.setItem('nombre', this.notifs)
+      console.log("Le clic passe très bien" + this.notifs);
       location.reload();
-    }, 1600);
+    }, 600);
 
-    this.notifinf.affichernotifparid(this.iduser).subscribe(data => {
-      console.log(data);
-      this.notification = data;
-    })
- 
+
   }
+
+
+  validate1(id: any): void {
+    
+    this.etat = true;
+    this.notifinf.affichernotifparid(id).subscribe(data => {
+     this.notification = data; 
+     this.route.navigate(['/tabs/structure/structurehome/'+this.notification.idstructure+'/avis-details',  this.notification.idtarget]);
+     console.log(data);
+   })
+
+   // Swal.fire({
+   //   icon: 'success',
+   //   title: 'Notif marquer comme lu',
+   //   showConfirmButton: false,
+   //   timer: 1600,
+   //   heightAuto: false
+   // })
+   this.update.updateNotifetat(this.etat, id).subscribe(data => {
+     console.log(this.notifs);
+     this.notifstate = [];
+     this.notifactif=[];
+     this.ngOnInit();
+     })
+
+   
+  
+   setTimeout(() => {
+     this.iduser = this.storageservice.getUser().id;
+     this.notifinf.getNotiflue(this.iduser).subscribe(data => {
+       localStorage.setItem('nombre', data)
+       console.log(data);
+       this.notifs = data;
+     })
+     localStorage.setItem('nombre', this.notifs)
+     console.log("Le clic passe très bien" + this.notifs);
+     location.reload();
+  }, 600);
+
+
+ }
 
 
 
   hide(id: any): void {
     this.status = false;
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: 'Êtes vous sûr?',
+      text: "Cette action est irréversible!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Oui, supprimer !',
       heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.update.updateNotifstatus(this.status, id).subscribe(data => {
           console.log(this.notifs);
           console.log(this.status);
-          this.notifstate = []
+          this.notifstate = [];
+          this.notifactif=[];
           this.ngOnInit();
         })
         Swal.fire({
           icon: 'success',
           title: 'Suppression reussi !',
           showConfirmButton: false,
-          timer: 1500,
+          timer: 500,
           heightAuto: false
         })
         this.iduser = this.storageservice.getUser().id;
