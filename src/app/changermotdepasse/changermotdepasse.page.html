@@ -1,0 +1,91 @@
+<ion-content>
+  <div class="annonce">
+
+    <div class="imageprofile py-3">
+      <!-- <img class="img" src="../../assets/photocopieur-pro-entreprise.jpg" alt=""> -->
+
+      <ion-avatar class="position">
+        <img src="{{picture}}{{image}}" alt="">
+      </ion-avatar>
+    </div>
+    <div class="row info" style="margin-top: 20px; padding: 10px;">
+      <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
+        <b>Modifier Compte</b>
+      </div>
+      <!-- <div class="edit">
+
+        <ion-buttons class="ionModif">
+          <ion-button routerLink="/modifierprofil">
+            <ion-icon name="create-outline"></ion-icon>
+            Changer mot de passe
+          </ion-button>
+        </ion-buttons>
+      </div> -->
+      <div class="information" style="color:black;margin-top: 40px;margin-bottom: 40px;">
+
+
+
+        <div class="content1">
+          <div class="content-item">
+            <form #changePasswordForm="ngForm" name="form"
+              (ngSubmit)="f.form.valid && onSubmit(changePasswordForm.value)" #f="ngForm" novalidate class="">
+              <div class="mb-3 form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required #email="ngModel"
+                  [ngClass]="{ 'is-invalid':  email.errors }">
+                <div *ngIf="email.errors && f.submitted" class="invalid-feedback alert-danger">
+                  L'email est réquis!
+                </div>
+              </div>
+
+              <div class="mb-3 form-group">
+                <label for="currentpassword" class="form-label">Ancien mot de passe</label>
+                <input type="password" class="form-control" id="currentpassword" placeholder="" value=""
+                  name="currentpassword" [(ngModel)]="form.currentpassword" required minlength="6" #currentpassword="ngModel"
+                  [ngClass]="{ 'is-invalid': currentpassword.errors }">
+
+                <div class="invalid-feedback alert-danger" *ngIf="currentpassword.errors ">
+                  <div *ngIf="currentpassword.errors['required']">Le mot de passe est réquis</div>
+                  <div *ngIf="currentpassword.errors['minlength']">
+                    Le mot de passe doit être d'au moins 6 caractères
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3 form-group">
+                <label for="newpassword" class="form-label">Nouveau mot de passe</label>
+                <input type="password" class="form-control" id="newpassword" placeholder="" value="" name="newpassword"
+                [(ngModel)]="form.newpassword" required minlength="6" #newpassword="ngModel"
+                [ngClass]="{ 'is-invalid': newpassword.errors }">
+
+              <div class="invalid-feedback alert-danger" *ngIf="newpassword.errors ">
+                <div *ngIf="newpassword.errors['required']">Le mot de passe est réquis</div>
+                <div *ngIf="newpassword.errors['minlength']">
+                  Le mot de passe doit être d'au moins 6 caractères
+                </div>
+              </div>
+              </div>
+
+              <div class="mb-3 form-group">
+                <label for="confirmpassword" class="form-label">Confirmer mot de passe</label>
+                <input type="password" class="form-control" id="confirmpassword" placeholder="" value=""
+                  name="confirmpassword" [(ngModel)]="form.confirmpassword" required minlength="6" #confirmpassword="ngModel"
+                  [ngClass]="{ 'is-invalid': confirmpassword.errors }">
+
+                <div class="invalid-feedback alert-danger" *ngIf="confirmpassword.errors ">
+                  <div *ngIf="confirmpassword.errors['required']">Le mot de passe est réquis</div>
+                  <div *ngIf="confirmpassword.errors['minlength']">
+                    Le mot de passe doit être d'au moins 6 caractères
+                  </div>
+                </div>
+              </div>
+              <div class="containerbutton">
+                <input type="submit" class="sendbutton" value="Envoyer" >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

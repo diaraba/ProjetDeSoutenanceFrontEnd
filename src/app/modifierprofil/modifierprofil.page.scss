@@ -89,12 +89,59 @@
  .edit ion-button{
      font-size: 8px;
  }
-
-
  .containerbutton{
-     margin-left: 80px;
-     margin-top: 20px;
- }
+    display: flex;
+    justify-content: center;
+  }
+  .containerbutton ion-button p{
+     margin-top: 0px;
+     margin-bottom: 0px;
+  }
+
+
+//  .containerbutton{
+//      margin-left: 80px;
+//      margin-top: 20px;
+//  }
  .containerbutton ion-button p{
-     margin-top: 20px;
+    //  margin-top: 20px;
  }
+//////PROFIL AVATAR
+
+.user-avatar {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+
+  .simg{
+    display: flex;
+    justify-content: center;
+   }
+
+   .position{
+    width: 100px;
+        height: 100px;
+        border: 3px solid #6A9A8B;
+  }
+
+  .status-overlay {
+    background-color: white;
+    position: absolute;
+    top: 92px;
+    left: 210px;
+    z-index: 1;
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    border: 1px solid black;
+  }
+
+  .IONic{
+    width:25px;
+   height: 25px;
+  }

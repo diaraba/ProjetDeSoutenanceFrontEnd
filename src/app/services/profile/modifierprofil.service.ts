@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Changepassword } from 'src/app/changepassword/changepassword';
 
 
 const AUTH_API = 'http://localhost:8080/api/profileutilisateurs/';
@@ -17,22 +18,26 @@ const httpOptions = {
 export class ModifierprofilService {
   constructor(private http: HttpClient) { }
 
-  modifierProfil(nom: any, prenom: any, genre: any, numero: any, situation: any,activites:any, id_profile: any): Observable<any> {
+  modifierProfil(nom: any, prenom: any, genre: any, numero: any, situation: any,activites:any,images:any, id_utilisateur: any): Observable<any> {
     console.log(nom);
+    console.log(images);
+    console.log("bbbbbbbbbbbbbbbbb" +numero+"ddddddddddddddddddddddddddd")
     let data = new FormData();
     data.append('nom', nom);
     data.append('prenom', prenom);
     data.append('numero', numero);
     data.append('situation', situation);
+    data.append('image', images);
+    console.log(images);
     return this.http.put(
-      AUTH_API + `modifierProfileUtilisateur/${id_profile}`, data
+      AUTH_API + `modifierProfileUtilisateur/${id_utilisateur}`, data
     );
   }
 
 
 
   creerProfil(nom: any, prenom: any, genre: any, numero: any, situation: any,etat:any, id_utilisateur: any, image:any): Observable<any> {
-    console.log(nom);
+    console.log(nom); 
     console.log(etat);
     let data = new FormData();
     data.append('nom', nom);
@@ -84,12 +89,19 @@ export class ModifierprofilService {
     // let data = new FormData();
     // data.append('activites', activites);
     return this.http.put(
-      `http://localhost:8080/api/auth/modifierUtilisateur/${id_utilisateur}`, {
-        nomutilisateur,
-        email,
-      }
+      `http://localhost:8080/api/auth/modifierUtilisateur/${id_utilisateur}`, {nomutilisateur,email,}
     );
   }
+
+
+  
+  updatepassword(passwordchange:Changepassword): Observable<any> {
+  
+    // let data = new FormData();
+    // data.append('activites', activites);
+    return this.http.post('http://localhost:8080/api/utilisateur/updateMotdepasse',passwordchange,{responseType:'text'});
+  }
+
 
 
    updateNotifetat(etat:any, idnotif:any): Observable<any> {

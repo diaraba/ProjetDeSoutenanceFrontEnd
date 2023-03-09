@@ -8,14 +8,14 @@
         <img src="{{picture}}{{image}}" alt="">
       </ion-avatar>
     </div>
-    <div class="row info" style="margin-top: 20px;">
+    <div class="row info" style="margin-top: 20px; padding: 10px;" >
       <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
         <b>Modifier Compte</b>
       </div>
       <div class="edit">
 
-        <ion-buttons class="ionModif">
-          <ion-button routerLink="/modifierprofil">
+        <ion-buttons class="ionModif" (click)="checkSatate()">
+          <ion-button >
             <ion-icon name="create-outline"></ion-icon>
             Changer mot de passe
           </ion-button>
@@ -29,16 +29,16 @@
           <div class="content-item">
             <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nom d'utilisateur</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{utilisateurs.nomutilisateur}}" value="" name="nomutilisateur" [(ngModel)]="form.nomutilisateur"  #nomutilisateur="ngModel">
+                <label for="nomutilisateur" class="form-label">Nom d'utilisateur</label>
+                <input type="text" class="form-control" id="nomutilisateur" placeholder="{{utilisateurs.nomutilisateur}}" value="" name="nomutilisateur" [(ngModel)]="form.nomutilisateur"  #nomutilisateur="ngModel">
               </div>
 
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{utilisateurs.email}}"  name="email" [(ngModel)]="form.email"  #email="ngModel">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="{{utilisateurs.email}}"  name="email" [(ngModel)]="form.email"  #email="ngModel">
               </div>
               <div class="containerbutton">
-                <ion-button type="submit">
+                <ion-button type="submit" class="sendbutton">
                   <p>Envoyer</p>
                 </ion-button>
               </div>

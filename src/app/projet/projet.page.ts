@@ -18,70 +18,88 @@ export class ProjetPage implements OnInit {
   id_user: any;
   profiles: any;
   isLoggedIn = false;
-  isLoginFailed = false;
-  role:any;
-  roles:any;
-  content:any;
+  isconnexionFailed = false;
+  role: any;
+  roles: any;
+  content: any;
   showProjet = false;
   structures: any = [];
   structuressuivi: any = [];
-  structuresuiviparuser:any;
+  structuresuiviparuser: any;
   notif: any;
   shownotif: any;
   validate!: boolean;
+  image: any;
+  nom: any;
+  prenom: any;
+  email: any;
+  numero:any;
+  genre:any;
+  situation:any;
+  activites:any = [];
   form: any = {
     email: null,
   };
-  
+
   public host = environment.host;
   public picture = `${this.host}image/`
-  notifstate:any;
-  idprofile:any;
-  constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService,private route:Router) { }
+  notifstate: any;
+  idprofile: any;
+  constructor(private profile: ProfilService, private storageService: StorageServicesService, private structure: StructureService, private profil: ModifierprofilService, private route: Router) { }
 
   ngOnInit() {
-    this.id_structure = this.storageService.getUser().id;
-    this.roles=this.storageService.getUser().roles;
+    this.id_user = this.storageService.getUser().id;
+    this.roles = this.storageService.getUser().roles;
     console.log(this.roles);
-    this.profile.afficherprofilutilisateur(this.id_structure).subscribe(data => {
-      this.profiles = data
-      this.content=this.profiles.utilisateurs
+    this.profile.afficherprofilutilisateur(this.id_user).subscribe(data => {
+      this.profiles = data;
+      this.image = this.profiles.image;
+      this.nom = this.profiles.nom;
+      this.prenom = this.profiles.prenom;
+      this.numero=this.profiles.numero;
+      this.genre=this.profiles.genre;
+      this.situation=this.profiles.situation;
+      this.content = this.profiles.utilisateurs;
+      this.activites=this.content.activitesU;
+      this.email = this.content.email;
       this.idprofile = this.content.iduser;
-      this.notif=this.profiles.etat;
+      this.notif = this.profiles.etat;
       console.log(this.notif)
       console.log(this.profiles);
     })
-    
+
     // for(this.role of this.roles){
     //   console.log(this.role);
     // }
     // if(this.storageService.isLoggedIn()&& ){
     //   this.isLoggedIn = true;
     // }
-    if (this.roles[0] == "ROLE_PROJET") {
-      this.showProjet = true;
-    
+    if(this.storageService.isLoggedIn()){
+      if (this.roles[0] == "ROLE_PROJET") {
+        this.showProjet = true;
+  
+      }
     }
 
-    this.structure.afficherstructureparpreference(this.id_user).subscribe(data=>{
-      this.structures=data;
-     
+    this.structure.afficherstructureparpreference(this.id_user).subscribe(data => {
+      this.structures = data;
+
       console.log(this.structures);
     })
 
-    this.structure.afficherstructuresuiviparuser(this.id_user).subscribe(data=>{
-      this.structuressuivi=data;
-      
-    
+    this.structure.afficherstructuresuiviparuser(this.id_user).subscribe(data => {
+      this.structuressuivi = data;
+
+
       console.log(this.structuressuivi);
     })
 
     if (this.notif == true) {
       this.shownotif = true;
-      this.notifstate='Recevoir'
+      this.notifstate = 'Recevoir'
     } else {
       this.shownotif = false;
-      this.notifstate='Ne pas recevoir'
+      this.notifstate = 'Ne pas recevoir'
     }
     console.log(this.notifstate);
   }
@@ -93,37 +111,39 @@ export class ProjetPage implements OnInit {
   // }
   changeState(): void {
     console.log(this.notif);
-    if(this.storageService.isLoggedIn()){
-    this.profil.modifierProfiletat(this.notif, this.idprofile).subscribe(data => {
-      console.log(this.notif);
-      this.validate = true
-      Swal.fire({
-        icon: 'success',
-        title: 'Notif modifier avec succes',
-        showConfirmButton: false,
-        timer: 1500,
-        heightAuto: false})})
-      }else{
+    if (this.storageService.isLoggedIn()) {
+      this.profil.modifierProfiletat(this.notif, this.idprofile).subscribe(data => {
+        console.log(this.notif);
+        this.validate = true
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          heightAuto: false,
-          color:'#000000',
-          confirmButtonColor: '#C8FCEA',
-          confirmButtonText: '<span style="color: black;">OK</span>',
-          text: 'Vous devez vous connecter pour exécuter certaines actions!',
-          footer: '<a href="/login">Connexion... </a>',
+          icon: 'success',
+          title: 'Notif modifier avec succes',
+          showConfirmButton: false,
+          timer: 1500,
+          heightAuto: false
         })
-      }
+      })
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        heightAuto: false,
+        color: '#000000',
+        confirmButtonColor: '#C8FCEA',
+        confirmButtonText: '<span style="color: black;">OK</span>',
+        text: 'Vous devez vous connecter pour exécuter certaines actions!',
+        footer: '<a href="/connexion">Connexion... </a>',
+      })
+    }
 
 
   }
 
 
-  navigateMP():void{
-    if(this.storageService.isLoggedIn()){
+  navigateMP(): void {
+    if (this.storageService.isLoggedIn()) {
       this.route.navigate(['/tabs/modifierprofil'])
-    }else{
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -131,16 +151,16 @@ export class ProjetPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Vous devez vous connecter pour exécuter certaines actions!',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }
 
 
-  navigateMC():void{
-    if(this.storageService.isLoggedIn()){
+  navigateMC(): void {
+    if (this.storageService.isLoggedIn()) {
       this.route.navigate(['/tabs/modifiercompte'])
-    }else{
+    } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -148,18 +168,18 @@ export class ProjetPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Vous devez vous connecter pour exécuter certaines actions!',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }
 
 
-  navigateCACC():void{ 
+  navigateCACC(): void {
     console.log(this.profiles);
-    if(this.storageService.isLoggedIn()&&this.profiles==undefined){
+    if (this.storageService.isLoggedIn() && this.profiles == undefined) {
       this.route.navigate(['/tabs/creerprofile'])
     }
-    else{
+    else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -167,7 +187,7 @@ export class ProjetPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Connectez vous pour exécuter cette action et notez qu\'un profil ne peut être créer q\'une seule fois !',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }

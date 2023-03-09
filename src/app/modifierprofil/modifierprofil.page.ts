@@ -4,7 +4,8 @@ import { PreferenceService } from '../services/preferences/preference.service';
 import { ModifierprofilService } from '../services/profile/modifierprofil.service';
 import { ProfilService } from '../services/profile/profil.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-modifierprofil',
   templateUrl: './modifierprofil.page.html',
@@ -18,6 +19,7 @@ export class ModifierprofilPage implements OnInit {
   roles:any;
   payload:any;
   image:any;
+  images:any;
   form: any = {
     nom: null,
     prenom: null,
@@ -29,7 +31,7 @@ export class ModifierprofilPage implements OnInit {
   public interests: any = [];
   public host=environment.host;
   public picture=`${this.host}image/`;
-  constructor(private profile: ProfilService, private storageService: StorageServicesService, private modifprofil:ModifierprofilService, private pref: PreferenceService) { }
+  constructor(private profile: ProfilService, private storageService: StorageServicesService, private modifprofil:ModifierprofilService, private pref: PreferenceService, private route:Router) { }
 
   ngOnInit() {
     this.id_utilisateur = this.storageService.getUser().id;
@@ -67,14 +69,52 @@ export class ModifierprofilPage implements OnInit {
       numero,
       situation} = this.form;
       console.log(this.form);
-      this.modifprofil.modifierProfil( nom, prenom, genre,numero, situation,this.activites,this.id_profile).subscribe(data=>{
+      console.log("bbbbbbbbbbbbbbbbb" +numero+"ddddddddddddddddddddddddddd")
+      if(numero==null){
+        this.form.numero=" ";
+      }
+      if(nom==null){
+        this.form.nom=" ";
+      }
+      if(prenom==null){
+        this.form.prenom=" ";
+      }
+      if(genre==null){
+        this.form.genre=" ";
+      }
+      if(situation==null){
+        this.form.situation=" ";
+      }
+      console.log("bbbbbbbbbbbbbbbbb" + this.form.numero+"ddddddddddddddddddddddddddd")
+      console.log(this.images);
+
+      this.modifprofil.modifierProfil( this.form.nom, this.form.prenom, this.form.genre,this.form.numero, this.form.situation,this.activites,this.images,this.id_utilisateur).subscribe(data=>{
       this.payload=data
       console.log(this.payload);
+      console.log(this.content);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Profil modifier avec succès !',
+        showConfirmButton: false,
+        heightAuto:false,
+        timer: 1500
+      })
+      this.route.navigate(['/tabs/emploi']).then(() => {
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      }); 
     })
 
-    this.modifprofil.modifierCompte( this.activites, this.id_utilisateur).subscribe(data=>{
-      this.payload=data
-      console.log(this.payload);
-    })
+    // this.modifprofil.modifierCompte( this.activites, this.id_utilisateur).subscribe(data=>{
+    //   this.payload=data
+    //   console.log(this.payload);
+    // })
+  }
+
+  chargeImage(event: any){
+    this.images = event.target["files"][0]
+    console.log(this.images);
   }
 }

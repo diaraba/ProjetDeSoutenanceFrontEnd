@@ -1,14 +1,32 @@
 <ion-content>
   <div class="annonce">
 
-    <div class="imageprofile mx-auto  py-3">
-      <!-- <img class="img" src="../../assets/photocopieur-pro-entreprise.jpg" alt=""> -->
+
+    <div class="container user-avatar">
+
+      <div class="simg">
+
+        <ion-avatar class="position">
+          <img alt="Silhouette of a person's head" src="{{picture}}{{profiles.image}}" />
+        </ion-avatar>
+      </div>
+      <div class="status-overlay ">
+        <label>
+          <ion-icon class="IONic" name="camera-outline" color="secondary">
+            <input id="files" style="visibility:hidden;" type="file" class="form-control" required image
+            (change)="chargeImage($event)" >
+          </ion-icon>
+
+        </label>
+      </div>
+    </div>
+    <!-- <div class="imageprofile mx-auto  py-3">
 
       <ion-avatar class="position">
         <img alt="Silhouette of a person's head" src="{{picture}}{{image}}" />
       </ion-avatar>
 
-    </div>
+    </div> -->
     <div class="row info" style="margin-top: 40px;">
       <div class="nom" style="text-align: center;margin-top: 50px; color: black;">
         <b>Modifier Profil</b>
@@ -46,7 +64,7 @@
             <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.nom}} "  name="nom" [(ngModel)]="form.nom"  #nom="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.nom}} "  ngModel="{{profiles.nom}}" name="nom" [(ngModel)]="form.nom"  #nom="ngModel">
               </div>
 
               <div class="mb-3">
@@ -67,7 +85,7 @@
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Genre</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}"  name="genre" [(ngModel)]="form.genre" #form.genre="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}" ngModel="{{profiles.genre}}"  name="genre" [(ngModel)]="form.genre" #form.genre="ngModel">
               </div>
 
 
@@ -84,7 +102,7 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Situation</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1"
-                  placeholder="{{profiles.situation }} "  name="situation" [(ngModel)]="form.situation" #form.situation="ngModel">
+                  placeholder="{{profiles.situation }} "  name="situation" [(ngModel)]="form.situation" #form.situation="ngModel" ngModel="{{profiles.situation}}">
               </div>
 
 

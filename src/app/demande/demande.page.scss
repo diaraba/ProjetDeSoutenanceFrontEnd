@@ -105,14 +105,27 @@
     transform: translate(-50% -50%);
     
 }
- .containerbutton{
-    display: flex;
-    justify-content: center;
- }
- .containerbutton ion-button p{
-     margin-top: 20px;
- }
 
+.containerbutton{
+  display: flex;
+  justify-content: center;
+  height: 30%;
+}
+.containerbutton ion-button{
+ // position: relative;
+  border-radius: 5px;
+ height: 30px;
+ font-size: 14px;
+//  width: 150px;
+//  margin-left: 2%;
+  // left: 38%;
+//  bottom: 150px;
+}
+
+.containerbutton ion-button p{
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 //  .user-avatar {
 //     display: inline-block;

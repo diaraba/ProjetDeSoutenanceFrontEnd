@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { PreferenceService } from '../services/preferences/preference.service';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +14,10 @@ export class RegisterPage implements OnInit {
     nomutilisateur: null,
     email: null,
     password: null,
+    confirmedpassword: null,
   };
-  role:any;
+  passwordmatch = false;
+  role: any;
   roles: any = [];
   public interests: any = [];
   public activites: any[] = [];
@@ -24,7 +27,7 @@ export class RegisterPage implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private pref: PreferenceService, private authService: AuthenticationService) { }
+  constructor(private pref: PreferenceService, private authService: AuthenticationService, private route: Router) { }
 
   ngOnInit() {
     this.pref.getAllPref().subscribe(data => {
@@ -40,14 +43,14 @@ export class RegisterPage implements OnInit {
   onInterestSelected(interest: any) {
     if (!this.activites.includes(interest)) {
       this.activites.push(interest);
-    }  else {
+    } else {
       this.activites.splice(this.activites.indexOf(interest), 1);
     }
     console.log(this.activites);
   }
 
   onSubmit(): void {
-    const { nomutilisateur, email, password } = this.form;
+    const { nomutilisateur, email, password, confirmedpassword } = this.form;
 
     // console.log(nomutilisateur);
     // console.log(password);
@@ -58,17 +61,50 @@ export class RegisterPage implements OnInit {
     // alert(this.form.password);
     // alert(this.form.nomutilisateur);
     // alert(this.form.email);
-    this.authService.register(nomutilisateur, email, password, this.activites, this.roles).subscribe({
-      next: data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    });
+
+    if (password != confirmedpassword) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Les mot de passe doivent correspondre !',
+        position: 'center',
+        heightAuto: false
+      })
+    } else {
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Inscription de l\'utilisatuer en cours de traitement !',
+        showConfirmButton: false,
+        heightAuto: false,
+        timer: 1500
+      })
+      this.authService.register(nomutilisateur, email, password, this.activites, this.roles).subscribe({
+        next: data => {
+          console.log(data);
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Compte créer avec succès',
+            showConfirmButton: false,
+            heightAuto: false,
+            timer: 1500
+          })
+          this.route.navigate(['/connexion'])
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+          console.log(this.errorMessage+" errormessage")
+          if(this.errorMessage==="undefined"){ 
+            this.route.navigate(['/connexion'])
+          }
+        }
+      });
+    }
   }
 
 

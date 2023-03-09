@@ -22,7 +22,7 @@
               <div class="row">
                 <div class="col-9">{{structure1.structure.alias}}</div>
                 <div class="col-3">
-                  <ion-button class="voirdetails" fill="outline" routerLink="/tabs/profile"><span>Voir détails</span>
+                  <ion-button class="voirdetails" fill="outline" [routerLink]="['/tabs/structure/structurehome',structure1.structure.iduser]"><span>Voir détails</span>
                   </ion-button>
                 </div>
               </div>

@@ -87,7 +87,15 @@
  .containerbutton{
      margin-left: 80px;
      margin-top: 20px;
+     width: 40%;
  }
  .containerbutton ion-button p{
      margin-top: 20px;
  }
+ .containerbutton ion-button .sendbutton{
+    width: 60%;
+ }
+ ion-button.sendbutton.ios.button.button-solid.ion-activatable.ion-focusable.hydrated {
+    width: 110%;
+    
+}

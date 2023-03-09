@@ -100,6 +100,10 @@ const routes: Routes = [
     path: 'demande/:id',
     loadChildren: () => import('./demande/demande.module').then( m => m.DemandePageModule)
   },
+  {
+    path: 'changermotdepasse',
+    loadChildren: () => import('./changermotdepasse/changermotdepasse.module').then( m => m.ChangermotdepassePageModule)
+  },
 ];
 
 @NgModule({

@@ -16,9 +16,9 @@ export class ProfilePage implements OnInit {
   roles:any;
   isLoggedIn = false;
   id:any;
-  description: any;
-  status: any;
-  numero: any;
+  description!: any;
+  status!: any;
+  numero!: any;
   slogan: any;
   email: any;
   nom: any;

@@ -11,7 +11,7 @@
     width: 60px;
     height: 60px;
     /* bottom: 233px; */
-    left: 324px;
+    left: 80%;
     z-index: 3;
 }
 .logo svg{
@@ -20,7 +20,7 @@
 }
 .right{
     z-index: 2;
-    height: 36%;
+    height: 42%;
     width: 100%;
     position: absolute;
     background: #C8FCEA;
@@ -48,15 +48,15 @@
    // top: 10%;
     bottom: 73%;
 }
-
 .bottom{
     height: 40px;
     background: #C8FCEA;
     width: 90%;
-   // margin-bottom: 220px;
+    margin-bottom: 220px;
     position: relative;
     margin-left: 27px;
- //   bottom: 81px;
+    left: -2%;
+    bottom: -80px;
     // margin-top: 320px;
     
 }
@@ -72,7 +72,7 @@
     font-size: 12px;
 }
 .bottom p ion-button{
- //   position: relative;
+    position: relative;
     bottom: 4px;
     color: black;
     left: -9px;
@@ -118,18 +118,23 @@
 ion-content{
     background: #fff;
 }
+.containerbutton{
+    height: 30%;
+}
 .containerbutton ion-button{
    // position: relative;
     border-radius: 5px;
-  //  height: 30px;
+   height: 30px;
+   font-size: 14px;
   //  width: 150px;
   //  margin-left: 2%;
     // left: 38%;
   //  bottom: 150px;
 }
 
-.containerbutton ion-button p:hover{
-    cursor: pointer;
+.containerbutton ion-button p{
+    margin-top: auto;
+    margin-bottom: auto;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -167,7 +172,7 @@ ion-content{
     bottom:0;
     height: 3px;
     width: 30px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #C8FCEA, #6A9A8B);
 }
 
  .form-content form .user-details{
@@ -177,6 +182,12 @@ ion-content{
 
 form .user-details .form-group{
     margin-bottom: 15px;
+}
+
+.form-group {
+    width: 90%;
+    position: relative;
+    left: 6%;
 }
 .user-details .form-group .details{
     display: block;
@@ -203,18 +214,18 @@ form .user-details .form-group{
 
 .user-details .form-group input:focus,
 .user-details .form-group input:valid{
-    border-color: #9b59b6;
+    border-color: #C8FCEA;
 
 }
 
 form .button{
     width:60%;
-    height: 45px;
+    height: 38px;
     margin-left: 20%;
 }
 
 form .button input{
-    height: 100%;
+  height: 100%;
     width: 100%;
     outline: none;
     color: #fff;
@@ -223,16 +234,12 @@ form .button input{
     font-weight: 500px;
     border-radius: 5px;
     letter-spacing: 1px;
-    background: linear-gradient(135deg, #FF7900, #9b59b6);
+    background: linear-gradient(135deg,  #6A9A8B, #00754B);
 
 }
-form .button input:disabled {
-    background: linear-gradient(-135deg, #FF7900, #9b59b6);
-    opacity: 0.7;
- }
 
- span.help-block {
-    color: #FF7900;
-}
+
+
+
 
 

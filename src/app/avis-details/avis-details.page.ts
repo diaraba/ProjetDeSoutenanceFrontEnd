@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
 import { StructureService } from '../services/structure/structure.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-avis-details',
@@ -25,6 +26,7 @@ export class AvisDetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private structure: StructureService,
+    private router: Router,
     private storageServicesService: StorageServicesService
      ) { }
 
@@ -40,8 +42,8 @@ export class AvisDetailsPage implements OnInit {
 
     this.storageServicesService.saveIdActuels(mesid);
 
-    alert("je suis id: " + idstructure)
-    alert("je suis idavis: " + this.id)
+    // alert("je suis id: " + idstructure)
+    // alert("je suis idavis: " + this.id)
     this.structure.afficheravisoffreparid(this.id).subscribe(data => {
       this.avis = data
       this.titre = this.avis.titre;
@@ -53,6 +55,22 @@ export class AvisDetailsPage implements OnInit {
       
       console.log(this.avis);
     })
+  }
+
+  checkSatate():void{
+    if(this.storageServicesService.isLoggedIn()){
+      this.router.navigate(['/tabs/demande']);
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        heightAuto: false,
+        confirmButtonColor: '#C8FCEA',
+        confirmButtonText: '<span style="color: black;">OK</span>',
+        text: 'Vous devez vous connecter pour pouvoir exécuter cette action!',
+        footer: '<a href="/connexion">Connexion... </a>',
+      })
+    }
   }
 
 }

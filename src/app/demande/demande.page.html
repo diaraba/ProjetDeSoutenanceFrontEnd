@@ -408,34 +408,34 @@
           <div class="content-item">
             <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Nom </label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.nom}} "
-                  name="nom" [(ngModel)]="form.nom" #nom="ngModel">
+                <label for="exampleFormControlInput1" class="form-label">Nom et Prénom</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1"
+                  placeholder="{{prenomuser}} {{nomuser}}   " name="nom" [(ngModel)]="form.nom" #nom="ngModel">
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.email}} "
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{email}} "
                   name="form.email" [(ngModel)]="form.email" #form.prenom="ngModel">
               </div>
 
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Numéro</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" {{profiles.numero}}"
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" {{numero}}"
                   name="numero" [(ngModel)]="form.numero">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Genre</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}"
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{genre}}"
                   name="genre" [(ngModel)]="form.genre" #form.genre="ngModel">
               </div>
 
               <div class="mb-3">
                 <span class="champtitle" style="color: black;">Statut:</span> <br>
-                <ion-select interface="popover" class="notif" placeholder="" [(ngModel)]="statut"
-                  name="notif">
-                  <ion-select-option class="notif" value="Chercheur d'emploi" selected="true">Chercheur d'emploi</ion-select-option>
+                <ion-select interface="popover" class="notif" placeholder="" [(ngModel)]="statut" name="notif">
+                  <ion-select-option class="notif" value="Chercheur d'emploi" selected="true">Chercheur d'emploi
+                  </ion-select-option>
                   <ion-select-option class="notif" value="Porteur de projet">Porteur de projet</ion-select-option>
                 </ion-select>
               </div>
@@ -443,8 +443,8 @@
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Objet</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{profiles.genre}}"
-                  name="objet" [(ngModel)]="form.objet" #form.objet="ngModel">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="objet"
+                  [(ngModel)]="form.objet" #form.objet="ngModel">
               </div>
 
 
@@ -456,12 +456,16 @@
                 </textarea>
               </div>
 
-              <div class="containerbutton ">
+              <!-- <div class="containerbutton ">
                 <ion-button type="submit">
                   <p>Envoyer</p>
                 </ion-button>
+              </div> -->
+              <div class="containerbutton">
+                <ion-button fill="clear" type="submit" >
+                  Envoyer
+                </ion-button>
               </div>
-
             </form>
           </div>
         </div>

@@ -1,0 +1,121 @@
+
+  .img{
+    // width: 100%;
+    width: 140px;
+    height: 140px;
+    border: 1px solid #C8FCEA;
+    border-radius: 100%;
+    box-shadow: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .imageprofile{
+        display: flex;
+        justify-content: center;
+  }
+
+  
+  .position{
+    width: 100px;
+    height: 100px;
+  }
+  // ion-item{
+  //   border-bottom: 1px solid red;
+  // }
+ .info{
+  
+  // background-color: #368E8C;
+  
+
+ }
+ .container{
+  padding: 20px;
+ }
+ span{
+  font-size: 14px;
+ }
+ .ionModif ion-button{
+  
+  
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 15px ;
+  margin-bottom: 20px;
+  background: #ffffff ;
+  border: 1px solid #C8FCEA;
+  color: color;
+  border-radius: 5px;
+ }
+
+ .annonce{
+     margin-top: 56px;
+    // padding: 20px;
+    background: #FFFFFF;
+    padding-bottom: 100px;
+    
+ }
+ .ion-content{
+    background: #FFFFFF;
+ }
+ ion-content.md.content-ltr.hydrated {
+    background: #FFFFFF;
+}
+ 
+ .information{
+     position: relative;
+     bottom: 80px;
+ }
+ .nom{
+     position: relative;
+     bottom: 60px;
+ }
+ .edit{
+     display: flex;  
+     height: 35px; 
+     background: #FFFFFF;
+     justify-content: center;
+     position: relative;
+     bottom: 50px;
+ }
+ .edit ion-button{
+     font-size: 8px;
+ }
+
+
+ .containerbutton{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .containerbutton input:disabled {
+    background: linear-gradient(-135deg, #C8FCEA, #6A9A8B );
+    opacity: 0.7;
+ }
+
+  .containerbutton input{
+    height: 100%;
+     width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg,  #00754B, #C8FCEA)!important;
+
+}
+ .containerbutton ion-button p{
+     margin-top: 20px;
+ }
+ .containerbutton ion-button .sendbutton{
+    width: 60%;
+ }
+ ion-button.sendbutton.ios.button.button-solid.ion-activatable.ion-focusable.hydrated {
+    width: 110%;
+    
+}

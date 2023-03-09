@@ -72,76 +72,134 @@
 
     </div>
   </div>
-<div class="container">
-  <div class="form">
-    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="">
-      <ion-item class="forminput mb-3 mx-2">
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" name="email" [(ngModel)]="form.email" required #email="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"></ion-input>
-        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
-          Username is required!
-        </div>
-      </ion-item>
+  <div class="container">
+    <div class="form">
+      <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate class="">
+        <!-- <ion-item class="forminput mb-3 mx-2">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" [(ngModel)]="form.email" required email #email="ngModel"
+            [ngClass]="{ 'is-invalid': email.errors }"></ion-input>
+          <div *ngIf="email.errors " class="invalid-feedback alert-danger">
 
+            <div *ngIf="email.errors['required']" class="alert-danger"> L'email est réquis !</div>
+            <div *ngIf="email.errors['email']" class="alert-danger">
+              L'email doit être un email valide !
+            </div>
+          </div>
+        </ion-item> -->
 
-      <ion-item class="forminput mx-2">
-        <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="form.password" required minlength="6"
-          #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }"></ion-input>
-
-        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
-          <div *ngIf="password.errors['required']">Password is required</div>
-          <div *ngIf="password.errors['minlength']">
-            Password must be at least 6 characters
+        <div class="form-group">
+          <label position="floating" for="emails" style="color: black;">Email : </label>
+          <input type="email" class="form-control" name="emails" placeholder="email@gmail.com" [(ngModel)]="form.email"
+            required email #email="ngModel" [ngClass]="{ 'is-invalid': email.errors }">
+          <div *ngIf="email.errors " class="invalid-feedback alert-danger">
+            <div *ngIf="email.errors['required']" class="alert-danger"> L'email est réquis !</div>
+            <div *ngIf="email.errors['email']" class="alert-danger">
+              L'email doit être un email valide !
+            </div>
           </div>
         </div>
-      </ion-item>
 
+        <div class="form-group mt-2 mb-2">
+          <label position="floating" for="emails" style="color: black;">Password : </label>
+          <input type="email" class="form-control" name="emails" type="password" name="password"
+            [(ngModel)]="form.password" required minlength="6" #password="ngModel"
+            [ngClass]="{ 'is-invalid': password.errors }">
+          <div *ngIf="password.errors" class="invalid-feedback alert-danger">
+            <div *ngIf="password.errors['required']"> Le mot de passe est réquis !
+            </div>
+            <div *ngIf="password.errors['minlength']">
+              Le mot de passe doit être d'au moins 6 caractères !
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label  for="emails" style="color: black;">Password : </label>
+          <input type="password" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" [ngClass]="{ 'is-invalid': password.errors }">
+          <div *ngIf="password.errors" class="invalid-feedback alert-danger">
+            <div *ngIf="password.errors['required']"> Le mot de passe est réquis !
+            </div>
+            <div *ngIf="password.errors['minlength']">
+              Le mot de passe doit être d'au moins 6 caractères !
+            </div>
+          </div>
+        </div> -->
+
+
+        <!-- <ion-item class="forminput mx-2">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="form.password" required minlength="6"
+            #password="ngModel" [ngClass]="{ 'is-invalid': password.errors }"></ion-input>
+
+          <div *ngIf="password.errors" class="invalid-feedback alert-danger">
+            <div *ngIf="password.errors['required']"> Le mot de passe est réquis !
+            </div>
+            <div *ngIf="password.errors['minlength']">
+              Le mot de passe doit être d'au moins 6 caractères !
+            </div>
+          </div>
+        </ion-item> -->
+        <!-- 
       <div class="containerbutton mt-5">
         <ion-button type="submit" routerLink="/connexion">
           <p style="color: white;">Connexion</p>
         </ion-button>
-      </div>
-
-      <div class="containerbutton">
-        <ion-button fill="clear" (click)="!isForgetpass ? isForgetpass = true : isForgetpass=false">
-          Mot de passe oublié
-        </ion-button>
-      </div>
-
-
-      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
-        Login failed: {{ errorMessage }}
-      </div>
-
-
-    </form>
-
-    <div class="user-details forgetpassword mb-5" *ngIf="isForgetpass">
-      <form action="" #resetForm="ngForm" (ngSubmit)="onResetpassword(resetForm.value)">
-        <div class="form-group">
-          <label for="emails">Email : </label>
-          <input type="email" class="form-control" name="emails" placeholder="email@gmail.com" required ngModel
-            #emailInput="ngModel" />
-          <span class="help-block" *ngIf="emailInput.invalid && emailInput.touched">Entrer email
-            valide.</span>
+      </div> -->
+        <div class="containerbutton">
+          <ion-button fill="clear" type="submit" routerLink="/connexion" [disabled]="f.invalid">
+            Connexion
+          </ion-button>
         </div>
-        <div class="button mt-3">
-          <input type="submit" value="Réinitialiser" [disabled]="resetForm.invalid">
+
+        <div class="containerbutton">
+          <ion-button fill="clear" (click)="!isForgetpass ? isForgetpass = true : isForgetpass=false">
+            Mot de passe oublié
+          </ion-button>
         </div>
+
+
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+          Login failed: {{ errorMessage }}
+        </div>
+
+
       </form>
-    </div>
 
-    <div class="bottom">
-      <p>Vous n'avez pas de compte? <ion-button routerLink="/register" fill="clear">INSCRIPTION</ion-button>
+      <div class="user-details forgetpassword mb-5 mt-3" *ngIf="isForgetpass">
+        <form action="" #resetForm="ngForm" (ngSubmit)="onResetpassword(resetForm.value)">
+          <div class="form-group">
+            <label for="emails" style="color: black;">Email : </label>
+            <input type="email" class="form-control" name="emails" placeholder="email@gmail.com" [(ngModel)]="emails"
+              required email #email="ngModel" [ngClass]="{ 'is-invalid': email.errors }">
+            <div *ngIf="email.errors " class="invalid-feedback alert-danger">
+
+              <div *ngIf="email.errors['required']" class="alert-danger"> L'email est réquis !</div>
+              <div *ngIf="email.errors['email']" class="alert-danger">
+                L'email doit être un email valide !
+              </div>
+            </div>
+          </div>
+          <div class="button mt-3">
+            <input type="submit" value="Réinitialiser" [disabled]="resetForm.invalid">
+          </div>
+        </form>
+      </div>
+
+      <div class="bottom">
+        <p>Vous n'avez pas de compte? <ion-button routerLink="/register" fill="clear">INSCRIPTION</ion-button>
+        </p>
+      </div>
+      <!-- <div class="bottom">
+      <p>Vous n'avez pas de compte? <ion-button routerLink="/connexion" fill="clear">CONNEXION</ion-button>
       </p>
-    </div>
+    </div> -->
 
-    <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
     </div>
+    <!-- </div> -->
   </div>
-  <!-- </div> -->
-</div>
 </ion-content>

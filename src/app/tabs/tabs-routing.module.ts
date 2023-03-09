@@ -69,6 +69,10 @@ const routes: Routes = [
         loadChildren: () => import('../demande/demande.module').then( m => m.DemandePageModule)
       },
       {
+        path: 'changermotdepasse',
+        loadChildren: () => import('../changermotdepasse/changermotdepasse.module').then( m => m.ChangermotdepassePageModule)
+      },
+      {
         path:'',
         redirectTo:'/tabs/accueil',
         pathMatch:'full'

@@ -19,13 +19,13 @@ export class AuthenticationService {
 
   register(nomutilisateur:string, email:string, password:string, activites:any,roles:any): Observable<any>{
     let data = new FormData();
-    data.append('nomutilisateur',nomutilisateur);
-    data.append('email',email);
-    //let activitesString = JSON.stringify(activites);
-    data.append('password',password);
-    data.append('activites', activites);
-    console.log(roles);
-    data.append('role', roles);
+    // data.append('nomutilisateur',nomutilisateur);
+    // data.append('email',email);
+    // //let activitesString = JSON.stringify(activites);
+    // data.append('password',password);
+    // data.append('activites', activites);
+    // console.log(roles);
+    // data.append('role', roles);
     console.log(roles);
     return this.http.post(
       AUTH_API + `creerUtilisateur`,

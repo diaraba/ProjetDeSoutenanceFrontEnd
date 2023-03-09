@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { AlertService } from '../services/alerttoast/alert.service';
 import { AuthenticationService } from '../services/authentication/authentication.service';
 import { StorageServicesService } from '../services/storageService/storage-services.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-connexion',
@@ -16,17 +18,18 @@ export class ConnexionPage implements OnInit {
     email: null,
     password: null,
   };
+  
   isLoggedIn = false;
   isLoginFailed = false;
   id: any;
-  emails:any;
+  emails: any;
   errorMessage = '';
   roles: string[] = [];
   showEmploi = false;
-  isForgetpass=false;
+  isForgetpass = false;
   private subscriptions: Subscription[] = [];
 
-  constructor(private authService: AuthenticationService, private storageService: StorageServicesService, private route: Router, private alerteService:AlertService) { }
+  constructor(private authService: AuthenticationService, private storageService: StorageServicesService, private route: Router, private alerteService: AlertService) { }
   ngOnInit(): void {
     if (this.storageService.isLoggedIn()) {
       this.isLoggedIn = true;
@@ -60,9 +63,18 @@ export class ConnexionPage implements OnInit {
 
         // Refresh the current page
         // this.route.navigate(['/tabs/accueil'], {skipLocationChange: true});
+
         if (this.roles[0] == "ROLE_EMPLOI") {
           this.showEmploi = true;
         }
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Connexion reussi !',
+          showConfirmButton: false,
+          heightAuto:false,
+          timer: 1500
+        })
         this.route.navigate(['/tabs/accueil']).then(() => {
           setTimeout(() => {
             location.reload();
@@ -81,7 +93,7 @@ export class ConnexionPage implements OnInit {
 
 
 
-  onResetpassword(form:any): void {
+  onResetpassword(form: any): void {
     console.log(form.emails);
     const email: string = form.emails;
     this.subscriptions.push(

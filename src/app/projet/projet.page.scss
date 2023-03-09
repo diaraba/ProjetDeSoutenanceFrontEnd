@@ -1,60 +1,85 @@
-.logo{
-    position: relative;
-    bottom: 4px;
-    right: 10px;
-}
-
 .voirdetails1{
     // width: 80px;
     // height: 20px;
     position: relative;
     top: 80px;
-    margin-left: -10px;
-    
     border-color: #6A9A8B!important;
     justify-items: center;
 }
 
-.voirdetails1 {
+
+.voirdetails span{
+    font-size: 8px;
+}
+
+.voirdetails{
     width: 80px;
     height: 20px;
+    font-size: 8px;
     position: relative;
+    top: 0px;
+    margin-left: 8%; 
+    border-color: #6A9A8B!important;
+    justify-items: center;
+}
+
+
+
+.voirdetails2{
+    // width: 80px;
+    // height: 20px;
+    position: relative;
+    top: 80px;
+    border-color: #6A9A8B!important;
+    justify-items: center;
+}
+
+.voirdetails2 {
+    width: 70px;
+    height: 20px;
+    position: relative;
+    margin-left: -5%;
+    // margin-right: auto;
     font-size: 8px;
     top: 12px;
     border-color: #6A9A8B !important;
 }
-.voirdetails1 span{
+.voirdetails2 span{
     font-size: 8px;
 }
 
 .emplois{
-    // margin-top: 15px;
-     --height: 100%;
-     background: #fff;
- }
+   // margin-top: 15px;
+    --height: 100%;
+    background: #fff;
+}
+.principal{
+      background: #fff!important;
+}
 .containerbutton{
-
+    height: 30%;
 }
 .containerbutton ion-button{
-    position: relative;
+   // position: relative;
     border-radius: 5px;
-    height: 30px;
-    right:2px;
+   height: 30px;
+   font-size: 14px;
+  //  width: 150px;
+  //  margin-left: 2%;
+    // left: 38%;
+  //  bottom: 150px;
 }
 
-.containerbutton p{
-    position: relative;
-    top: 5px;
-    font-size: 10px;
-}
 .containerbutton ion-button p{
-    position: relative;
-    top: 9px;
-    font-size: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .structureTop{
     position: relative;
-    top:45px;
+    top:48px;
+    --height: 100%;
+    background: #fff!important;
+    
 }
 ion-segment{
     background-color: white;
@@ -96,6 +121,7 @@ font-size: 12px;
     // height: 200px;
     border: 4px solid #6A9A8B;
     border-radius: 5px;
+    background: #fff;
 }
 // .structurecontent{
 //     display: flex;
@@ -112,7 +138,7 @@ font-size: 12px;
     height: 20px;
     position: relative;
     top: 80px;
-    margin-left: -6px;
+    margin-left:8%;
     
     border-color: #6A9A8B!important;
     justify-items: center;
@@ -122,7 +148,7 @@ font-size: 12px;
 }
 .voirdetails2 {
     position: relative;
-    left: 5px;
+    left: 2%;
     top: 12px;
     border-color: #6A9A8B !important;
 }
@@ -145,15 +171,9 @@ font-size: 12px;
       
       color: #6A9A8B;
   }
-  .produits{
-    display: grid;
-    grid-template-columns: auto auto;
-    background: #F8F6FB;
-}
+
 .nonETprix{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    text-align: center;
     font-size: 8px;
     color: black;
 }
@@ -166,6 +186,21 @@ ion-card-title{
 // .prix p{
 
 // }
+.montant{
+    // display: inline-block;
+    // height: auto;
+    position: relative;
+    right: 40px;
+    top: 20px;
+    display: grid;
+    grid-template-columns: 1 2;
+    justify-items: start;
+}
+
+.prix {
+    float: left;
+    margin-left: 5px;
+    }
 
 .boutonpanier button{
    
@@ -180,6 +215,7 @@ ion-card-title{
     justify-content: center;
     position: relative;
     top: 0px;
+    
 }
 
 .publique{
@@ -210,7 +246,6 @@ ion-card-title{
     // height: 200px;
     border: 4px solid #6A9A8B;
     border-radius: 5px;
-    background: #fff;
 }
 // .structurecontent{
 //     display: flex;
@@ -244,14 +279,7 @@ ion-card-title{
 //     border-color: #6A9A8B !important;
 // }
 
-:root {
-    --ion-color-primary: #006600;
-    --ion-color-primary-rgb: 0, 102, 0;
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255, 255, 255;
-    --ion-color-primary-shade: #005a00;
-    --ion-color-primary-tint: #1a751a;
-  }
+
 
 
 
@@ -269,12 +297,13 @@ ion-card-title{
   .produits{
     display: grid;
     grid-template-columns: auto auto;
-    background: #F8F6FB;
+    background: #FFF;
 }
 .nonETprix{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
+    text-align: center;
     font-size: 8px;
     color: black;
 }
@@ -313,7 +342,17 @@ ion-card-title{
 
 
 
- 
+  .img{
+    // width: 100%;
+    width: 140px;
+    height: 140px;
+    border: 1px solid #C8FCEA;
+    border-radius: 100%;
+    box-shadow: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 
   .imageprofile{
         display: flex;
@@ -347,7 +386,7 @@ ion-card-title{
   margin-right: auto !important;
   margin-top: 15px ;
   background: #ffffff ;
-  border : 1px solid #C8FCEA;
+  border: 1px solid #C8FCEA;
   color: color;
   border-radius: 5px;
  }
@@ -357,9 +396,6 @@ ion-card-title{
     padding: 20px;
     background: #fff!important;
  }
- .principal{
-    background: #fff!important;
-}
  .champ{
     box-sizing: border-box;
     border: 1px solid #C8FCEA;
@@ -370,7 +406,6 @@ ion-card-title{
     margin-bottom: 20px;
     display: inline-block;
  }
-
  .champ1{
     box-sizing: border-box;
     border: 1px solid #C8FCEA;
@@ -381,22 +416,9 @@ ion-card-title{
     margin-bottom: 20px;
     display: inline-block;
  }
- .notifbutton{
-    font-size: 9px;
-    width: 30%;
-    height: 20px;
-}
-.notif1{
-   width: 18%;
-   height: 40%;  
-}
-.notif{
-    font-size: 9px;
-}
-
-ion-select-option .notif{
-    font-size: 9px;
-}
+ ion-item{
+   --ion-color-primary: #6A9A8B;
+ }
  .champpreference{
     box-sizing: border-box;
     border: 1px solid #C8FCEA;
@@ -423,6 +445,23 @@ ion-select-option .notif{
      font-size: 9px;
      padding-left:7px ;
  }
+ .notif{
+     font-size: 10px;
+     color: black;
+ }
+ button .swal2-styled.swal2-confirm{
+     
+ }
+ .notifbutton{
+     font-size: 9px;
+     width: 30%;
+     height: 20px;
+ }
+ .notif1{
+    width: 18%;
+    height: 40%;
+    
+}
  .information{
      position: relative;
      bottom: 80px;
@@ -434,14 +473,16 @@ ion-select-option .notif{
  .edit{
      display: flex;  
      height: 35px; 
-     background: #FFFFFF;
+     background: #fff;
      justify-content: space-between;
-     position: relative;
+     align-items: stretch;
+     
+     position: relative; 
      bottom: 50px;
  }
  .edit ion-button{
      font-size: 8px;
  }
  ion-content{
-     background: #FFFFFF;
+    --background: #FFF;
  }

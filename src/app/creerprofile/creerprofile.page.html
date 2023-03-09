@@ -27,7 +27,6 @@
       <div class="status-overlay ">
         <label>
           <ion-icon class="IONic" name="camera-outline" color="secondary">
-            <!-- <input id="files" style="visibility:hidden;" type="file"  > -->
             <input id="files" style="visibility:hidden;" type="file" class="form-control" required image
               (change)="chargeImage($event)">
           </ion-icon>
@@ -54,13 +53,30 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nom </label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=" " name="nom"
-                  [(ngModel)]="form.nom" #nom="ngModel">
+                  [(ngModel)]="form.nom" required #nom="ngModel" minlength="3"
+                  [ngClass]="{ 'is-invalid':nom.errors }">
+                <div class="invalid-feedback alert-danger" *ngIf="nom.errors" >
+                  <div *ngIf="nom.errors['required']">Le nom est réquis</div>
+                  <div *ngIf="nom.errors['minlength']">
+                    Le nom doit contenir au moins 3 caractère
+                  </div>
+                  
+
+                </div>
               </div>
 
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Prénom</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="form.prenom"
-                  [(ngModel)]="form.prenom" #form.prenom="ngModel">
+                  [(ngModel)]="form.prenom" required #prenom="ngModel" #form.prenom="ngModel" minlength="3"
+                  [ngClass]="{ 'is-invalid': prenom.errors }">
+                <div class="invalid-feedback alert-danger" *ngIf="prenom.errors">
+                  <div *ngIf="prenom.errors['required']">Le prénom est réquis</div>
+                  <div *ngIf="prenom.errors['minlength']">
+                    Le prénom doit contenir au moins 3 caractère
+                  </div>
+
+                </div>
               </div>
 
 
@@ -71,12 +87,21 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Numéro</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="numero"
-                  [(ngModel)]="form.numero">
+                  [(ngModel)]="form.numero" required #numero="ngModel"
+                  [ngClass]="{ 'is-invalid': nom.errors }">
+                <div class="invalid-feedback alert-danger" *ngIf="numero.errors">
+                  Le champ numéro est réquis
+                </div>
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Genre</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="genre"
-                  [(ngModel)]="form.genre" #form.genre="ngModel">
+                  [(ngModel)]="form.genre" required #genre="ngModel"
+                  [ngClass]="{ 'is-invalid': genre.errors }">
+                <div class="invalid-feedback" *ngIf="genre.errors ">
+
+                  Le champ genre est réquis
+                </div>
               </div>
 
 
@@ -93,23 +118,29 @@
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Situation</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="situation"
-                  [(ngModel)]="form.situation" #form.situation="ngModel">
+                  [(ngModel)]="form.situation" required #situation="ngModel"
+                  [ngClass]="{ 'is-invalid':  situation.errors }">
+                <div class="invalid-feedback" *ngIf="situation.errors ">
+                  Le champ situation est réquis
+                </div>
               </div>
 
 
               <div class="mb-3">
                 <span class="champtitle" style="color: black;">Notification:</span> <br>
-                <ion-select interface="popover" class="notif" placeholder="" [(ngModel)]="form.etat"
-                  name="etat">
+                <ion-select interface="popover" class="notif" placeholder="" [(ngModel)]="form.etat" name="etat"
+                  required #etat="ngModel" [ngClass]="{ 'is-invalid':  etat.errors }">
                   <ion-select-option class="notif" value="true" selected="true">Recevoir</ion-select-option>
                   <ion-select-option class="notif" value="false">Ne pas Recevoir</ion-select-option>
                 </ion-select>
+                <div class="invalid-feedback alert-danger" *ngIf="etat.errors ">
+                  Le champ indiquant l'etat de la notification est réquis
+                </div>
               </div>
 
 
               <div class="choice">
                 <legend>Préférences :</legend>
-
                 <div *ngFor="let activite of interests">
                   <input type="checkbox" id="scales" name="scales" (click)="onInterestSelected(activite)">
                   <label for="scales" class="input">{{activite.nom}}</label>
@@ -141,7 +172,7 @@
 
 
               <div class="containerbutton">
-                <ion-button type="submit">
+                <ion-button type="submit" [disabled]="f.invalid">
                   <p>Envoyer</p>
                 </ion-button>
               </div>

@@ -58,3 +58,25 @@ ion-popover .popover-content{
   margin-right: auto;
 }
 
+.containerbutton ion-button{
+    height: 100%;
+    // width: 100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg,  #00754B, #C8FCEA)!important;
+
+}
+
+
+ion-icon.ios.hydrated {
+  --color: black!important;
+}
+
+ion-label.sc-ion-label-ios-h.sc-ion-label-ios-s.ios.hydrated {
+  --color: black!important;
+}

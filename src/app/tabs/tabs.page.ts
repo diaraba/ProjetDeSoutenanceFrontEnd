@@ -52,6 +52,9 @@ export class TabsPage implements OnInit {
     //   this.isLoggedIn = true;
     //   this.roles = this.storageService.getUser().roles;
     // }
+    if(this.storageService.isLoggedIn()){
+      this.showabonnement=true;
+    }
     if(this.roles == undefined){
       this.showProjet = true;
       this.showEmploi=true;
@@ -66,9 +69,9 @@ export class TabsPage implements OnInit {
     if(this.roles == undefined){
       this.showall=true
     }
-    else if (this.roles[0] == "ROLE_PROJET" || this.roles[0] == "ROLE_EMPLOI") {
-      this.showabonnement = true;
-    }
+    // else if (this.roles[0] == "ROLE_PROJET" || this.roles[0] == "ROLE_EMPLOI") {
+    //   this.showabonnement = true;
+    // }
 
     else if (this.roles[0] == "ROLE_STRUCTURE") {
       this.showabonne = true;

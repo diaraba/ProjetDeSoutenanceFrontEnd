@@ -17,13 +17,21 @@
 // }
 
 .logo {
-    position: relative;
+   // position: relative;
     //  bottom: 190px;
     // left: 200px;
 
-    bottom: 233px;
-    left: 306px;
+   // bottom: 233px;
+    //left: 306px;
     z-index:3;
+}
+.logo {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    left: 82%;
+    bottom: 195px;
+    z-index: 3;
 }
 .logo svg{
     position: relative;
@@ -159,22 +167,42 @@ ion-content{
 //    top: 9px;
 // }
 
+// .containerbutton ion-button{
+//     position: relative;
+//     border-radius: 5px;
+//     height: 30px; 
+//     left: 30%;
+//     bottom: -40px;
+// }
+// .containerbutton ion-button p{
+//    position: relative;
+//    top: 9px;
+// }
+
+// .containerbutton ion-button p:hover{
+//     cursor: pointer;
+// }
+
+
+.containerbutton{
+    display: flex;
+    justify-content: center;
+    height: 30%;
+}
 .containerbutton ion-button{
-    position: relative;
+   // position: relative;
     border-radius: 5px;
-    height: 30px; 
-    left: 30%;
-    bottom: -40px;
+   height: 30px;
+  //  width: 150px;
+  //  margin-left: 2%;
+    // left: 38%;
+  //  bottom: 150px;
 }
+
 .containerbutton ion-button p{
-   position: relative;
-   top: 9px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
-
-.containerbutton ion-button p:hover{
-    cursor: pointer;
-}
-
 //STYLE APPLIQUER AU FORMULAIRE
 .content1{
    margin-top: 260px;

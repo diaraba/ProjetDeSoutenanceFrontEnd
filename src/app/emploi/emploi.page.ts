@@ -61,8 +61,11 @@ export class EmploiPage implements OnInit {
     //   console.log("ça passe xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxOut  "+ this.isLoggedOut)
     // }
 
-    if (this.roles[0] == "ROLE_EMPLOI") {
-      this.showEmploi = true;
+    
+    if(this.storageService.isLoggedIn()){
+      if (this.roles[0] == "ROLE_EMPLOI") {
+        this.showEmploi = true;
+      }
     }
     // this.id_user=1;
     this.structure.afficherstructureparpreference(this.id_user).subscribe(data => {
@@ -110,7 +113,7 @@ export class EmploiPage implements OnInit {
           confirmButtonColor: '#C8FCEA',
           confirmButtonText: '<span style="color: black;">OK</span>',
           text: 'Vous devez vous connecter pour exécuter certaines actions!',
-          footer: '<a href="/login">Connexion... </a>',
+          footer: '<a href="/connexion">Connexion... </a>',
         })
       }
   }
@@ -127,7 +130,7 @@ export class EmploiPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Vous devez vous connecter pour exécuter certaines actions!',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }
@@ -144,7 +147,7 @@ export class EmploiPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Vous devez vous connecter pour exécuter certaines actions!',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }
@@ -163,7 +166,7 @@ export class EmploiPage implements OnInit {
         confirmButtonColor: '#C8FCEA',
         confirmButtonText: '<span style="color: black;">OK</span>',
         text: 'Connectez vous pour exécuter cette action et notez qu\'un profil ne peut être créer q\'une seule fois !',
-        footer: '<a href="/login">Connexion... </a>',
+        footer: '<a href="/connexion">Connexion... </a>',
       })
     }
   }

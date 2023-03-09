@@ -58,9 +58,9 @@
       <ng-template class="popUp">
         <ion-content>
           <ion-list >
-            <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnement" *ngIf="showabonnement || showall">Abonnements</ion-item>
-            <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnee" *ngIf="showabonne || showall">Abonnées</ion-item>
-            <ion-item [button]="true" [detail]="false" routerLink="/tabs/profile" *ngIf="showabonne || showall" >Profile</ion-item>
+            <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnement" *ngIf="showabonnement ">Abonnements</ion-item>
+            <!-- <ion-item [button]="true" [detail]="false" routerLink="/tabs/abonnee" *ngIf="showabonne || showall">Abonnées</ion-item> -->
+            <!-- <ion-item [button]="true" [detail]="false" routerLink="/tabs/profile" *ngIf="showabonnement || showall" >Profile</ion-item> -->
             <ion-item [button]="true" [detail]="false" (click)="logout()">Déconnexion</ion-item>
             <!-- <ion-item [button]="true" id="nested-trigger">More options...</ion-item> -->
     
